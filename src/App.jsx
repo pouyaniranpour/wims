@@ -6,9 +6,6 @@ function App() {
         <div className="container">
             <div>
                 <div>
-                    <h1>Walk in My Shoes</h1>
-                </div>
-                <div>
                     <Game />
                 </div>
             </div>
