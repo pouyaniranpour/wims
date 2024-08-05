@@ -788,7 +788,7 @@ const man = [
   },
   {
     id: "liveInCar1",
-    text: "You can't afford petrol to drive anywhere, so park the car ona suburban street near a public toilet. " +
+    text: "You can't afford petrol to drive anywhere, so park the car on a suburban street near a public toilet. " +
       "You put clothes and cardboard over the windows and try to be quiet. There's no shower at the toilets, " +
     "but you can splash water over yourself and try to keep clean.",
     choices: [
@@ -898,9 +898,7 @@ const man = [
       "Best of all, your wife and kids want to see you again. You're free of the painkillers as the root of your " +
       "pain is being treated at the Calder Health Centre run by the Mission. " +
     "There's hope that you might be able to work again.", //FIXME add additional info when available
-    choices: [
-      { text: ">>>", nextScenario: "communityHousingEnding" },
-    ],
+    choices: [],
   },
   {
     id: "prisonEnding",
@@ -1020,14 +1018,6 @@ const man = [
     choices: [],
   },
   {
-    id: "askFamilyForLoan",
-    text: "Your car breaks down. Can you afford to repair it?",
-    choices: [
-      { text: "", nextScenario: "" },//FIXME
-      { text: "", nextScenario: "" },
-    ],
-  },
-  {
     id: "agricultureEnding",
     text: "After retraining in the agriculture sector, you and your family leave the city and you do get another job. " +
       "You're not making your fortune, but you have enough from your Kiwisaver to afford a house in the country town " +
@@ -1078,8 +1068,7 @@ const man = [
       "items in the news about families living in cars. You may or may not decide to help them. " +
       "You aren't sure how they got that way and you do pay your taxes already, isn't that enough? " +
     "Play again.",
-    choices: [{ text: ">>>", nextScenario: "goodEndingThankful" },
-    ],
+    choices: [],
   },
 ];
 
