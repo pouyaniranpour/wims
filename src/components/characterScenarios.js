@@ -184,13 +184,15 @@ const youth = [
   {
     id: "referralByMSD",
     text: [
-      "Trained into City/hang out at McDonalds and make friends with other Rangatahi who show you where they are living under a bridge. " +
-        "You need money for food and you're hoping to get work but can't think how with no easy shower facilities or permanent address. " +
-        "Your friends tell you you aren't eligible for a benefit but there might be a cash job or if you are willing to go and see MSD you might be able to get the Youth Payment.",
+      "MSD refer you to a Youth Service, who helps you get some accommodation and the two forms of ID, so you can get the Youth Payment. " +
+      "They also work through details of your living costs and prepare a budget so you will be eligible for the payment. " +
+      "The money is mostly used up in rent and expenses, but you are left with a little over for food. " +
+      "They explain this payment is only available if you are studying or training towards a job. " +
+      "Your dream to become a doctor is too expensive for you right now, so when you get the opportunity " +
+      "you plan to do an apprenticeship, as it will be paying and training you at the same time.",
     ],
     choices: [
-      { text: "Go to MSD", nextScenario: "referralByMSD" },
-      { text: "Don't go to MSD", nextScenario: "" },
+      { text: ">>>", nextScenario: "goodEnding" },
     ],
   },
   {
