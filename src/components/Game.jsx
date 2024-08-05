@@ -26,7 +26,7 @@ const Game = () => {
 
     const handleCharacter = (characterInput) => {
         if (characterInput === 'man') {
-            setScenario(Math.floor(Math.random() * 2) + 1 === 1 ? 'start1' : 'start2')
+            setScenario(`start${(Math.floor(Math.random() * 2 ) + 1)}`) //To randomise the starting scenario between two possible starting scenarios
         } else {
             setScenario('start');
       }
@@ -35,16 +35,7 @@ const Game = () => {
 
   return (
     <div>
-      {/* {gameResult === 'win' && <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240222121721/win.jpg" alt="You win" />}
-            {gameResult === 'lose' && <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240222122023/lose.jpg" alt="You lose" />} */}
-      {/* {gameResult ? (
-                <center>
-                    <button onClick={restartGame}>Restart Game</button>
-                </center>
-            ) : (
-                    
-                <Story scenario={scenario} onChoice={handleChoice} onGameResult={handleGameResult} />
-            )} */}
+      
       {!character ? (
         <div>
           Choose a scenario:
@@ -78,6 +69,9 @@ const Game = () => {
           character={character}
         />
       )}
+      {gameResult &&
+                    <button onClick={restartGame}>Restart Game</button>
+            }
     </div>
   );
 };

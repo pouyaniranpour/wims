@@ -321,7 +321,7 @@ const woman = [
       "You'll get a share in the profits as a co-owner and it sounds promising. " +
       "Should you keep saving or loan the money for the business?",
     choices: [
-      { text: "Loan for the business", nextScenario: "loanForBusiness" },
+      { text: "Loan for the business", nextScenario: "partnerLeaves" },
       {
         text: "Keep Saving",
         nextScenario:
@@ -337,6 +337,310 @@ const woman = [
       "After an argument about money, your partner hits you and you feel very unsafe and terrified for your daughter. " +
       "You say you will call the police but the men, " +
       "including your partner, threaten to hurt you if you get them kicked out.What can you do?",
+    choices: [
+      { text: "Call Police anyway", nextScenario: "callPolice" },
+      {
+        text: "Ask family for support",
+        nextScenario: `askFamily${Math.floor(Math.random() * 3) + 1}`        
+      },
+    ],
+  },
+  {
+    id: "keepSaving2",
+    text:
+      "Turns out your partner had managed to get access to your bank account and transferred out the money. " +
+      "He says he just assumed you'd say yes. Are you going to report him for theft?",
+    choices: [
+      { text: "Yes", nextScenario: "reportPartnersTheft" },
+      {
+        text: "No",
+        nextScenario: "partnerLeaves"        
+      },
+    ],
+  },
+  {
+    id: "reportPartnersTheft",
+    text:
+      "You decide to lay a complaint with the police and kick him out. " +
+      "While you were out at work, he set a fire in your apartment and everything is smoke damaged" +
+      "He's going to prison. You are evicted by your landlord and do not get your bond back. " +
+      "You do not have enough money for another bond, even if you could get a rental at short notice. " +
+      "You did have contents insurance but it wasn't high enough to replace much. Now what?",
+    choices: [
+      { text: ">>>", nextScenario: "askFamily3" },
+    ],
+  },
+  {
+    id: "partnerLeaves",
+    text:
+      "He may have had a big idea but it didn't pan out. " +
+      "Your savings are gone and he leaves soon after realising you don't have any more to give.",
+    choices: [
+      { text: ">>>", nextScenario: "irdEnding" },
+    ],
+  },
+  {
+    id: "irdEnding",
+    text:
+      "Like many people you never realise that he was legally obligated to pay you back " +
+      "and that if you had signed an xyz agreement IRD would pursue this..???", //FIXME fix this bubble when more info is given
+    choices: [],
+  },
+  {
+    id: "callPolice",
+    text:
+      "The police turn up. The men all leave. " +
+      "After the police leave, the men come back in the night and beat you up. " +
+      "You wake up in the hospital with your daughter asleep in a chair next to you.",
+    choices: [
+      { text: ">>>", nextScenario: "womensRefugeEnding" },
+    ],
+  },
+  {
+    id: "womensRefugeEnding",
+    text:
+      "A social worker at the hospital tells you about Women's Refuge " +
+      "and helps you and your daughter get to a safe house. You're going to get the help you need.", //FIXME scenarios branching from here don't make sense
+    choices: [],
+  },
+  {
+    id: "askFamily1",
+    text:
+      "Your parents have passed away and you've lost touch with your brother who lives in Australia.",
+    choices: [
+      { text: "Contact brother", nextScenario: "contactBrother" },
+      {
+        text: "Live in your car",
+        nextScenario: "livingInCar"        
+      },
+    ],
+  },
+  {
+    id: "askFamily2",
+    text:
+      "You ask your sister and she let's you stay in her garage along with another family she is helping. " +
+      "There are 6 of you and you manage privacy with sheets. " +
+      "You have an extension cord running from your sister's house to a fridge and kettle. " +
+      "You get water from the outside tap and wash yourselves and clothes in a bucket. Is it summer?",
+    choices: [
+      { text: "Yes", nextScenario: "garageSummer" },
+      {
+        text: "No",
+        nextScenario: "garageWinter"
+      },
+    ],
+  },
+  {
+    id: "garageSummer",
+    text:
+      "The garage has no insulation, so it's extremely hot. " +
+      "You do have money saved and keep your job so you keep looking for an affordable rental. " +
+      "Someone at work mentions they have a room available and you decide to move there with your daughter.",
+    choices: [
+      { text: "Yes", nextScenario: "garageSummerEnding" },
+    ],
+  },
+  {
+    id: "garageSummerEnding",
+    text:
+      "Your ending: fortunately, you were able to get help from a family member and keep your job and savings. " +
+      "You're safe and housed for now, but the future looks uncertain.",
+    choices: [],
+  },
+  {
+    id: "garageWinter",
+    text:
+      "The garage has no insulation, so it's extremely cold. " +
+      "You and your daughter develop respiratory infections and you can't afford to go to the doctor." +
+      "You end up at the emergency hospital waiting along with many others for hours. " +
+      "You eventually get antibiotics, but your daughter is always sick and you can't take time off work to look after her. " +
+      "The school is asking questions.",
+    choices: [
+      { text: ">>>", nextScenario: "daughterHospitalised" },
+    ],
+  },
+  {
+    id: "daughterHospitalised",
+    text:
+      "Your daughter is hospitalised with severe pneumonia. " +
+      "A social worker refers you to the Auckland City Mission.",
+    choices: [
+      { text: ">>>", nextScenario: "acmEnding4" },
+    ],
+  },
+  {
+    id: "acmEnding4",
+    text:
+      "You are so embarrassed to need their help, but they explain that living in a car, " +
+      "tent, garage or overcrowded house is defined as experiencing homelessness. " +
+      "The Mission offer to help you access emergency accommodation and also assist you with a food parcel. " +
+      "You and your daughter's health and wellbeing improves.",
+    choices: [],
+  },
+  {
+    id: "askFamily3",
+    text:
+      "You ask a friend and she says you and your daughter can sleep on her couch.",
+    choices: [
+      { text: ">>>", nextScenario: "firedByEmployer" },,
+    ],
+  },
+  {
+    id: "firedByEmployer",
+    text:
+      "A fortnight later, without notice, your company informs you they are insolvent " +
+      "and don't bother showing up tomorrow. You are out of work. " +
+      "At the same time, your friend says she's sorry but she needs her living room back. " +
+      "She offers to keep your daughter living with her. " +
+      "She asks if you can stay with someone else? " +
+      `You feel ashamed so you lie and say "yes", but you don't. What now?`,
+    choices: [
+      { text: "Leave daughter with friend", nextScenario: "leaveDaughterWithFriend" },
+      { text: "Take daughter with you", nextScenario: "emergencyAccommodation" },
+    ],
+  },
+  {
+    id: "emergencyAccommodation",
+    text:
+      "You only last one night in emergency accommodation. There is one shared bathroom " +
+      "and most other people there are male. The locks on the shower doors are broken " +
+      "and there's no way as a female that you'll feel safe in the shower. " +
+      "A friend lends you a tent and you camp on her back lawn.",
+    choices: [
+      { text: ">>>", nextScenario: Math.floor(Math.random() * 2) + 1 === 1
+        ? "daughterRunsAway"
+        : "landlordDemandsRent" },
+    ],
+  },
+  {
+    id: "landlordDemandsRent",
+    text:
+      "Your landlord gets in touch and demands the rent. " +
+      "You explain you aren't living there anymore and tell her the situation. " +
+      "She is not sympathetic and tells you that you are foolish for trusting your partner in the first place. " +
+      "She will be charging you for any damages. You still have items in the apartment you would like back " +
+      "and ask her if she will consider letting you get these once she gets your ex-partner evicted. " +
+      "She hangs up on you.",
+    choices: [
+      { text: ">>>", nextScenario: "friendPhonedACM"},
+    ],
+  },
+  {
+    id: "friendPhonedACM",
+    text:
+      "Without your knowledge, your friend has phoned the Auckland City Mission and asked them to come and see you.",
+    choices: [
+      { text: ">>>", nextScenario: "acmEnding4"},
+    ],
+  },
+  {
+    id: "daughterRunsAway",
+    text:
+      "Your daughter hates her new life and is having nightmares and refusing to go to school. " +
+      "Teachers are asking questions. She runs away and you can't find her. " +
+      "You have to go to the police.",
+    choices: [
+      { text: ">>>", nextScenario: "policeFindDaughter" },
+    ],
+  },
+  {
+    id: "policeFindDaughter",
+    text:
+      "The police find her. A caring bystander took her home and gaver her food and bought her some new clothes. " +
+      "Oranga Tamariki get involved. ", //FIXME add more text
+    choices: [
+      { text: ">>>", nextScenario: "acmEnding4" },
+    ],
+  },
+  {
+    id: "leaveDaughterWithFriend",
+    text:
+      "You start living in your car and any savings are quickly used up by giving money to your friend " + 
+      "for your daughter and trying to get by. " +
+      "Can you get a benefit?",
+    choices: [
+      { text: "Yes", nextScenario: "canGetBenefit" },
+      { text: "No", nextScenario: "cantGetBenefit" }
+    ],
+  },
+  {
+    id: "canGetBenefit",
+    text:
+      "Your friend agrees to let you use her address because you can't receive a benefit without a permanent address. " +
+      "You know your IRD number and have a bank account, so you fulfil the requirements. " +
+      "MSD will put you forward for jobs and you are hopeful you can get back on your feet.",
+    choices: [
+      { text: "?", nextScenario: "?" }, // FIXME fix the scenario leading from this bubble
+    ],
+  },
+  {
+    id: "cantGetBenefit",
+    text:
+      "Sorry, you need a permanent address for a benefit. " +
+      "You are getting hungry, but there's no fridge, or oven in your car " +
+      "and you are going into debt on your credit card. " +
+      "You ask a local foodbank for help.",
+    choices: [
+      { text: ">>>", nextScenario: "acmEnding2" },
+    ],
+  },
+  {
+    id: "acmEnding2",
+    text:
+      "Someone tells you about the Auckland City Mission breakfast service. " +
+      "You go in and receive a warm meal.  A staff member sits with you and offers a listening ear. " +
+      "You're not sure if they can help, but they tell you about MSD support services onsite. " +
+      "You also get a shower and they offer you some hygiene items. " +
+      "They find suitable emergency accommodation where you and your daughter can feel safe. " +
+      "They assign you a keyworker who can support you to get back on your feet.",
+    choices: [],
+  },
+  {
+    id: "contactBrother",
+    text:
+      "Your brother agrees to help you but you need to pay for the flights. " +
+      "You sell your car and spend all you have getting organised. " +
+      "Your brother meets you in Melbourne.",
+    choices: [
+      { text: ">>>", nextScenario: "stayingWithBrotherEnding" },
+    ],
+  },
+  {
+    id: "livingInCar",
+    text:
+      "You feel really scared each night and make sure cardboard is jammed into every crack and the doors are locked. " +
+      "Sometimes, people bang on the door. Your work suffers and you are struggling to keep yourself and your clothes clean. " +
+"You know it's really unsafe for your daughter and you don't know what to do. " +
+      "You google for help. The Auckland City Mission comes up on the search " +
+      "and you face the reality that you are homeless.You call the Mission.",
+    choices: [
+      { text: ">>>", nextScenario: "acmEnding" }, 
+    ],
+  },
+  {
+    id: "acmEnding",
+    text:
+      "You are so embarrassed to need their help but they explain that living in a car, tent, garage or overcrowded house is defined as experiencing homelessness. " +
+      "The Mission offer to help you access emergency accommodation and also assist with a food parcel. " +
+      "You and your daughter's health and wellbeing improves.",
+    choices: [],
+  },
+  {
+    id: "stayingWithBrotherEnding",
+    text:
+      "Your brother is single and seems happy enough for you to stay there long term. " +
+      "You agree to cook the meals and keep the house clean as a way to thank him " +
+      "especially because he works long shifts as a driver. " +
+      "You find your daughter a school. You find an overnight cleaning job. " +
+      "It's exhausting but you are thankful for a safe house even though the future is uncertain.",
+    choices: [
+      { text: ">>>", nextScenario: "stayingWithBrotherEnding" },
+    ],
+  },
+  {
+    id: "askFamily1",
+    text:
+      "Your parents have passed away and you've lost touch with your brother who lives in Australia.",
     choices: [
       { text: "Call Police anyway", nextScenario: "callPoliceOnPartner" },
       {
@@ -364,22 +668,327 @@ const woman = [
 const man = [
   {
     id: "start1",
-    text: "You have been laid off from a big company as part of a restructure.  You can't find work easily and the bills are mounting up.   A mate offers you some building cash jobs under the table. Yes or No?",
+    text: "You have been laid off from a big company as part of a restructure. You can't find work easily and the bills are mounting up. " +
+      "A mate offers you some building cash jobs under the table. Yes or No?",
     choices: [
       { text: "Yes", nextScenario: "acceptFriendsOffer" },
       {
         text: "No",
-        nextScenario:
-          Math.floor(Math.random() * 2) + 1 === 1
-            ? "refuseFriendsOffer1"
-            : "refuseFriendsOffer2",
+        nextScenario: `refuseFriendsOffer${Math.floor(Math.random() * 2) + 1}`, //TODO refuseFriendsOffer2 path
       },
     ],
+  },
+  {
+    id: "acceptFriendsOffer",
+    text: "You are helping fix the roof and fall off, breaking your leg, hip and fracturing a vertebra in your back. " +
+      "Because you were paid under the table and your mate wasn't using proper safety equipment, he faces penalties and blames you. " +
+    "You're fixed up in hospital, but aren't eligible for rehab. As a result, you can't work anymore and are on painkillers 24/7.",
+    choices: [
+      { text: ">>>", nextScenario: "painkillersNotWorking" },
+    ],
+  },
+  {
+    id: "painkillersNotWorking",
+    text: "The pain and the anxiety you are feeling about supporting your family become too much. " +
+      "It doesn't feel like the painkillers are working so you take more than recommended and also begin using alcohol to dull the pain. " +
+      "The doctor asks you to come in to chat. You can't afford it and the prescription ends. You find someone willing to sell you a painkiller on the street. " +
+      "After you spend grocery money on alcohol, your wife takes the kids and goes to live with her sister. " +
+      "Your landlord gives you notice that he is selling the house and you need to leave. What now?",
+    choices: [
+      { text: "Live on a friend's couch", nextScenario: `friendsCouch${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Live in your car", nextScenario: `liveInCar${Math.floor(Math.random() * 2) + 1}` },
+    ],
+  },
+  {
+    id: "friendsCouch1",
+    text: 'You ask around, but the only "mate" who will have you is the one who got you the painkillers. ' +
+      "You don't know what his intentions are, so are unsure if it's safe to be there. But where else can you go? " +
+      "You move in and he offers you an easy way to get some money by working for him. " +
+    "It at least helps you pay your child support. ",
+    choices: [
+      { text: ">>>", nextScenario: "prisonEnding" },
+    ],
+  },
+  {
+    id: "friendsCouch2",
+    text: "Your friend is happy to have you for a while. He was expecting you would get work, but now he finds out about the painkillers. " +
+    "You borrow money from him and then he says he can't lends more and says he thinks you have a problem. Why not ask MSD for a benefit?",
+    choices: [
+      { text: "Visit MSD", nextScenario: `visitMSD${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Hope something else turns up", nextScenario: "evictedByFriend" },
+    ],
+  },
+  {
+    id: "visitMSD1",
+    text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingess to do any jobs - " +
+      "especially those involving physical labour. You explain about your injuries and may be eligible for a Supported Living payment. " +
+      "This is approximately $400 per week. You have to fill out some forms and see a doctor to get this. " +
+    "The pills you are now taking are making it hard to get anything done and you don't do it.",
+    choices: [
+      { text: "?????", nextScenario: "????" },//FIXME unclear what next scenario is here
+    ],
+  },
+  {
+    id: "visitMSD2",
+    text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingess to do any jobs - " +
+      "especially those involving physical labour. You explain about your injuries and may be eligible for a Supported Living payment. " +
+      "Your friend helps you fill out the forms as your aren't functioning well due to the " +
+    "pills and alcohol you are taking to manage the pain. Your friend suggests detox. Will you try it?",
+    choices: [
+      { text: "Yes", nextScenario: "detox" },
+      { text: "No", nextScenario: "dontDetox" },
+    ],
+  },
+  {
+    id: "detox",
+    text: "You are booked into the Social Withdrawal facility at the Auckland City Mission Te Tāpui Atawhai. " +
+      "You go in and have access to counselling. After this you are referred to CADS, who run support groups." +
+    "You mention that you are living on your friend's couch and a person from the Mission contacts you to offer help.",
+    choices: [
+      { text: ">>>", nextScenario: "offeredAccommodation" },
+    ],
+  },
+  {
+    id: "dontDetox",
+    text: "You are worried that without the drugs and alcohol your pain will be unmanageable. You don't feel like you have the option and refuse.",
+    choices: [
+      { text: "Try another friend's couch", nextScenario: "noFriendsLeft" },
+      { text: "Live in your car", nextScenario: "liveInCar1" },
+    ],
+  },
+  {
+    id: "offeredAccommodation",
+    text: "You are offered a place at a hostel run by the Mission. You get 12 weeks support and you decide you will " +
+      "attend the CADS sessions and get your life back on track. The Mission help your find a place to live and also offer " +
+    "help with your injuries. You get referred to a specialist and get the surgery and rehab you need to reduce your pain.",
+    choices: [
+      { text: ">>>", nextScenario: "communityHousingEnding" },
+    ],
+  },
+  {
+    id: "evictedByFriend",
+    text: "Your decision making is impaired by pain and the pills and alcohol you are using to try to manage it. " +
+      "Nothing else turns up. Your friend has had enough. You come home to find all your possessions sitting outside the locked door. " +
+    "Now what?",
+    choices: [
+      { text: "Try another friend's couch", nextScenario: "noFriendsLeft" },
+    ],
+  },
+  {
+    id: "noFriendsLeft",
+    text: "After seeing you live on your mutual friend's couch, your remaining friends aren't keen. " +
+      "In fact, you seem to be out of friends. Your family are supporting your wife and children and want nothing to do with you. " +
+    "You can't use this option again. ",
+    choices: [
+      { text: "Visit MSD", nextScenario: "visitMSD1" },
+      { text: "Live in your car", nextScenario: "liveInCar1" },
+    ],
+  },
+  {
+    id: "liveInCar1",
+    text: "You can't afford petrol to drive anywhere, so park the car ona suburban street near a public toilet. " +
+      "You put clothes and cardboard over the windows and try to be quiet. There's no shower at the toilets, " +
+    "but you can splash water over yourself and try to keep clean.",
+    choices: [
+      { text: ">>>", nextScenario: "reported" },
+    ],
+  },
+  {
+    id: "liveInCar2",
+    text: "What car? You don't own a car.",
+    choices: [
+      { text: ">>>", nextScenario: "sittingOnStreet" },
+    ],
+  },
+  {
+    id: "sittingOnStreet",
+    text: "You sit on the street. It gets dark. You hear some people and get worried. " +
+      "You hide in a bush overnight. You have a sleepless night. " +
+      "In the morning you're exhausted and find a sunny private spot to sleep.",
+    choices: [
+      { text: ">>>", nextScenario: `approached${Math.floor(Math.random() * 2) + 1}` },
+    ],
+  },
+  {
+    id: "neighboursReport",
+    text: "After 4 weeks, the neighbours report you.",
+    choices: [
+      { text: ">>>", nextScenario: `reported${Math.floor(Math.random() * 2) + 1}` },
+    ],
+  },
+  {
+    id: "reported1",
+    text: "You get a parking ticket. You can't pay it, but have enough petrol to move suburbs. " +
+      "You get another ticket. After 12 weeks of living in your car, the car won't start. " +
+    "You come out from the public toilets and discover your car has been towed along with your possessions",
+    choices: [
+      { text: ">>>", nextScenario: "becomeRoughSleeper" },
+    ],
+  },
+  {
+    id: "becomeRoughSleeper",
+    text: "A member of the public walks past and notices your distress. " +
+      "She asks if she can help and ends up giving you some clothes, a sleeping bag and $50 cash. " +
+    "You are now a rough sleeper. ",
+    choices: [
+      { text: ">>>", nextScenario: "goingToPublicLibrary" },
+    ],
+  },
+  {
+    id: "becomeRoughSleeper",
+    text: "You develop a pattern of going to the public library in Auckland City. " +
+      "As long as you're quiet, they let you stay there and nap. " +
+      "You hear stories about emergency housing and decide not to apply. " +
+      "It doesn't feel safe.",
+    choices: [
+      { text: ">>>", nextScenario: "approached2" },
+    ],
+  },
+  {
+    id: "approached1",
+    text: "Whoops, not so private. Someone jostles you awake and demands you move on, or they'll call the police. " +
+      "You walk around for a bit, but are very tired and hungry. You beg for money, but people ignore you. " +
+    "Someone gives you $10, but says they know you'll spend it on alcohol. This goes on for a few weeks.",
+    choices: [
+      { text: ">>>", nextScenario: "badlyBeatenEnding" },
+    ],
+  },
+  {
+    id: "badlyBeatenEnding",
+    text: "One night you're in the wrong place at the wrong time and are badly beaten. " +
+      "You have internal bleeding and no-one to take you hospital. This ending is final.", //FIXME this ending may get removed
+    choices: [],
+  },
+  {
+    id: "approached2",
+    text: "Someone approaches you one day and it's a Street to Home kaimahi from the Auckland City Mission Te Tāpui Atawhai. " +
+      "You don't expect much, but to your surprise they talk about the time they were on the street and how it doesn't have to be final. " +
+    "They offer you help and you take it. ",
+    choices: [
+      { text: ">>>", nextScenario: "TODO!!!!!!" }, //TODO ending
+    ],
+  },
+  {
+    id: "reported2",
+    text: "The police stop by. After a kōrero, they refer you to the Auckland City Mission Te Tāpui Atawhai. " +
+      "At the Mission, a person from their Street to Home team meets with you and talks through your needs. " +
+    "They convince you to come with them to transitional housing run by the Mission.",
+    choices: [
+      { text: ">>>", nextScenario: "offeredPlaceAtHostel" },
+    ],
+  },
+  {
+    id: "offeredPlaceAtHostel",
+    text: "You are offered a place at a hostel run by the Mission. You get 12 weeks support and they take you to the Calder Health Centre " +
+      "run by the Mission to get help with your injuries. After they refer you to a specialist and help you, you ask about " +
+      "getting help with alcohol and drugs. You enrol at the Mission Social Detox facility. " +
+      "You are also introduced to CADS and they help you with an ongoing support group.",
+    choices: [
+      { text: ">>>", nextScenario: "communityHousingEnding" },
+    ],
+  },
+  {
+    id: "communityHousingEnding",
+    text: "You thought things were hopeless, but you got the help you needed to reduce pain " +
+      "and a benefit needed to help you with food and rent. The Mission helped you find accommodation " +
+      "with a Community Housing Provider, which means a maximum of 25% of your income goes on rent. " +
+      "You can't afford luxuries, but you can afford to eat and have a safe place to live. " +
+      "Best of all, your wife and kids want to see you again. You're free of the painkillers as the root of your " +
+      "pain is being treated at the Calder Health Centre run by the Mission. " +
+    "There's hope that you might be able to work again.", //FIXME add additional info when available
+    choices: [
+      { text: ">>>", nextScenario: "communityHousingEnding" },
+    ],
+  },
+  {
+    id: "prisonEnding",
+    text: "Your ending: Soon the work you've done for this guy gets you in trouble with the cops. " +
+    "You have to go to court and end up being sentenced to prison. ", //FIXME may need additional info
+    choices: [],
+  },
+  {
+    id: "refuseFriendsOffer1",
+    text: "You decide to seek help from MSD and qualify for Jobseeker Support. " +
+      "Between you and your wife's income, it's just enough to pay your rent and buy food. " +
+      "There is no extra for petrol, bus fares, kids activities, doctor, dentist, or any holidays or luxures. " +
+    "You decide to re-train with help from MSD.",
+    choices: [
+      { text: ">>>", nextScenario: "agricultureEnding" },
+    ],
+  },
+  {
+    id: "refuseFriendsOffer2",
+    text: "You decide to seek help from MSD and qualify for Jobseeker Support. " +
+      "Between you and your wife's income, it's just enough to pay your rent and buy food. " +
+      "There is no extra for anything so when your teeth need emergency work, you get a loan from MSD. " +
+      "You keep applying for loans for every emergency and they refuse you on the third time. " +
+      "You keep applying for jobs, but can't get anything. " +
+      "You and your wife move out and live with your family to help the income go further",
+    choices: [
+      { text: ">>>", nextScenario: "carBreakdownCantAffordRepair" }, //TODO the scenarios leading from here
+    ],
+  },
+  {
+    id: "carBreakdownCantAffordRepair",
+    text: "Your car breaks down. Can you afford to repair it?",
+    choices: [
+      { text: "No, get a loan.", nextScenario: "loanSharks" },
+      { text: "No, Borrow from family.", nextScenario: "askFamilyForLoan" },
+    ],
+  },
+  {
+    id: "agricultureEnding",
+    text: "After retraining in the agriculture sector, you and your family leave the city and you do get another job. " +
+      "You're not making your fortune, but you have enough from your Kiwisaver to afford a house in the country town " +
+      "and the payments for your mortgage. Your ending turned out well.",
+    choices: [],
   },
   {
     id: "start2",
     text: "You are helping fix a friend's roof and fall off breaking your leg, hip and fracturing a vertabrae in your back.  What will happen?",
     choices: [{ text: ">>>", nextScenario: "hospital" }],
+  },
+  {
+    id: "hospital",
+    text: "You go into hospital and then ACC pays for rehabilitation. " +
+      "You also had personal insurance, including wage protection insurance. " +
+      "Your workplace is understanding and you are working from home almost straight away with no difference in pay.",
+    choices: [{ text: ">>>", nextScenario: "carBreakdownCanAffordRepair" }],
+  },
+  {
+    id: "carBreakdownCanAffordRepair",
+    text: "Your car breaks down. You need it for work. Can you afford to repair it?",
+    choices: [{ text: "Yes", nextScenario: "carRepaired" }],
+  },
+  {
+    id: "carRepaired",
+    text: "You earn enough to be able to pay the mechanic immediately. " +
+    "You get a loan car and it's all sorted quickly with little disruption to your family.",
+    choices: [{ text: ">>>", nextScenario: "rentIncrease" }],
+  },
+  {
+    id: "rentIncrease",
+    text: "Your rent goes up. Can you pay it?",
+    choices: [{ text: "Yes", nextScenario: "canPayRent" },
+      { text: "No", nextScenario: "canPayRent" },
+    ],
+  },
+  {
+    id: "canPayRent",
+    text: "Just kidding, what rent? You either own your own house, or you are a landlord. " +
+      "You are aware rental prices are sky high and resolve to start a trust for the kids as soon " +
+    "as you can so they have some security in life.",
+    choices: [{ text: ">>>", nextScenario: "goodEndingThankful" },
+    ],
+  },
+  {
+    id: "goodEndingThankful",
+    text: "Your ending: You are thankful with what you have and appropriately horrified by seeing " +
+      "items in the news about families living in cars. You may or may not decide to help them. " +
+      "You aren't sure how they got that way and you do pay your taxes already, isn't that enough? " +
+    "Play again.",
+    choices: [{ text: ">>>", nextScenario: "goodEndingThankful" },
+    ],
   },
 ];
 

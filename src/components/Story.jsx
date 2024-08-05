@@ -11,11 +11,9 @@ const Story = ({ scenario, onChoice, onGameResult, character }) => {
     const handleChoice = (choice) => {
         const nextScenario = choice.nextScenario;
         onChoice(choice);
- 
-        if (nextScenario === 7) {
-            onGameResult('win');
-        } else if (nextScenario === 2 || nextScenario === 6) {
-            onGameResult('lose');
+        let regex = /(ending)/i; 
+        if (regex.test(nextScenario)) {
+            onGameResult('end');
         }
     };
  
