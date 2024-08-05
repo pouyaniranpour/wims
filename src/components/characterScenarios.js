@@ -792,7 +792,7 @@ const man = [
       "You put clothes and cardboard over the windows and try to be quiet. There's no shower at the toilets, " +
     "but you can splash water over yourself and try to keep clean.",
     choices: [
-      { text: ">>>", nextScenario: "reported" },
+      { text: ">>>", nextScenario: "neighboursReport" },
     ],
   },
   {
@@ -833,11 +833,11 @@ const man = [
       "She asks if she can help and ends up giving you some clothes, a sleeping bag and $50 cash. " +
     "You are now a rough sleeper. ",
     choices: [
-      { text: ">>>", nextScenario: "goingToPublicLibrary" },
+      { text: ">>>", nextScenario: "publicLibrary" },
     ],
   },
   {
-    id: "becomeRoughSleeper",
+    id: "publicLibrary",
     text: "You develop a pattern of going to the public library in Auckland City. " +
       "As long as you're quiet, they let you stay there and nap. " +
       "You hear stories about emergency housing and decide not to apply. " +
@@ -927,7 +927,7 @@ const man = [
       "You keep applying for jobs, but can't get anything. " +
       "You and your wife move out and live with your family to help the income go further",
     choices: [
-      { text: ">>>", nextScenario: "carBreakdownCantAffordRepair" }, //TODO the scenarios leading from here
+      { text: ">>>", nextScenario: "carBreakdownCantAffordRepair" },
     ],
   },
   {
@@ -936,6 +936,95 @@ const man = [
     choices: [
       { text: "No, get a loan.", nextScenario: "loanSharks" },
       { text: "No, Borrow from family.", nextScenario: "askFamilyForLoan" },
+    ],
+  },
+  {
+    id: "loanSharks",
+    text: 'You get a loan from a place that says "no credit rating, no problem!".' +
+      "You know they are loan sharks, but you have no option, because you already have creditors, including MSD. " +
+      "Sure enough, the $5K loan you get has a 24% interest rate and a set up fee. " +
+      "But it does mean you can fix the car. You add it to your debts.",
+    choices: [
+      { text: ">>>", nextScenario: "debtCollectors" },
+    ],
+  },
+  {
+    id: "askFamilyForLoan",
+    text: "You ask your extended family for a loan, but they can't afford it. " +
+      "It also causes tension among everyone. " +
+      "Your brother lets you use his car until you can afford to get yours fixed.",
+    choices: [
+      { text: ">>>", nextScenario: "brothersCarBreaksDown" },
+    ],
+  },
+  {
+    id: "brothersCarBreaksDown",
+    text: "Your brother's car breaks down and he blames you. " +
+      "The household atmosphere becomes even worse and you know you all have to leave. " +
+      "But where can you go? A friend suggests you call the Mission, but you aren't homeless - or are you?",
+    choices: [
+      { text: "Yes", nextScenario: "callTheMission" },
+      { text: "No", nextScenario: "dontCallMissionEnding" },
+    ],
+  },
+  {
+    id: "callTheMission",
+    text: "You face the fact that you are experiencing homelessness. " +
+      "It's a very dark feeling for you and your wife. " +
+    "You decide to ask the Mission about what to do next.",
+    choices: [
+      { text: ">>>", nextScenario: "referredToEmergencyAccommodation" },
+    ],
+  },
+  {
+    id: "dontCallMissionEnding",
+    text: `The definition of homelessness in New Zealand around people living "without shelter, in temporary accommodation, ` +
+      `sharing accommodation with a household or living in uninhabitable housing." ` +
+      "Living with family in an overcrowded room, because you have nowhere to go is experiencing homelessness. " +
+      "You are trying to get a job, but you are struggling. Your car is constantly breaking down, but you can't replace it and dread the next WOF " +
+    "Your ending is that you are stuck in survival mode",
+    choices: [
+      { text: ">>>", nextScenario: "referredToEmergencyAccommodation" },
+    ],
+  },
+  {
+    id: "brothersCarBreaksDown",
+    text: "Your brother's car breaks down and he blames you. " +
+      "The household atmosphere becomes even worse and you know you all have to leave. " +
+      "But where can you go? A friend suggests you call the Mission, but you aren't homeless - or are you?",
+    choices: [
+      { text: "Yes", nextScenario: "youAreHomeless" },
+      { text: "No", nextScenario: "areYouHomeless" },
+    ],
+  },
+  {
+    id: "debtCollectors",
+    text: "A few more loans later and the debt collectors come knocking. " +
+      "They show up unannounced in black combat outfits banging hard on the front door. " +
+      "Your family are terrified. They threaten to take the TV, Xbox and exercise equipment in the house. " +
+      `None of it is yours. MSD recommends a Financial Mentor. You go along and they agree that "you can't budget with nothing. ` +
+      "They suggest you claim insolvency. This will sort out several of the loans, " +
+      "but you will still owe money to MSD and others. You don't feel like you have any choice. " +
+      "Your family call you a bludger in front of your kids. You have to move out! " +
+      "In desperation, you call the Mission.",
+    choices: [
+      { text: ">>>", nextScenario: "referredToEmergencyAccommodation" },
+    ],
+  },
+  {
+    id: "referredToEmergencyAccommodation",
+    text: "The Auckland City Mission are able to refer you to emergency accommodation, because families with children are given priority. " +
+      "ACM staff will also ensure you are supported with food and connected with other social services, " +
+      "who are able to provide assistance to families with children. " +
+      "They support you to get on the MSD Housing Register towards a permanent home. Things are looking up for you.",
+    choices: [],
+  },
+  {
+    id: "askFamilyForLoan",
+    text: "Your car breaks down. Can you afford to repair it?",
+    choices: [
+      { text: "", nextScenario: "" },//FIXME
+      { text: "", nextScenario: "" },
     ],
   },
   {
