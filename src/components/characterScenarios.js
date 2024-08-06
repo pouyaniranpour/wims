@@ -722,7 +722,7 @@ const man = [
   },
   {
     id: "visitMSD1",
-    text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingess to do any jobs - " +
+    text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingness to do any jobs - " +
       "especially those involving physical labour. You explain about your injuries and may be eligible for a Supported Living payment. " +
       "This is approximately $400 per week. You have to fill out some forms and see a doctor to get this. " +
     "The pills you are now taking are making it hard to get anything done and you don't do it.",
@@ -732,7 +732,7 @@ const man = [
   },
   {
     id: "visitMSD2",
-    text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingess to do any jobs - " +
+    text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingness to do any jobs - " +
       "especially those involving physical labour. You explain about your injuries and may be eligible for a Supported Living payment. " +
       "Your friend helps you fill out the forms as your aren't functioning well due to the " +
     "pills and alcohol you are taking to manage the pain. Your friend suggests detox. Will you try it?",
