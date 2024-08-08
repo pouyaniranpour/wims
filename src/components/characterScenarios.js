@@ -95,13 +95,13 @@ const youth = [
         text: "Don't go to MSD",
         nextScenario:
           Math.floor(Math.random() * 2) + 1 === 1
-            ? "policeComeAroundEnding"
-            : "approachedByMan",
+            ? "policeEndingRandom"
+            : "approachedByManRandom",
       },
     ],
   },
   {
-    id: "policeComeAroundEnding",
+    id: "policeEndingRandom",
     text: [
       "In the end, the police arrive and let you know that your mum filed a Missing Person's Report so they decide to take you back home. " +
         "You ask them not to do this but you aren't able to think of anyone else who can help. " +
@@ -131,12 +131,12 @@ const youth = [
     ],
     choices: [
       { text: ">>>", nextScenario: Math.floor(Math.random() * 2) + 1 === 1
-        ? "theftChargesDropped"
-        : "theftChargesNotDropped" },
+        ? "theftChargesDroppedRandom"
+        : "theftChargesNotDroppedRandom" },
     ],
   },
   {
-    id: "theftChargesDropped",
+    id: "theftChargesDroppedRandom",
     text: [
       "The police ask if you're ok and listen to your situation. " +
       "They convince the dairy owner to drop charges. They take you to Auckland City Mission."
@@ -146,7 +146,7 @@ const youth = [
     ],
   },
   {
-    id: "theftChargesNotDropped",
+    id: "theftChargesNotDroppedRandom",
     text: [
       "The police ask if you're ok and listen to your situation. " +
       "They try to convince the dairy owner to drop charges but she is sick of shoplifters and insists. " +
@@ -227,12 +227,12 @@ const youth = [
     ],
     choices: [
       { text: ">>>", nextScenario: Math.floor(Math.random() * 2) + 1 === 1
-        ? "friendsParentsSayYes"
-        : "friendsParentsSayNo" },
+        ? "friendsParentsSayYesRandom"
+        : "friendsParentsSayNoRandom" },
     ],
   },
   {
-    id: "friendsParentsSayYes",
+    id: "friendsParentsSayYesRandom",
     text: [
       "Your friend blurts everything out. Their parents offer support. " +
       "They will phone the different organisations for you. " +
@@ -244,7 +244,7 @@ const youth = [
     ],
   },
   {
-    id: "friendsParentsSayNo",
+    id: "friendsParentsSayNoRandom",
     text: [
       "Your friend's parents are sympathetic, but they don't feel comfortable " +
       `"overriding your parents' authority" by letting you stay with them.`,
@@ -307,8 +307,8 @@ const youth = [
     ],
     choices: [
       { text: ">>>", nextScenario: Math.floor(Math.random() * 2) + 1 === 1
-        ? "friendsParentsSayYes"
-        : "friendsParentsSayNo" },
+        ? "friendsParentsSayYesRandom"
+        : "friendsParentsSayNoRandom" },
     ],
   },
 
@@ -327,36 +327,23 @@ const woman = [
       {
         text: "Keep Saving",
         nextScenario:
-          `keepSaving${Math.floor(Math.random() * 2) + 1}`
+          `keepSavingRandom${Math.floor(Math.random() * 2) + 1}`
       },
     ],
   },
   {
-    id: "keepSaving1",
+    id: "keepSavingRandom1",
     text:
       "Your partner isn't happy but seems to accept your choices. " +
       "His mate also moves in with you - he has nowhere else to stay. Soon there's another mate. " +
       "After an argument about money, your partner hits you and you feel very unsafe and terrified for your daughter. " +
       "You say you will call the police but the men, " +
-      "including your partner, threaten to hurt you if you get them kicked out.What can you do?",
+      "including your partner, threaten to hurt you if you get them kicked out. What can you do?",
     choices: [
       { text: "Call Police anyway", nextScenario: "callPolice" },
       {
         text: "Ask family for support",
-        nextScenario: `askFamily${Math.floor(Math.random() * 3) + 1}`        
-      },
-    ],
-  },
-  {
-    id: "keepSaving2",
-    text:
-      "Turns out your partner had managed to get access to your bank account and transferred out the money. " +
-      "He says he just assumed you'd say yes. Are you going to report him for theft?",
-    choices: [
-      { text: "Yes", nextScenario: "reportPartnersTheft" },
-      {
-        text: "No",
-        nextScenario: "partnerLeaves"        
+        nextScenario: `askFamilyRandom${Math.floor(Math.random() * 3) + 1}`        
       },
     ],
   },
@@ -369,7 +356,7 @@ const woman = [
       "You do not have enough money for another bond, even if you could get a rental at short notice. " +
       "You did have contents insurance but it wasn't high enough to replace much. Now what?",
     choices: [
-      { text: ">>>", nextScenario: "askFamily3" },
+      { text: ">>>", nextScenario: "askFamilyRandom3" },
     ],
   },
   {
@@ -406,7 +393,7 @@ const woman = [
     choices: [],
   },
   {
-    id: "askFamily1",
+    id: "askFamilyRandom1",
     text:
       "Your parents have passed away and you've lost touch with your brother who lives in Australia.",
     choices: [
@@ -418,7 +405,7 @@ const woman = [
     ],
   },
   {
-    id: "askFamily2",
+    id: "askFamilyRandom2",
     text:
       "You ask your sister and she let's you stay in her garage along with another family she is helping. " +
       "There are 6 of you and you manage privacy with sheets. " +
@@ -480,7 +467,7 @@ const woman = [
     choices: [],
   },
   {
-    id: "askFamily3",
+    id: "askFamilyRandom3",
     text:
       "You ask a friend and she says you and your daughter can sleep on her couch.",
     choices: [
@@ -510,12 +497,12 @@ const woman = [
       "A friend lends you a tent and you camp on her back lawn.",
     choices: [
       { text: ">>>", nextScenario: Math.floor(Math.random() * 2) + 1 === 1
-        ? "daughterRunsAway"
-        : "landlordDemandsRent" },
+        ? "daughterRunsAwayRandom"
+        : "landlordDemandsRentRandom" },
     ],
   },
   {
-    id: "landlordDemandsRent",
+    id: "landlordDemandsRentRandom",
     text:
       "Your landlord gets in touch and demands the rent. " +
       "You explain you aren't living there anymore and tell her the situation. " +
@@ -536,7 +523,7 @@ const woman = [
     ],
   },
   {
-    id: "daughterRunsAway",
+    id: "daughterRunsAwayRandom",
     text:
       "Your daughter hates her new life and is having nightmares and refusing to go to school. " +
       "Teachers are asking questions. She runs away and you can't find her. " +
@@ -640,19 +627,7 @@ const woman = [
     ],
   },
   {
-    id: "askFamily1",
-    text:
-      "Your parents have passed away and you've lost touch with your brother who lives in Australia.",
-    choices: [
-      { text: "Call Police anyway", nextScenario: "callPoliceOnPartner" },
-      {
-        text: "Ask family for support",
-        nextScenario: `askFamily${Math.floor(Math.random() * 3) + 1}`        
-      },
-    ],
-  },
-  {
-    id: "keepSaving2",
+    id: "keepSavingRandom2",
     text:
       "Turns out your partner had managed to get access to your bank account and transferred out the money. " +
       "He says he just assumed you'd say yes. " +
@@ -661,7 +636,7 @@ const woman = [
       { text: "Yes", nextScenario: "reportPartnersTheft" },
       {
         text: "No",
-        nextScenario:"dontReportPartnersTheft",
+        nextScenario:"partnerLeaves",
       },
     ],
   },
@@ -676,7 +651,7 @@ const man = [
       { text: "Yes", nextScenario: "acceptFriendsOffer" },
       {
         text: "No",
-        nextScenario: `refuseFriendsOffer${Math.floor(Math.random() * 2) + 1}`, //TODO refuseFriendsOffer2 path
+        nextScenario: `refuseFriendsOfferRandom${Math.floor(Math.random() * 2) + 1}`, //TODO refuseFriendsOffer2 path
       },
     ],
   },
@@ -697,12 +672,12 @@ const man = [
       "After you spend grocery money on alcohol, your wife takes the kids and goes to live with her sister. " +
       "Your landlord gives you notice that he is selling the house and you need to leave. What now?",
     choices: [
-      { text: "Live on a friend's couch", nextScenario: `friendsCouch${Math.floor(Math.random() * 2) + 1}` },
-      { text: "Live in your car", nextScenario: `liveInCar${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Live on a friend's couch", nextScenario: `friendsCouchRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Live in your car", nextScenario: `liveInCarRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
-    id: "friendsCouch1",
+    id: "friendsCouchRandom1",
     text: 'You ask around, but the only "mate" who will have you is the one who got you the painkillers. ' +
       "You don't know what his intentions are, so are unsure if it's safe to be there. But where else can you go? " +
       "You move in and he offers you an easy way to get some money by working for him. " +
@@ -712,16 +687,16 @@ const man = [
     ],
   },
   {
-    id: "friendsCouch2",
+    id: "friendsCouchRandom2",
     text: "Your friend is happy to have you for a while. He was expecting you would get work, but now he finds out about the painkillers. " +
     "You borrow money from him and then he says he can't lends more and says he thinks you have a problem. Why not ask MSD for a benefit?",
     choices: [
-      { text: "Visit MSD", nextScenario: `visitMSD${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Visit MSD", nextScenario: `visitMSD_Random${Math.floor(Math.random() * 2) + 1}` },
       { text: "Hope something else turns up", nextScenario: "evictedByFriend" },
     ],
   },
   {
-    id: "visitMSD1",
+    id: "visitMSD_Random1",
     text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingness to do any jobs - " +
       "especially those involving physical labour. You explain about your injuries and may be eligible for a Supported Living payment. " +
       "This is approximately $400 per week. You have to fill out some forms and see a doctor to get this. " +
@@ -731,7 +706,7 @@ const man = [
     ],
   },
   {
-    id: "visitMSD2",
+    id: "visitMSD_Random2",
     text: "You swallow your pride and go and ask for help at MSD. You are asked about your willingness to do any jobs - " +
       "especially those involving physical labour. You explain about your injuries and may be eligible for a Supported Living payment. " +
       "Your friend helps you fill out the forms as your aren't functioning well due to the " +
@@ -787,7 +762,7 @@ const man = [
     ],
   },
   {
-    id: "liveInCar1",
+    id: "liveInCarRandom1",
     text: "You can't afford petrol to drive anywhere, so park the car on a suburban street near a public toilet. " +
       "You put clothes and cardboard over the windows and try to be quiet. There's no shower at the toilets, " +
     "but you can splash water over yourself and try to keep clean.",
@@ -796,7 +771,7 @@ const man = [
     ],
   },
   {
-    id: "liveInCar2",
+    id: "liveInCarRandom2",
     text: "What car? You don't own a car.",
     choices: [
       { text: ">>>", nextScenario: "sittingOnStreet" },
@@ -808,18 +783,18 @@ const man = [
       "You hide in a bush overnight. You have a sleepless night. " +
       "In the morning you're exhausted and find a sunny private spot to sleep.",
     choices: [
-      { text: ">>>", nextScenario: `approached${Math.floor(Math.random() * 2) + 1}` },
+      { text: ">>>", nextScenario: `approachedRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
     id: "neighboursReport",
     text: "After 4 weeks, the neighbours report you.",
     choices: [
-      { text: ">>>", nextScenario: `reported${Math.floor(Math.random() * 2) + 1}` },
+      { text: ">>>", nextScenario: `reportedRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
-    id: "reported1",
+    id: "reportedRandom1",
     text: "You get a parking ticket. You can't pay it, but have enough petrol to move suburbs. " +
       "You get another ticket. After 12 weeks of living in your car, the car won't start. " +
     "You come out from the public toilets and discover your car has been towed along with your possessions",
@@ -847,7 +822,7 @@ const man = [
     ],
   },
   {
-    id: "approached1",
+    id: "approachedRandom1",
     text: "Whoops, not so private. Someone jostles you awake and demands you move on, or they'll call the police. " +
       "You walk around for a bit, but are very tired and hungry. You beg for money, but people ignore you. " +
     "Someone gives you $10, but says they know you'll spend it on alcohol. This goes on for a few weeks.",
@@ -862,7 +837,7 @@ const man = [
     choices: [],
   },
   {
-    id: "approached2",
+    id: "approachedRandom2",
     text: "Someone approaches you one day and it's a Street to Home kaimahi from the Auckland City Mission Te Tāpui Atawhai. " +
       "You don't expect much, but to your surprise they talk about the time they were on the street and how it doesn't have to be final. " +
     "They offer you help and you take it. ",
@@ -871,7 +846,7 @@ const man = [
     ],
   },
   {
-    id: "reported2",
+    id: "reportedRandom2",
     text: "The police stop by. After a kōrero, they refer you to the Auckland City Mission Te Tāpui Atawhai. " +
       "At the Mission, a person from their Street to Home team meets with you and talks through your needs. " +
     "They convince you to come with them to transitional housing run by the Mission.",
@@ -907,7 +882,7 @@ const man = [
     choices: [],
   },
   {
-    id: "refuseFriendsOffer1",
+    id: "refuseFriendsOfferRandom1",
     text: "You decide to seek help from MSD and qualify for Jobseeker Support. " +
       "Between you and your wife's income, it's just enough to pay your rent and buy food. " +
       "There is no extra for petrol, bus fares, kids activities, doctor, dentist, or any holidays or luxures. " +
@@ -917,7 +892,7 @@ const man = [
     ],
   },
   {
-    id: "refuseFriendsOffer2",
+    id: "refuseFriendsOfferRandom2",
     text: "You decide to seek help from MSD and qualify for Jobseeker Support. " +
       "Between you and your wife's income, it's just enough to pay your rent and buy food. " +
       "There is no extra for anything so when your teeth need emergency work, you get a loan from MSD. " +
