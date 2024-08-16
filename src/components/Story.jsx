@@ -1,10 +1,18 @@
 import styles from './Story.module.css'
 
-import { allScenarios} from './characterScenarios';
+import { youth } from './scenarios/youthScenarios';
+import { woman } from './scenarios/womanScenarios';
+import { man } from './scenarios/manScenarios';
 
 const Story = ({ scenario, onChoice, onGameResult, character }) => {
 
-    let scenarios = allScenarios[character];
+    const allScenarios = {
+        youth: youth,
+        woman: woman,
+        man: man,
+      };
+
+    const scenarios = allScenarios[character];
     
     const currentScenario = scenarios.find(s => s.id === scenario);
  

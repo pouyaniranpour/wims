@@ -1,3 +1,4 @@
+import '../App.css'
 import { useState } from "react";
 import Story from "./Story";
 import Lottie from "lottie-react";
@@ -43,19 +44,15 @@ const Game = () => {
         }, 1500);
 }
 
-    const handleCharacter = (characterInput) => {
-        if (characterInput === 'man') {
-            setScenario(`start${(Math.floor(Math.random() * 2 ) + 1)}`) //To randomise the starting scenario between two possible starting scenarios
-        } else {
-            setScenario('start');
-      }
+  const handleCharacter = (characterInput) => {
+    setScenario('start');
     setCharacter(characterInput);
   };
 
   return (
-    <div>
+    <div className='game'>
       {!character &&
-        <div>
+        <div className='scenarioButtons'>
           Choose a scenario:
           <button
             onClick={() => {
