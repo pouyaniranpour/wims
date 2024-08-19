@@ -87,7 +87,7 @@ const Game = () => {
         />
       }
       {isCoinFlipping &&
-        <Lottie animationData={coinToss} loop={true} style={{height: '400px'}} />
+        <Lottie animationData={coinToss} loop={true} style={{height: '400px', position: 'relative', top: '100px'}} />
       }
       {gameResult &&
         <div className='scenarioButtons'>
