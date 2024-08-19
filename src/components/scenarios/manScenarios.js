@@ -1,7 +1,7 @@
 export const man = [
   {
     id: "start",
-    text: `You have been laid off from a big company as part of a restructure. You can't find work easily and the bills are mounting up. Your wife is working as a teacher, but it isn't enough to support a family. A mate oofers you some building cash jobs under the table. Do you accept his offer?`,
+    text: `You have been laid off from a big company as part of a restructure. You can't find work easily and the bills are mounting up. Your wife is working as a teacher, but it isn't enough to support a family. A mate offers you some building cash jobs under the table. Do you accept his offer?`,
     choices: [
       { text: "Yes", nextScenario: "acceptOffer" },
       {

@@ -1,7 +1,33 @@
+.outerContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
 li {
     list-style: none;
 }
 
 .text {
     white-space: pre-wrap;
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.scenarioTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 80%;
+    height: 50%;
 }

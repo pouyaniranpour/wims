@@ -19,7 +19,6 @@ const Game = () => {
     if (regex.test(choice.nextScenario)) {
       setIsCoinFlipping(!isCoinFlipping)
       handleRandom(choice);
-      console.log(isCoinFlipping);
     } else {
       setScenario(choice.nextScenario);
     }
@@ -27,7 +26,7 @@ const Game = () => {
 
 
   const restartGame = () => {
-    setScenario("start");
+    setScenario(null);
       setGameResult(null);
       setCharacter(null);
   };
@@ -52,8 +51,9 @@ const Game = () => {
   return (
     <div className='game'>
       {!character &&
-        <div className='scenarioButtons'>
-          Choose a scenario:
+        <div className='scenarioChoiceContainer'>
+          <span>Choose a scenario:</span>
+          <div className='scenarioButtons'>
           <button
             onClick={() => {
               handleCharacter("youth");
@@ -75,6 +75,7 @@ const Game = () => {
           >
             Man
           </button>
+          </div>
         </div>
       }
       {character &&
@@ -89,7 +90,10 @@ const Game = () => {
         <Lottie animationData={coinToss} loop={true} style={{height: '400px'}} />
       }
       {gameResult &&
-                    <button onClick={restartGame}>Restart Game</button>
+        <div className='scenarioButtons'>
+          <button onClick={restartGame}>Restart Game</button>
+        </div>
+                    
       }
     </div>
   );

@@ -159,7 +159,7 @@ export const youth = [
       `Your friend asks their parents if you can stay with them for a while. What are they going to say?`,
     ],
     choices: [
-      { text: "Next", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` }, //TODO
+      { text: "Next", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {

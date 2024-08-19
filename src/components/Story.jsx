@@ -1,3 +1,4 @@
+import '../App.css'
 import styles from './Story.module.css'
 
 import { youth } from './scenarios/youthScenarios';
@@ -26,15 +27,15 @@ const Story = ({ scenario, onChoice, onGameResult, character }) => {
     };
  
     return (
-        <div>
-            <div>
+        <div className={styles.outerContainer}>
+            <div className={styles.scenarioTextContainer}>
                 {/* <ul>{currentScenario.text.map((textItem, index) => (
                     <li className={styles.textItem} key={index}>{textItem}</li>
                 ))}</ul> */}
                 <p className={styles.text}>{currentScenario.text}</p>
-                <ul>
+                <ul className='scenarioButtons'>
                     {currentScenario.choices.map((choice, index) => (
-                        <li key={index}>
+                        <li key={index} >
                             <button onClick={() => handleChoice(choice)}>
                             {choice.text}</button>
                         </li>
