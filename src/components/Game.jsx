@@ -4,7 +4,6 @@ import Story from "./Story";
 import Lottie from "lottie-react";
 import coinToss from '../assets/coinToss.json';
 import CharacterSelection from './CharacterSelection';
-// import CharacterSelection from './CharacterSelection';
 
 const Game = () => {
   const [scenario, setScenario] = useState();

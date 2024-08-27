@@ -1,15 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Pangolin&display=swap');
+
 @import "tailwindcss/base";
 
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
 
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 .round {
   border-radius: 50%
 }
+
+/* ================= */
+/* Define the fade-in keyframes */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+/* Style for each line of text */
+
+
+/* Apply different delays for each line */
+.frame1 {
+  opacity: 0; /* Start hidden */
+  animation: fadeInOut 2s ease-in-out forwards;
+  animation-delay: 0s; /* Starts immediately */
+}
+
+.frame2 {
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1.75s; /* Starts 1 second after the previous */
+}
+
+.frame3 {
+  opacity: 0; /* Start hidden */
+  animation: fadeInOut 6s ease-in-out forwards;
+  animation-delay: 2s; /* Starts 1 second after the previous */
+}
+.frame4 {
+  opacity: 0; /* Start hidden */
+  animation: fadeInOut 5s ease-in-out forwards;
+  animation-delay: 7s; /* Starts 1 second after the previous */
+}
+.frame5 {
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 11s; /* Starts 1 second after the previous */
+}
+.frame6 {
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 14s; /* Starts 1 second after the previous */
+}
+
+
 /* * {
   box-sizing: border-box;
 }

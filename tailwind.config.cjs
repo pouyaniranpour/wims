@@ -12,7 +12,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'ibm-plex-mono': ['"IBM Plex Mono"', 'regular'],
-        'pangolin': ['Pangolin', 'regular']
+        'pangolin': ['Pangolin', 'regular'],
+        'ibm-plex-sans': ['"IBM Plex Sans', 'regular']
       },
       boxShadow: {
         'custom-dark': '0 4px 8px rgba(0, 0, 0, 0.5)', // Darker shadow
@@ -20,8 +21,10 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      }
+      },
     },
+    
+
   },
   plugins: [],
 }
