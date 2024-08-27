@@ -1,7 +1,27 @@
 export const woman = [
   {
     id: "start",
-    text: `You are a single woman with an eight year old daughter. You have a regular cleaning job`,
+    text: `You are a single woman with an eight year old daughter. You have a regular cleaning job that pays minimum wage and you rent a one bedroom house.`,
+    choices: [
+      {
+        text: "Next",
+        nextScenario: "startPt2",
+      }
+    ],
+  },
+  {
+    id: "startPt2",
+    text: `Your partner has a business venture and asks you to loan him your savings to get started.`,
+    choices: [
+      {
+        text: "Next",
+        nextScenario: "startPt3",
+      }
+    ],
+  },
+  {
+    id: "startPt3",
+    text: `You'll get a share in the profits as a co-owner and it sounds promising. Should you keep saving, or loan the money for the business?`,
     choices: [
       {
         text: "Give your partner a loan",
@@ -10,7 +30,7 @@ export const woman = [
       {
         text: "Keep your savings",
         nextScenario: `keepSavingsRandom${Math.floor(Math.random() * 2) + 1}`,
-      }, //TODO
+      },
     ],
   },
   /* ====== Keep Savings Path #1 ====== */

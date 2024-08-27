@@ -10,9 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@microlink/react": "^5.5.22",
+    "autoprefixer": "^10.4.20",
+    "html-react-parser": "^5.1.12",
     "lottie-react": "^2.4.0",
+    "postcss": "^8.4.41",
+    "postcss-cli": "^11.0.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-typed": "^2.0.12",
+    "react-youtube": "^10.1.0",
+    "styled-components": "^6.1.12",
+    "windups": "^1.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -22,6 +31,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "tailwindcss": "^3.4.10",
     "vite": "^5.3.4"
   }
 }

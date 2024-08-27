@@ -4,6 +4,8 @@ import styles from './Story.module.css'
 import { youth } from './scenarios/youthScenarios';
 import { woman } from './scenarios/womanScenarios';
 import { man } from './scenarios/manScenarios';
+import YoutubePlayer from './YouTubePlayer';
+import Scenario from './Scenario';
 
 const Story = ({ scenario, onChoice, onGameResult, character }) => {
 
@@ -27,21 +29,9 @@ const Story = ({ scenario, onChoice, onGameResult, character }) => {
     };
  
     return (
-        <div className={styles.outerContainer}>
-            <div className={styles.scenarioTextContainer}>
-                {/* <ul>{currentScenario.text.map((textItem, index) => (
-                    <li className={styles.textItem} key={index}>{textItem}</li>
-                ))}</ul> */}
-                <p className={styles.text}>{currentScenario.text}</p>
-                <ul className='scenarioButtons'>
-                    {currentScenario.choices.map((choice, index) => (
-                        <li key={index} >
-                            <button onClick={() => handleChoice(choice)}>
-                            {choice.text}</button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+        // <div className='outerContainer'>
+        <div className='absolute flex flex-col justify-center items-center h-full w-full'>
+            <Scenario handleChoice={handleChoice} currentScenario={ currentScenario } />
         </div>
     );
 };

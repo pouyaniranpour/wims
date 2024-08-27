@@ -2,7 +2,9 @@ import '../App.css'
 import { useState } from "react";
 import Story from "./Story";
 import Lottie from "lottie-react";
-import coinToss from '../assets/coinToss.json'
+import coinToss from '../assets/coinToss.json';
+import CharacterSelection from './CharacterSelection';
+// import CharacterSelection from './CharacterSelection';
 
 const Game = () => {
   const [scenario, setScenario] = useState();
@@ -11,6 +13,25 @@ const Game = () => {
   const [isCoinFlipping, setIsCoinFlipping] = useState(false);
   //const [isHidden, setIsHidden] = useState(false);
 
+  //===================
+  // const characters = [
+  //       {
+  //         id: "youth",
+  //         imgSrc: "youthImageSrc",
+  //       },
+  //       {
+  //         id: "woman",
+  //         imgSrc: "womanImageSrc",
+  //       },
+  //       {
+  //         id: "man",
+  //         imgSrc: "manImageSrc",
+  //       },
+  //     ]
+  // const [characterView, setCharacterView] = useState(characters[1]);
+    
+
+  //=============
 
   const handleChoice = (choice) => {
 
@@ -48,34 +69,14 @@ const Game = () => {
     setCharacter(characterInput);
   };
 
+
   return (
-    <div className='game'>
+    <div className='flex flex-col justify-center items-center h-full w-full'>
       {!character &&
-        <div className='scenarioChoiceContainer'>
-          <span>Choose a scenario:</span>
-          <div className='scenarioButtons'>
-          <button
-            onClick={() => {
-              handleCharacter("youth");
-            }}
-          >
-            Youth
-          </button>
-          <button
-            onClick={() => {
-              handleCharacter("woman");
-            }}
-          >
-            Woman
-          </button>
-          <button
-            onClick={() => {
-              handleCharacter("man");
-            }}
-          >
-            Man
-          </button>
-          </div>
+        
+        <div className='flex flex-col items-center justify-evenly h-2/3 w-full'>
+          <CharacterSelection handleCharacter={handleCharacter} />
+          
         </div>
       }
       {character &&
@@ -90,7 +91,7 @@ const Game = () => {
         <Lottie animationData={coinToss} loop={true} style={{height: '400px', position: 'relative', top: '100px'}} />
       }
       {gameResult &&
-        <div className='scenarioButtons'>
+        <div className='z-10 border border-black rounded-lg'>
           <button onClick={restartGame}>Restart Game</button>
         </div>
                     

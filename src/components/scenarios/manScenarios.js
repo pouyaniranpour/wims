@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 export const man = [
   {
     id: "start",
@@ -27,7 +29,7 @@ export const man = [
   },
   {
     id: "streetPainkillers",
-    text: `You find someone willing to sell you a painkiller on the street. Your wife finds out and you have a big argument about that and how muchn alcohol you are drinking. She takes the kids and goes to live with her sister. You haven't been able to keep up with rent payments and your landlord asks you to leave.`,
+    text: `You find someone willing to sell you a painkiller on the street. Your wife finds out and you have a big argument about that and how much alcohol you are drinking. She takes the kids and goes to live with her sister. You haven't been able to keep up with rent payments and your landlord asks you to leave.`,
     choices: [
       { text: "Live in your car", nextScenario: "carRandom2" },
       { text: "Stay with a friend", nextScenario: `stayWithFriendRandom${Math.floor(Math.random() * 2) + 1}` },
@@ -61,14 +63,14 @@ export const man = [
   },
       //Visit MSD #2 sub-path from staying with a friend
   {
-    id: "visitMsdRandom2", //TODO complete this pathway
+    id: "visitMsdRandom2",
     text: `You swallow your pride and go to Work and Income to ask for help. You are asked about your willingness to do any jobs - especially those involving physical labour. You explain about your injuries and may be eligible for a Supported Living payment.`,
     choices: [
       { text: "Next", nextScenario: "friendFillsForms" },
     ],
   },
   {
-    id: "friendFillsForms", //TODO complete this pathway
+    id: "friendFillsForms",
     text: `Your friend helps you fill out the forms as you aren't functioning well due to the painkillers and alcohol you are taking to manage your pain. You friend suggests detox. Will you try it?`,
     choices: [
       { text: "Yes", nextScenario: "acceptDetox" },
@@ -76,7 +78,7 @@ export const man = [
     ],
   },
   {
-    id: "acceptDetox", //TODO complete this pathway
+    id: "acceptDetox",
     text: `You are booked into the Social Detox facility at Auckland City Mission - Te Tāpui Atawhai. You go in and have access to counselling. After this, you will be referred to the CADS (Community Alcohol and Drug Service) who run support groups. You mention that you are living on your friend's couch and the detox service asks if you'd like the Mission to help.`,
     choices: [
       { text: "Next", nextScenario: "jamesListon1" },
@@ -333,4 +335,11 @@ export const man = [
     text: `You feel shame about asking for help. You've seen people queueing for food at the Mission in the past and never thought you'd be in this situation. You're not sure what they'll say about the painkillers and alcohol and you don't feel able to cope without these things. After a few months on the street, you have found a community. You tell yourself you are making it work out okay and this is just temporary.`,
     choices: [],
   },
+  {
+    id: "richardsStoryEnding",
+    text: `You feel shame about asking for help. You've seen people queueing for food at the Mission in the past and never thought you'd be in this situation. You're not sure what they'll say about the painkillers and alcohol and you don't feel able to cope without these things. After a few months on the street, you have found a community. You tell yourself you are making it work out okay and this is just temporary.`,
+    choices: [],
+    video: '4Eic3OOgrjI'
+  },
+
 ];
