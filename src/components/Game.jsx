@@ -4,6 +4,7 @@ import Story from "./Story";
 import Lottie from "lottie-react";
 import coinToss from '../assets/coinToss.json';
 import CharacterSelection from './CharacterSelection';
+import Footer from './Footer';
 
 const Game = () => {
   const [scenario, setScenario] = useState();
@@ -73,7 +74,7 @@ const Game = () => {
     <div className='flex flex-col justify-center items-center h-full w-full'>
       {!character &&
         
-        <div className='flex flex-col items-center justify-evenly h-2/3 w-full'>
+        <div className='flex flex-col items-center justify-center h-full w-full'>
           <CharacterSelection handleCharacter={handleCharacter} />
           
         </div>
@@ -95,6 +96,8 @@ const Game = () => {
         </div>
                     
       }
+      
+      {/* <Footer /> */}
     </div>
   );
 };

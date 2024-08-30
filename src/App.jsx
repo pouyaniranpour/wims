@@ -5,16 +5,15 @@ import OpeningScreen from './components/OpeningScreen';
 
  
 function App() {
-    const [isModalShowing, setIsModalShowing] = useState(true);
+    const [isModalShowing, setIsModalShowing] = useState(false); //TODO change back to true after fixing character selection screen
+
+    const handleBeginButton = () => {
+        setIsModalShowing(!isModalShowing);
+    }
     return (
         <div className="relative h-screen ">
             {isModalShowing ?
-                // <div className='absolute inset-0 flex flex-col items-center justify-center size-full bg-black text-white 600' onClick={() => setIsModalShowing(!isModalShowing)}>
-                //     <p>How does someone end up living on the street or in their car? Play Crossroads and face the challenges of someone experiencing homelessness.</p>
-
-                //     <p>Click anywhere to begin</p>
-                // </div>
-                <OpeningScreen />
+                <OpeningScreen handleBeginButton={handleBeginButton} />
                 :
                 <Game/>
             }
