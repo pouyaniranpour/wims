@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'ibm-plex-mono': ['"IBM Plex Mono"', 'regular'],
-        'pangolin': ['Pangolin', 'regular'],
+        'bebas-neue': ['"Bebas Neue"', 'regular'],
+        'viga': ['Viga', 'regular'],
         'ibm-plex-sans': ['"IBM Plex Sans', 'regular']
       },
       boxShadow: {

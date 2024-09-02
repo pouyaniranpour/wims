@@ -1,37 +1,19 @@
-import '../App.css'
+import '../../App.css'
 import { useState } from "react";
 import Story from "./Story";
 import Lottie from "lottie-react";
-import coinToss from '../assets/coinToss.json';
-import CharacterSelection from './CharacterSelection';
-import Footer from './Footer';
+import coinToss from '../../assets/coinToss.json';
+import CharacterSelection from '../characterSelection/CharacterSelection';
+import Footer from '../Footer';
+import SidebarLeft from './SidebarLeft';
+import SidebarRight from './SidebarRight';
+import EndingScreen from '../EndingScreen';
 
-const Game = () => {
+function Game({ isOpeningScreenShowing }) {
   const [scenario, setScenario] = useState();
-  const [gameResult, setGameResult] = useState(null);
+  const [isGameOver, setIsGameOver] = useState(false);
   const [character, setCharacter] = useState();
   const [isCoinFlipping, setIsCoinFlipping] = useState(false);
-  //const [isHidden, setIsHidden] = useState(false);
-
-  //===================
-  // const characters = [
-  //       {
-  //         id: "youth",
-  //         imgSrc: "youthImageSrc",
-  //       },
-  //       {
-  //         id: "woman",
-  //         imgSrc: "womanImageSrc",
-  //       },
-  //       {
-  //         id: "man",
-  //         imgSrc: "manImageSrc",
-  //       },
-  //     ]
-  // const [characterView, setCharacterView] = useState(characters[1]);
-    
-
-  //=============
 
   const handleChoice = (choice) => {
 
@@ -48,30 +30,33 @@ const Game = () => {
 
   const restartGame = () => {
     setScenario(null);
-      setGameResult(null);
-      setCharacter(null);
+    setIsGameOver(false);
+    setCharacter(null);
   };
 
-  const handleGameResult = (result) => {
-    setGameResult(result);
+  const handleGameOver = (booleanValue) => {
+    setIsGameOver(booleanValue);
+    console.log(booleanValue);
   };
 
   const handleRandom = (choice) => {
-    setIsCoinFlipping(true); 
+    setIsCoinFlipping(true);
     setTimeout(() => {
       setIsCoinFlipping(false);
       setScenario(choice.nextScenario);
-        }, 1500);
-}
+    }, 1500);
+  }
 
   const handleCharacter = (characterInput) => {
-    setScenario('start');
+    // setScenario('start');
+    setScenario('start')
     setCharacter(characterInput);
   };
 
 
   return (
-    <div className='flex flex-col justify-center items-center h-full w-full'>
+    <div className={`${isOpeningScreenShowing? 'opacity-0 -z-10': 'opacity-100 z-10'} transition-opacity duration-1000 ease-in-out flex flex-col justify-center items-center h-full w-full`
+} >
       {!character &&
         
         <div className='flex flex-col items-center justify-center h-full w-full'>
@@ -79,23 +64,24 @@ const Game = () => {
           
         </div>
       }
-      {character &&
+      {character && !isGameOver ?
         <Story
           scenario={scenario}
           onChoice={handleChoice}
-          onGameResult={handleGameResult}
+          isGameOver={handleGameOver}
           character={character}
-        />
+        />      
+       : '' 
       }
       {isCoinFlipping &&
         <Lottie animationData={coinToss} loop={true} style={{height: '400px', position: 'relative', top: '100px'}} />
       }
-      {gameResult &&
-        <div className='z-10 border border-black rounded-lg'>
-          <button onClick={restartGame}>Restart Game</button>
-        </div>
-                    
-      }
+      
+      <EndingScreen restartGame={restartGame} isGameOver={isGameOver} />
+      
+      
+      {/* <SidebarLeft />
+      <SidebarRight /> */}
       
       {/* <Footer /> */}
     </div>

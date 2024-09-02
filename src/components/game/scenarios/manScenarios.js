@@ -308,38 +308,58 @@ export const man = [
   {
     id: "retrainEnding",
     text: `After retraining in the farming sector you get a job and leave the city with your family. Your wife can work as a teacher at the local primary school. You're not making your fortune, but your family has what they need to thrive.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "housingRegisterEnding",
     text: `The Mission are able to assist you with food parcels and refer you to another agency who provide emergency accommodation to families with children. Because you are a family, you are given priority in the system and you receive support to get on the Housing Register towards a permanent home. Things are looking up for you.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "survivalModeEnding",
     text: `Living with family in an overcrowded room because you have nowhere else to go is experiencing homelessness, but you are too ashamed to seek help. You keep trying to get a job, but are struggling. Affording transport is a constant worry. You're stuck in survival mode.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "arrestedEnding",
     text: `Soon the work you've done for this guy gets you arrested and it's looking like you could go to prison. You mention you are couch surfing and your lawyer tells you that you are eligible for New Beginnings Court. The judge assigns you a keyworker from the Auckland City Mission, who supports you into emergency accommodation.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "communityHousingEnding",
     text: `You thought things were hopeless, but you got the help you needed. The Mission helped you find long-term accommodation with a Community Housing Provider, which means a maximum of 25% of your income goes on rent. You can't afford luxuries, but you can afford to eat and have a safe place to live. Best of all, your wife and kids want to see you again. You're free of the the painkillers, as the root of your pain is being treated. You and your family are rebuilding towards a good future. You feel hopeful.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "feelShameEnding",
     text: `You feel shame about asking for help. You've seen people queueing for food at the Mission in the past and never thought you'd be in this situation. You're not sure what they'll say about the painkillers and alcohol and you don't feel able to cope without these things. After a few months on the street, you have found a community. You tell yourself you are making it work out okay and this is just temporary.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "richardsStoryEnding",
     text: `You feel shame about asking for help. You've seen people queueing for food at the Mission in the past and never thought you'd be in this situation. You're not sure what they'll say about the painkillers and alcohol and you don't feel able to cope without these things. After a few months on the street, you have found a community. You tell yourself you are making it work out okay and this is just temporary.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
     video: '4Eic3OOgrjI'
+  },
+  /* ============= Ending Screen Trigger ============ */
+  {
+    id: "endingScreenTrigger",
+    text: ``,
+    choices: [],
   },
 
 ];

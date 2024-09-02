@@ -1,5 +1,4 @@
-import '../App.css'
-import styles from './Story.module.css'
+import '../../App.css'
 
 import { youth } from './scenarios/youthScenarios';
 import { woman } from './scenarios/womanScenarios';
@@ -7,7 +6,10 @@ import { man } from './scenarios/manScenarios';
 import YoutubePlayer from './YouTubePlayer';
 import Scenario from './Scenario';
 
-const Story = ({ scenario, onChoice, onGameResult, character }) => {
+import SidebarLeft from './SidebarLeft';
+import SidebarRight from './SidebarRight';
+
+const Story = ({ scenario, onChoice, isGameOver, character }) => {
 
     const allScenarios = {
         youth: youth,
@@ -22,16 +24,19 @@ const Story = ({ scenario, onChoice, onGameResult, character }) => {
     const handleChoice = (choice) => {
         const nextScenario = choice.nextScenario;
         onChoice(choice);
-        let regex = /(ending)/i; 
+        let regex = /(endingScreenTrigger)/i; 
         if (regex.test(nextScenario)) {
-            onGameResult('end');
+            isGameOver(true);
         }
     };
  
     return (
         // <div className='outerContainer'>
         <div className='absolute flex flex-col justify-center items-center h-full w-full'>
-            <Scenario handleChoice={handleChoice} currentScenario={ currentScenario } />
+            <Scenario handleChoice={handleChoice} currentScenario={currentScenario} />
+            
+        <SidebarLeft />
+        <SidebarRight />
         </div>
     );
 };

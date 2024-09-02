@@ -21,8 +21,7 @@
     "react-dom": "^18.3.1",
     "react-typed": "^2.0.12",
     "react-youtube": "^10.1.0",
-    "styled-components": "^6.1.12",
-    "windups": "^1.2.2"
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

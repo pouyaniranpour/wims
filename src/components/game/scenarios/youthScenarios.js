@@ -309,36 +309,55 @@ export const youth = [
     id: "policeTakeStepdadEnding",
     text:
       `Your experience of rejection from family leads to anxiety and depression. You receive counselling and this helps you process what has happened to you. Your Lifewise Youth Development Worker helps you make a plan towards a course of study and you make good friends who enable you to look forward and be hopeful for the future.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "turnedEighteenEnding",
     text:
       `You've turned eighteen in the last month. The Mission finds you a place to stay that night and you feel safe. You stay in your room for a few days just to sleep and feel okay. A keyworker is assigned to your case and they listen a lot and patiently you work together on all the decisions and actions you can take. They take you to HomeGround to meet with a helpful MSD (Ministry of Social Development) liaison and you find out how you can study and what benefits you are eligible for. Your keyworker helps you in getting the ID you need, a bank account and IRD number. You end up in a house boarding with other youth. The future is more hopeful.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "goingToBeOkayEnding",
     text:
       `You are going to be okay. You have learned the grim reality that family don't always accept you, as well as finding out that New Zealand has a problem with proper help for teenagers and children who are unsafe, or need to leave their homes. But you will receive enough support. You'll make good friends who will help you through this horrible time. Your dream to be a Doctor takes a back seat for a few years, because you have to get a job to support yourself. The future starts to look much brigher and you are able to laugh again.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "youthHostelEnding1",
     text:
       `You turn eighteen in a youth hostel. You are referred to the Auckland City Mission who assign you a keyworker and finds you a permanent place to live. Together you work through next steps, including study options. Meanwhile, your mum contacts you and says she is no longer with her partner. She wants a good relationship with you and you decide you will try this. Your future is looking brighter.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "youthHostelEnding2",
     text:
       `You end up in a youth hostel with other rangatahi quite far away from your school, friends and family. It is a lonely and tough situation, but you start to find your feet and a supportive keyworker helps you to make goals for your future. It's going to work out.`,
-    choices: [],
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
   },
   {
     id: "friendsParentsEnding",
     text:
       `This is where it ends. You have safety and a place to stay for now. Your friend's parents are empathetic and want to organise counselling, so they contact the school for help. The school's Social Worker tells you about the Youth Payment available from MSD. This is enough to cover cheap board and may mean your friend's parents find it easier to have you while you work things out. It's a bit rocky, but you find your way and a few years later you are thriving.`,
+    choices: [
+      { text: ">>", nextScenario: `endingScreenTrigger` },
+    ],
+  },
+
+  /* ============= Ending Screen Trigger ============ */
+  {
+    id: "endingScreenTrigger",
+    text: ``,
     choices: [],
   },
 ];

@@ -1,22 +1,20 @@
 // import './App.css'
 import { useState } from 'react';
-import Game from './components/Game';
+import Game from './components/game/Game';
 import OpeningScreen from './components/OpeningScreen';
 
  
 function App() {
-    const [isModalShowing, setIsModalShowing] = useState(false); //TODO change back to true after fixing character selection screen
+    const [isOpeningScreenShowing, setIsOpeningScreenShowing] = useState(false); //FIXME remove when finished with character selection
 
     const handleBeginButton = () => {
-        setIsModalShowing(!isModalShowing);
+        setIsOpeningScreenShowing(!isOpeningScreenShowing);
     }
     return (
         <div className="relative h-screen ">
-            {isModalShowing ?
-                <OpeningScreen handleBeginButton={handleBeginButton} />
-                :
-                <Game/>
-            }
+            <OpeningScreen isShowing={isOpeningScreenShowing} handleBeginButton={handleBeginButton} />
+            
+            <Game isOpeningScreenShowing={isOpeningScreenShowing}/>
         </div>
     );
 }
