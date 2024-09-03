@@ -19,6 +19,34 @@
   align-items: center;
 }
 
+/* ============================= Testing a fade in and out component ============================ */
+.string-carousel {
+  position: absolute;
+  right: 50;
+  height: 50px; /* Adjust based on content */
+}
+
+.string-display {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  width: 300px; /* Adjust width as needed */
+}
+
+.string-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Adjust duration as needed */
+  margin: 5px 0; /* Space between strings */
+}
+
+.string-item.show {
+  opacity: 1;
+}
+
 /* ================= */
 /* Define the fade-in keyframes */
 @keyframes fadeIn {

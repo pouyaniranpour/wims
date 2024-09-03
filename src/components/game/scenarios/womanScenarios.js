@@ -129,7 +129,7 @@ export const woman = [
     id: "leaveDaughterRandom1",
     text: `You start living in your car and any savings are quickly used up by giving money to your friend for your daughter and trying to get by. Can you get a benefit?`,
     choices: [
-      { text: "Next", nextScenario: `benefitOutcomeRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Flip", nextScenario: `benefitOutcomeRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
@@ -180,7 +180,7 @@ export const woman = [
     id: "familySupportRandom3",
     text: `You ask your sister and she lets you stay in her garage along with another family she is helping. There are six of you and you manage privacy with sheets. You have an extension cord running from your sister's house to a fridge and kettle. You get water from the outside tap and wash yourselves and clothes in a bucket. Is it summer?`,
     choices: [
-      { text: "Next", nextScenario: `seasonOutcomeRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Flip", nextScenario: `seasonOutcomeRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {

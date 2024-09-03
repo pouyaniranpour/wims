@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 import { useState } from 'react';
 import Game from './components/game/Game';
 import OpeningScreen from './components/OpeningScreen';
@@ -11,10 +11,10 @@ function App() {
         setIsOpeningScreenShowing(!isOpeningScreenShowing);
     }
     return (
-        <div className="relative h-screen ">
+        <div className="relative h-screen">
             <OpeningScreen isShowing={isOpeningScreenShowing} handleBeginButton={handleBeginButton} />
+            <Game isOpeningScreenShowing={isOpeningScreenShowing} />
             
-            <Game isOpeningScreenShowing={isOpeningScreenShowing}/>
         </div>
     );
 }

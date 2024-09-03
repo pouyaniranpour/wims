@@ -1,18 +1,18 @@
 import { useState } from "react";
-//import anime from "animejs";
 import "../../App.css";
 
 function CharacterSelection({ handleCharacter }) {
 
-  const [selected, setSelected] = useState(-1);
-  const [confirmed, setConfirmed] = useState(-1);
+  const [selectedIndex, setselectedIndex] = useState(-1);
+  const [confirmedIndex, setconfirmedIndex] = useState(-1);
+  const [isConfirming, setIsConfirming] = useState(false);
 
   const characters = [
     {
       character: "youth",
       teReo: "Rangatahi",
       english: "Youth",
-      style: "#97CEDE",
+      style: "text-[#97CEDE]",
       frame: "/characterSelection/rangatahiFrame.svg",
       imgSrc: "/characterSelection/rangatahi.svg",
     },
@@ -20,7 +20,7 @@ function CharacterSelection({ handleCharacter }) {
       character: "man",
       teReo: "Tāne",
       english: "Man",
-      style: "#F2C91E",
+      style: "text-[#F2C91E]",
       frame: "/characterSelection/taneFrame.svg",
       imgSrc: "/characterSelection/tane.svg",
     },
@@ -28,40 +28,43 @@ function CharacterSelection({ handleCharacter }) {
       character: "woman",
       teReo: "Wāhine",
       english: "Woman",
-      style: "#7AA43F",
+      style: "text-[#7AA43F]",
       frame: "/characterSelection/wahineFrame.svg",
       imgSrc: "/characterSelection/wahine.svg",
     }
     
   ];
 
-  const handleClick = (index) => {
-    console.log(selected);
-    if (index === selected) {
-      setConfirmed(index);
-      setTimeout(() => {
-        handleCharacter(characters[index].character);
-      }, 1000);
-    } else if (index !== selected) {
-      setSelected(index);
-      setConfirmed(-1);
-      
-    }
-
+  const handleSelect = (index) => {
+    setIsConfirming(true);
+    setselectedIndex(index);
   }
 
-  // const getImageSrc = (index) => {
-  //   if (confirmed === -1) {
-  //     return characters[index].imgSrc;
-  //   } else if (confirmed !== index) {
-  //     return '/characterSelection/unselected.svg';
-  //   } else return characters[index].imgSrc;
-  // }
+  const handleConfirmation = (confirmed) => {
+    
+    if (confirmed) {
+      setconfirmedIndex(selectedIndex);
+      setTimeout(() => {
+        handleCharacter(characters[selectedIndex].character);
+      }, 1000);
+    } else {
+      setselectedIndex(-1);
+      setconfirmedIndex(-1);
+    }
+    setIsConfirming(false);
+  }
+
+  const getFrameSrc = (index) => {
+    if (confirmedIndex === index) {
+      return characters[index].frame;
+    } else {
+      return '/characterSelection/frameBasic.svg';
+    }
+  }
 
   
-//FIXME ask UX designers to change font as viga doesn't have macron for maori words
   return (
-    <div className={`grid grid-rows-3 h-full w-full transition-opacity duration-1000 ease-in-out ${confirmed !== -1 ? 'opacity-0': 'opacity-100'}`}>
+    <div className={`grid grid-rows-3 h-full w-full transition-opacity duration-1000 ease-in-out ${confirmedIndex !== -1 ? 'opacity-0': 'opacity-100'}`}>
       <div className="h-full flex justify-center items-center"><p className="relative font-bebas-neue self-center text-5xl">Choose your story</p></div>
       
       <div className="flex items-center justify-center w-full h-full space-x-32">
@@ -69,24 +72,33 @@ function CharacterSelection({ handleCharacter }) {
         characters.map((currentCharacter, index) => {
           return (
             <div key={index}>
-              <div className="relative flex flex-col items-center justify-center">
-                <img className={`relative ${confirmed !== -1 && index !== confirmed? '-z-10 grayscale opacity-60': ''} scale-110 top-8`} src={currentCharacter.imgSrc} alt="avatar of character" />
-                <img onClick={() => handleClick(index)} className={`${confirmed !== -1 && index !== confirmed? '-z-10 ': ''} scale-125 absolute ${index === selected? 'opacity-100':'opacity-0'} cursor-pointer hover:opacity-100`} src={selected === index && confirmed === index ? (confirmed === index ? currentCharacter.frame: `/characterSelection/frameBasic.svg`) : `/characterSelection/frameBasic.svg`} alt="" />
-              <ul className="text-center relative top-24">
-                <li className=" text-[32px]">{currentCharacter.teReo}</li>
+              <div className={`relative flex flex-col items-center justify-center`}>
+                <img className={`relative ${confirmedIndex !== -1 && index !== confirmedIndex? 'grayscale opacity-60': ''} h-[258px]`} src={currentCharacter.imgSrc} alt="avatar of character" />
+                <img onClick={() => handleSelect(index)} className={` ${isConfirming || confirmedIndex !== -1 ? '-z-10' :'z-10'} scale-110 absolute bottom-16 ${index === selectedIndex? 'opacity-100':'opacity-0'} cursor-pointer hover:opacity-100`} src={getFrameSrc(index)} alt="" />
+              <ul className="text-center relative top-8 font-ibm-plex-sans">
+                <li className={`${currentCharacter.style} text-[32px]`} >{currentCharacter.teReo}</li>
                 <li>{currentCharacter.english}</li>
-              </ul>
+                </ul>
+                
+
+                {isConfirming && selectedIndex === index ?
+               <div className="absolute top-96 flex justify-center items-center">   
+        <div className="flex w-[200px] justify-between">
+            <img onClick={() => handleConfirmation(true)} className="hover:brightness-[0.95] cursor-pointer h-[64px]" src="/characterSelection/confirmButton.png" alt="confirm button" />
+            <img onClick={() => handleConfirmation(false)} className="hover:brightness-[0.95] contrast(.5) cursor-pointer h-[64px]" src="/characterSelection/denyButton.png" alt="deny button" />
+                  </div>
+                  </div>
+                  : ''}
               </div>
               
+                
+                
+      
               
             </div>)
         })
         }
         
-          
-      </div>
-      <div className="flex flex-col justify-center items-center">
-        { selected !== -1 && confirmed === -1 ? <p>Are you sure? Click once more to confirm selection</p>: ''}
       </div>
       
     </div>

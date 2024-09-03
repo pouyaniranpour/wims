@@ -58,7 +58,7 @@ export const man = [
     id: "evictedByFriend",
     text: `Your mate has had enough and says you have to leave and live somewhere else. There isn't anywhere except your car.`,
     choices: [
-      { text: "Next", nextScenario: `carRandom${Math.floor(Math.random() * 3) + 1}` },//TODO
+      { text: "Flip", nextScenario: `carRandom${Math.floor(Math.random() * 3) + 1}` },//TODO
     ],
   },
       //Visit MSD #2 sub-path from staying with a friend
@@ -155,7 +155,7 @@ export const man = [
     id: "onStreet",
     text: `You sit on the street. It gets dark. You hear some people and get worried. You hide in a bush overnight and have a sleepless night. In the morning you're exhausted and find a sunny private spot to sleep.`,
     choices: [
-      { text: "Next", nextScenario: `approachedRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Flip", nextScenario: `approachedRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
@@ -170,7 +170,7 @@ export const man = [
     id: "approachedRandom2",
     text: `Someone approaches you and it's a keyworker from the Outreach Team at the Mission. You don't expect much, but to your surprise they talk about the time they were on the street and how it doesn't have to be final. They offer you help and you take it.`,
     choices: [
-      { text: "Next", nextScenario: `richardsStoryEnding` },//TODO
+      { text: "Next", nextScenario: `richardsStoryEnding` },
     ],
   },
  
@@ -349,7 +349,7 @@ export const man = [
   },
   {
     id: "richardsStoryEnding",
-    text: `You feel shame about asking for help. You've seen people queueing for food at the Mission in the past and never thought you'd be in this situation. You're not sure what they'll say about the painkillers and alcohol and you don't feel able to cope without these things. After a few months on the street, you have found a community. You tell yourself you are making it work out okay and this is just temporary.`,
+    text: `Richard works for the Auckland City Mission. Watch Richard's story - a journey from homelessness to achieving life's aspirations.`,
     choices: [
       { text: ">>", nextScenario: `endingScreenTrigger` },
     ],

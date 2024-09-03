@@ -1,30 +1,21 @@
 import '../../App.css'
 import { useState } from "react";
 import Story from "./Story";
-import Lottie from "lottie-react";
-import coinToss from '../../assets/coinToss.json';
 import CharacterSelection from '../characterSelection/CharacterSelection';
 import Footer from '../Footer';
+import EndingScreen from '../EndingScreen';
 import SidebarLeft from './SidebarLeft';
 import SidebarRight from './SidebarRight';
-import EndingScreen from '../EndingScreen';
+
+
 
 function Game({ isOpeningScreenShowing }) {
   const [scenario, setScenario] = useState();
   const [isGameOver, setIsGameOver] = useState(false);
   const [character, setCharacter] = useState();
-  const [isCoinFlipping, setIsCoinFlipping] = useState(false);
 
   const handleChoice = (choice) => {
-
-
-    const regex = /(random)/i; //to find scenarios that have 'random' in their id
-    if (regex.test(choice.nextScenario)) {
-      setIsCoinFlipping(!isCoinFlipping)
-      handleRandom(choice);
-    } else {
-      setScenario(choice.nextScenario);
-    }
+    setScenario(choice.nextScenario);
   };
 
 
@@ -39,17 +30,10 @@ function Game({ isOpeningScreenShowing }) {
     console.log(booleanValue);
   };
 
-  const handleRandom = (choice) => {
-    setIsCoinFlipping(true);
-    setTimeout(() => {
-      setIsCoinFlipping(false);
-      setScenario(choice.nextScenario);
-    }, 1500);
-  }
 
   const handleCharacter = (characterInput) => {
-    // setScenario('start');
-    setScenario('start')
+    setScenario('start');
+    //setScenario('policeTakeStepdadEnding');
     setCharacter(characterInput);
   };
 
@@ -73,17 +57,9 @@ function Game({ isOpeningScreenShowing }) {
         />      
        : '' 
       }
-      {isCoinFlipping &&
-        <Lottie animationData={coinToss} loop={true} style={{height: '400px', position: 'relative', top: '100px'}} />
-      }
       
       <EndingScreen restartGame={restartGame} isGameOver={isGameOver} />
-      
-      
-      {/* <SidebarLeft />
-      <SidebarRight /> */}
-      
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

@@ -1,18 +1,31 @@
 export const youth = [
   {
     id: "start",
-    text: `<h2>It is Sunday night. </h2><br /> <h2>Your mum's partner has just had a go at you and calls you lazy. <h2 /><br /><h2>You are always arguing, but this time it gets more serious and he demands you leave the house immediately. <h2 /> <br/> <h2>You are 17 years old. Where can you go?</h2>`,
+    text: [`It is a Sunday night.`, `You're arguing with your mum's partner again`, `But this time, it's more serious and he demands you leave the house immediately.`],
     choices: [
-      { text: "Local Church", nextScenario: "churchPt1" },
-      { text: "Close Friend", nextScenario: "closeFriend" },
-      { text: "Google", nextScenario: "google" },
+      { text: ">>", nextScenario: "startPt2" },
+    ],
+  },
+  {
+    id: "startPt2",
+    text: [`LAZY`, `USELESS!`, `GET OUT OF MY HOUSE!`],
+    dialogue: true,
+    choices: [
+      { text: ">>", nextScenario: "startPt3" },
+    ],
+  },
+  {
+    id: "startPt3",
+    text: [`It is Sunday night. </h2><br /> <h2>Your mum's partner has just had a go at you and calls you lazy. <h2 /><br /><h2>You are always arguing, but this time it gets more serious and he demands you leave the house immediately. <h2 /> <br/> <h2>You are 17 years old. Where can you go?</h2>`],
+    choices: [
+      { text: ">>", nextScenario: "startPt2" },
     ],
   },
 
   /* ======== Church section ======== */
   {
     id: "churchPt1",
-    text: `You know some people at church quite well and hope they will help you, but it's a Sunday night, so the church is locked up and there's no one around.`,
+    text: `<p>You know some people at church quite well and hope they will help you, but it's a Sunday night, so the church is locked up and there's no one around.</p>`,
     choices: [
       {
         text: "Next",
@@ -35,7 +48,7 @@ export const youth = [
     text: `You don't get any sleep. Your sleeping bag gets wet. The next morning the church secretary arrives to find you. She makes you a cup of tea, gives you breakfast and chats about your situation. She starts phoning around trying to see who can help.`,
     choices: [
       {
-        text: "Next",
+        text: "Flip",
         nextScenario: `churchRandom${Math.floor(Math.random() * 2) + 1}`,
       },
     ],
@@ -86,7 +99,7 @@ export const youth = [
         text: "Wait - something might turn up?",
         nextScenario: "approachedByMan",
       },
-      { text: "Not sure", nextScenario: "policeShowUp" }, //TODO this path
+      { text: "Not sure", nextScenario: "policeShowUp" },
     ],
   },
   {
@@ -113,7 +126,7 @@ export const youth = [
       `You aren't willing to go with him. Your new friends explain that you may have to steal to survive and give you some tips. You steal some food from a dairy a few times, but on the fourth time they are waiting for you and haul you in. The owner says she's sick of kids stealing from her and wants to teach you a lesson. She calls the police.`,
     choices: [
       {
-        text: "Next",
+        text: "Flip",
         nextScenario: `policeRandom${Math.floor(Math.random() * 2) + 1}`,
       },
     ],
@@ -167,7 +180,7 @@ export const youth = [
     text:
       `Your friend asks their parents if you can stay with them for a while. What are they going to say?`,
     choices: [
-      { text: "Next", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
@@ -191,7 +204,7 @@ export const youth = [
     text:
       `Your friend's parents are sympathetic, but they don't feel comfortable "overriding your parents' authority" by letting you stay with them. Can your school help?`,
     choices: [
-      { text: "Next", nextScenario: `canSchoolHelpRandom${Math.floor(Math.random() * 2) + 1}` }, //TODO rest of this path
+      { text: "Flip", nextScenario: `canSchoolHelpRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
@@ -298,7 +311,7 @@ export const youth = [
     text:
       `You should start phoning Lifewise immediately the next morning, but you are having some kind of reaction to your parents' rejection and you feel unable to get out of bed. You stay like that for a day and night before your friend's parents challenge you. You can't even talk about it - it's like you've lost your words. Your friend ends up explaining. What happens?`,
     choices: [
-      { text: "Next", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
 

@@ -1,6 +1,6 @@
 function SidebarRight() {
     const NUM_FOOTPRINTS = 8;
-    let progress = 5;
+    let progress = 0;
     const footprints = Array.from({ length: NUM_FOOTPRINTS }, (v, i) => i);
     return (
         <div className="cursor-pointer absolute bg-[#F4F5F5] right-0 top-0 w-[162px] h-full flex flex-col justify-center">

@@ -8,7 +8,6 @@ function OpeningScreen({ handleBeginButton, isShowing }) {
       <div className={`${isShowing? 'opacity-100 z-10': 'opacity-0 -z-10'} transition-opacity duration-1000 ease-in-out bg-gradient-to-t from-[#E5F7FB] to-white absolute inset-0 flex flex-col items-center justify-center size-full`}>
           
           <div className="relative border border-black flex justify-center items-center w-full h-full">
-              {/* <img className="w-24 absolute left-10 top-10  frame2" src="/landingPage/acmLogo.svg" alt="acm logo" /> */}
               <img className="w-96 h-48 absolute top-50 left-50 fadeAndMove" src="/landingPage/acmLogo.svg" alt="acm logo" />
               <div className="z-10 absolute top-40 left-50 font-ibm-plex-sans leading-[72px] text-5xl text-[#007596] font-bold frame3">A <a className="text-[#FF9B32] cursor-pointer" href="https://www.housingfirst.co.nz/data-and-evidence/aucklands-homeless-count/">study</a> in 2018 found that 18,417 Aucklanders <br /> met the definition of homeless, <br />and that number grows every year</div>
               <div className="absolute top-40 left-50 font-ibm-plex-sans leading-[72px] text-5xl text-[#007596] font-bold frame4">We believe the best way to tackle this issue,<br /> is through our youth - the future of New Zealand</div>

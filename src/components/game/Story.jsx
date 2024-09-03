@@ -3,11 +3,7 @@ import '../../App.css'
 import { youth } from './scenarios/youthScenarios';
 import { woman } from './scenarios/womanScenarios';
 import { man } from './scenarios/manScenarios';
-import YoutubePlayer from './YouTubePlayer';
 import Scenario from './Scenario';
-
-import SidebarLeft from './SidebarLeft';
-import SidebarRight from './SidebarRight';
 
 const Story = ({ scenario, onChoice, isGameOver, character }) => {
 
@@ -31,12 +27,9 @@ const Story = ({ scenario, onChoice, isGameOver, character }) => {
     };
  
     return (
-        // <div className='outerContainer'>
         <div className='absolute flex flex-col justify-center items-center h-full w-full'>
             <Scenario handleChoice={handleChoice} currentScenario={currentScenario} />
             
-        <SidebarLeft />
-        <SidebarRight />
         </div>
     );
 };
