@@ -66,7 +66,6 @@ function CharacterSelection({ handleCharacter }) {
   return (
     <div className={`grid grid-rows-3 h-full w-full transition-opacity duration-1000 ease-in-out ${confirmedIndex !== -1 ? 'opacity-0': 'opacity-100'}`}>
       <div className="h-full flex justify-center items-center"><p className="relative font-bebas-neue self-center text-5xl">Choose your story</p></div>
-      
       <div className="flex items-center justify-center w-full h-full space-x-32">
       {
         characters.map((currentCharacter, index) => {

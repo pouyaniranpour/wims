@@ -4,8 +4,8 @@ import parse from "html-react-parser";
 import { useState } from "react";
 import { ReactTyped } from "react-typed";
 
-import Lottie from "lottie-react";
-import coinToss from "../../assets/coinToss.json";
+//import Lottie from "lottie-react";
+//import coinToss from "../../assets/coinToss.json"; //FIXME
 import SidebarLeft from "./SidebarLeft";
 import SidebarRight from "./SidebarRight";
 import FadeInText from "./FadeInText";
@@ -25,9 +25,9 @@ function Scenario({ handleChoice, currentScenario }) {
       setIsCoinFlipping(!isCoinFlipping);
       handleRandom(choice);
     } else {
-      handleChoice(choice);
       setAnimationCompleted(false);
       setIsSkipped(false);
+      handleChoice(choice);
     }
   };
 
@@ -38,7 +38,7 @@ function Scenario({ handleChoice, currentScenario }) {
       setIsCoinFlipping(false);
       console.log(choice.nextScenario);
       handleChoice(choice);
-      setIsFullTextShowing(false);
+      setAnimationCompleted(false);
       setIsSkipped(false);
     }, 1500);
   };
@@ -53,11 +53,9 @@ function Scenario({ handleChoice, currentScenario }) {
 
   // const text = parse(currentScenario.text);
   const textArray = currentScenario.text;
-  console.log(textArray);
   return (
-    <div className="flex flex-col justify-center items-center w-2/3 h-3/4">
-
-
+    <div className="flex flex-col mt-24 items-center w-2/3 h-3/4">
+    
       {/* {isSkipped ? (
         <div className="text-3xl w-2/3 h-2/3 font-ibm-plex-mono">{text}</div>
       ) : (
@@ -71,14 +69,14 @@ function Scenario({ handleChoice, currentScenario }) {
           loop={false}
         />
       )} */}
-      {/* {currentScenario.dialogue &&
-        <div className=" h-full w-full flex flex-col border border-black justify-between">
+      {currentScenario.dialogue &&
+        <div className="absolute top-[75px] left-50 z-30 h-3/4 w-2/3 flex flex-col justify-between">
           <img className="self-start" src="/scenario/quoteMark.svg" alt="quote mark"/>
           <img className="self-end justify-end" src="/scenario/quoteMark.svg" alt="quote mark"/>
-        </div>} */}
+        </div>}
 
       {isSkipped ? (
-        <div className="text-3xl w-2/3 h-2/3 font-ibm-plex-sans">
+        <div className='text-3xl w-2/3 h-2/3 font-viga'>
         {
           textArray.map((textItem, index) => {
               return (<div className="mt-5" key={index}>{textItem}</div>)
@@ -86,13 +84,33 @@ function Scenario({ handleChoice, currentScenario }) {
             })
           }
         </div>
-      ) :
-        (
-          <div className={`text-3xl w-2/3 h-2/3 ${currentScenario.dialogue ? 'font-bebas-neue text-[80px]' :'font-ibm-plex-sans'}`}>
-            <FadeInText items={textArray} animationCompleted={setAnimationCompleted} isDialogue={currentScenario.dialogue}/>
+      ) : 
+        
+      
+        ( 
+          <div className="absolute top-50 left-50 w-2/3 h-1/2">
+            {currentScenario.dialogue ? 
+            <ReactTyped
+            className=" text-[72px] mx-0 w-2/3 h-2/3 font-bebas-neue"
+            showCursor={false}
+            strings={currentScenario.dialogue}
+            typeSpeed={30}
+            startDelay={500}
+            onComplete={() => setAnimationCompleted(true)}
+            loop={false}
+          />
+            :
+      <div className='text-3xl w-2/3 h-2/3 font-viga'>
+            
+            <FadeInText items={textArray} animationCompleted={setAnimationCompleted} isDialogue={currentScenario.dialogue} />
+           
             </div>
+          }
+          
+        </div>
+          
       )
-      }
+      } 
       
 
 {/* {isSkipped ? (
@@ -119,27 +137,28 @@ function Scenario({ handleChoice, currentScenario }) {
 
 
 
-      {isCoinFlipping && (
+      {/* {isCoinFlipping && (
         <Lottie
           className="absolute top-50 left-50 h-[400px]"
           animationData={coinToss}
           loop={false}
         />
-      )}
+      )} */}
 
-      {currentScenario.video && isFullTextShowing ? (
+      {currentScenario.video && animationCompleted ? (
         <div>
           <YoutubePlayer video={currentScenario.video} />
         </div>
       ) : (
         ""
       )}
-      {isFullTextShowing || animationCompleted ? (
-        <ul className=" border flex w-full justify-center items-center">
+      <div className="relative w-full h-full z-20">
+        {isFullTextShowing || animationCompleted ? (
+        <ul className="flex mt-24 w-full justify-center items-center">
           {currentScenario.choices.map((choice, index) => (
             <li key={index}>
               <button
-                className="mx-4 px-4 flex flex-col  rounded-lg"
+                className="absolute bottom-10 right-56 mx-4 px-4 flex flex-col border-2 border-black rounded-lg"
                 onClick={() => handleNextScenario(choice)}
               >
                 {choice.text}
@@ -148,8 +167,10 @@ function Scenario({ handleChoice, currentScenario }) {
           ))}
         </ul>
       ) : (
-        <button onClick={handleSkip}>Skip</button>
+        <button className="absolute bottom-10 right-56 right-30 mx-4 px-4 flex flex-col border-2 border-black rounded-lg" onClick={handleSkip}>Skip</button>
       )}
+      </div>
+      
 
       
       <SidebarLeft />

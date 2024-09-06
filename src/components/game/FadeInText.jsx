@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
-import parse from 'html-react-parser'
+//import parse from 'html-react-parser'
 
-function FadeInText({items, animationCompleted, isDialogue}) {
+function FadeInText({ items, animationCompleted}) {
     const itemsRef = useRef([]);
     //const [animationCompleted, setAnimationCompleted] = useState(false);
 
@@ -15,9 +15,10 @@ function FadeInText({items, animationCompleted, isDialogue}) {
             delay: anime.stagger(2000),
             complete: () => {
                 animationCompleted(true); // Update state when animation completes
+                console.log("completed");
             }
         });
-    }, []);
+    }, [items]);
   
     
   
@@ -26,10 +27,10 @@ function FadeInText({items, animationCompleted, isDialogue}) {
             {items.map((item, index) => (
                 <div
                     key={index}
-                    className={`${isDialogue? 'font-bebas-neue text-[80px] mt-10 mb-10': 'mt-6 mb-6'}`}
+                    className={'mt-6 mb-6'}
                     ref={el => (itemsRef.current[index] = el)}
                 >
-                    {parse(item)}
+                    {item}
                 </div>
             ))}
             

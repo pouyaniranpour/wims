@@ -9,7 +9,7 @@ import SidebarRight from './SidebarRight';
 
 
 
-function Game({ isOpeningScreenShowing }) {
+function Game({ hasGameStarted }) {
   const [scenario, setScenario] = useState();
   const [isGameOver, setIsGameOver] = useState(false);
   const [character, setCharacter] = useState();
@@ -39,7 +39,7 @@ function Game({ isOpeningScreenShowing }) {
 
 
   return (
-    <div className={`${isOpeningScreenShowing? 'opacity-0 -z-10': 'opacity-100 z-10'} transition-opacity duration-1000 ease-in-out flex flex-col justify-center items-center h-full w-full`
+    <div className={`${!hasGameStarted? 'opacity-0 -z-10': 'opacity-100 z-10'} transition-opacity duration-1000 ease-in-out flex flex-col justify-center items-center h-full w-full`
 } >
       {!character &&
         

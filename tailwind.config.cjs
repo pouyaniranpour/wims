@@ -15,12 +15,20 @@ module.exports = {
         'viga': ['Viga', 'regular'],
         'ibm-plex-sans': ['"IBM Plex Sans', 'regular']
       },
+      fontSize: {
+        'large': '80px',
+      },
+      colors: {
+        'dark-orange': '#FF9B32',
+        'darker-orange': '#E48226',
+      },
       boxShadow: {
         'custom-dark': '0 4px 8px rgba(0, 0, 0, 0.5)', // Darker shadow
         'custom-darker': '0 2px 2px rgba(0, 0, 0, 0.8)', // Even darker shadow
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'footsteps': "url('/startingPage/footsteps.svg')"
       },
     },
     

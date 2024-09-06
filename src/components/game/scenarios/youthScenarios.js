@@ -1,15 +1,15 @@
 export const youth = [
   {
     id: "start",
-    text: [`It is a Sunday night.`, `You're arguing with your mum's partner again`, `But this time, it's more serious and he demands you leave the house immediately.`],
+    text: [<p>It is a Sunday night.</p>, <p>You're arguing with your mum's partner again</p>, <p>But this time, it's more serious and he demands you leave the house immediately.</p>],
     choices: [
       { text: ">>", nextScenario: "startPt2" },
     ],
   },
   {
     id: "startPt2",
-    text: [`LAZY`, `USELESS!`, `GET OUT OF MY HOUSE!`],
-    dialogue: true,
+    text: [],
+    dialogue: [`<p>LAZY!</p><br/><p>USELESS!</p><br/><p>GET OUT OF MY HOUSE!</p>`],
     choices: [
       { text: ">>", nextScenario: "startPt3" },
     ],
