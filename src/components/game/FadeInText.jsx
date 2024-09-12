@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef} from "react";
 import anime from "animejs";
 //import parse from 'html-react-parser'
 
-function FadeInText({ items, animationCompleted}) {
+function FadeInText({ items, handleAnimationCompleted}) {
     const itemsRef = useRef([]);
     //const [animationCompleted, setAnimationCompleted] = useState(false);
 
@@ -14,16 +14,18 @@ function FadeInText({ items, animationCompleted}) {
             duration: 1000,
             delay: anime.stagger(2000),
             complete: () => {
-                animationCompleted(true); // Update state when animation completes
+                handleAnimationCompleted(); // Update state when animation completes
                 console.log("completed");
             }
         });
     }, [items]);
+
   
     
   
     return (
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between text-3xl w-2/3 h-2/3 font-viga">
+            
             {items.map((item, index) => (
                 <div
                     key={index}

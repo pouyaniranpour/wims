@@ -10,6 +10,12 @@
   border-radius: 50%
 }
 
+.typedOutput {
+  white-space: pre-wrap;
+}
+
+
+
 
 /* ================= */
 /* Define the fade-in keyframes */

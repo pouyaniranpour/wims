@@ -3,26 +3,36 @@ export const youth = [
     id: "start",
     text: [<p>It is a Sunday night.</p>, <p>You're arguing with your mum's partner again</p>, <p>But this time, it's more serious and he demands you leave the house immediately.</p>],
     choices: [
-      { text: ">>", nextScenario: "startPt2" },
+      { text: "Next", nextScenario: "startPt2" },
     ],
   },
   {
     id: "startPt2",
     text: [],
-    dialogue: [`<p>LAZY!</p><br/><p>USELESS!</p><br/><p>GET OUT OF MY HOUSE!</p>`],
+    dialogue: true,
+    typewriter: 
+      { text: '<p>LAZY!</p><p class="ml-56 mt-16">USELESS!</p><p class="ml-96 mt-16">GET OUT OF MY HOUSE!</p>', style: ``},
     choices: [
-      { text: ">>", nextScenario: "startPt3" },
+      { text: "Next", nextScenario: "startPt3" },
     ],
   },
-  {
-    id: "startPt3",
-    text: [`It is Sunday night. </h2><br /> <h2>Your mum's partner has just had a go at you and calls you lazy. <h2 /><br /><h2>You are always arguing, but this time it gets more serious and he demands you leave the house immediately. <h2 /> <br/> <h2>You are 17 years old. Where can you go?</h2>`],
-    choices: [
-      { text: ">>", nextScenario: "startPt2" },
-    ],
-  },
+  
 
-  /* ======== Church section ======== */
+  /* ===================================== Starting decisions ===================================== */
+{
+    id: "startPt3",
+    text: [],
+    typewriter: 
+    { text: '<p>Where will you go?</p>', style: `justify-center` },
+    choices: [
+      { text: "/scenario/decisionImages/rangatahi/church.svg", nextScenario: "churchPt1" },
+      { text: "/scenario/decisionImages/rangatahi/closeFriend.svg", nextScenario: "closeFriend" },
+      { text: "/scenario/decisionImages/rangatahi/google.svg", nextScenario: "startPt2" },
+    ],
+  },
+  
+
+/* ======================================= Church section ======================================= */
   {
     id: "churchPt1",
     text: `<p>You know some people at church quite well and hope they will help you, but it's a Sunday night, so the church is locked up and there's no one around.</p>`,
@@ -177,24 +187,36 @@ export const youth = [
   /* ===== //Close Friend section ===== */
   {
     id: "closeFriend",
-    text:
-      `Your friend asks their parents if you can stay with them for a while. What are they going to say?`,
+    text: [],
+    typewriter: { text: '<p>Your friend asks their parents if you can stay with them for a while...</p>', style: `text-[100px] flex items-center` },
+    isRandom: false,
+    isPreRandom: true, //this key-value pair is so that the scenario automatically advances to the coin flip screen without the user clicking
+    choices: [
+      { text: "", nextScenario: `closeFriendPt2` },
+    ],
+  },
+  {
+    id: "closeFriendPt2",
+    text: [],
+    isRandom: true,
+    typewriter: { text: '<p>What is their answer?</p>', style: `text-[100px] flex w-full h-full justify-center`},
     choices: [
       { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
     id: "friendsParentsRandom1",
-    text:
-      `The parents will help.`,
+    text: [],
+    typewriter: { text: '<p>They said yes!</p>', style: `text-[100px] flex items-center justify-center w-full h-full`},
     choices: [
       { text: "Next", nextScenario: `friendsParentsEnding` },
     ],
   },
   {
     id: "friendsParentsRandom2",
-    text:
-      `The parents won't help`,
+    text: [],
+    typewriter: 
+      { text: '<p>They said no!</p>', style: `text-[100px] flex  items-center justify-center w-full h-full`},
     choices: [
       { text: "Next", nextScenario: `friendsParentsSympathetic` },
     ],

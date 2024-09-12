@@ -1,4 +1,7 @@
-import { Fragment } from "react";
+
+
+//Important note: the array items haven't been formatted correctly yet. They are still in the format as the game was with the basic functionality prototype
+
 
 export const man = [
   {

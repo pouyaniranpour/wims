@@ -1,8 +1,8 @@
 import '../../App.css'
 
-import { youth } from './scenarios/youthScenarios';
-import { woman } from './scenarios/womanScenarios';
-import { man } from './scenarios/manScenarios';
+import { youth } from './scenarioComponents/scenarios/youthScenarios';
+import { woman } from './scenarioComponents/scenarios/womanScenarios';
+import { man } from './scenarioComponents/scenarios/manScenarios';
 import Scenario from './Scenario';
 
 const Story = ({ scenario, onChoice, isGameOver, character }) => {
