@@ -1,6 +1,8 @@
-import { ReactTyped } from "react-typed";
+
 import FadeInText from "./FadeInText";
 import Typewriter from "./Typewriter";
+
+import QuoteMark from "../../assets/quoteMark.svg"
 
 function ScenarioText({
   isSkipped,
@@ -38,9 +40,9 @@ function ScenarioText({
     }
     else if (!currentScenario.typewriter && isSkipped) {
       return (
-        <div className="flex flex-col justify-between text-3xl w-2/3 h-2/3 font-viga">
+        <div className="flex flex-col justify-center text-3xl w-2/3 h-full font-viga">
           {currentScenario.text.map((item, index) => (
-            <div key={index} className={"mt-6 mb-6"}>
+            <div key={index} className={"mt-10 mb-10"}>
               {item}
             </div>
           ))}
@@ -51,15 +53,15 @@ function ScenarioText({
 
   const renderQuoteMarks = () => {
     return (
-      <div className="absolute top-[75px] left-50 z-30 h-2/3 w-3/4 flex flex-col justify-between">
+      <div className="absolute top-[80px] left-50 z-30 h-2/3 w-3/4 flex flex-col justify-between">
         <img
           className="self-start"
-          src="/scenario/quoteMark.svg"
+          src={QuoteMark}
           alt="quote mark"
         />
         <img
           className="self-end justify-end"
-          src="/scenario/quoteMark.svg"
+          src={QuoteMark}
           alt="quote mark"
         />
       </div>
@@ -68,9 +70,12 @@ function ScenarioText({
 
   return (
     <>
-      {currentScenario.dialogue && renderQuoteMarks()}
+      {currentScenario.isDialogue && renderQuoteMarks()}
 
       {renderMainText()}
+
+
+      
     </>
   );
 }

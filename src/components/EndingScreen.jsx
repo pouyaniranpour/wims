@@ -1,3 +1,5 @@
+
+
 import Feedback from '../assets/endingScreen/linkIcons/feedback.svg';
 import Summary from '../assets/endingScreen/linkIcons/journeySummary.svg';
 import Resources from '../assets/endingScreen/linkIcons/resources.svg';
@@ -7,7 +9,8 @@ import Banner from '../assets/endingScreen/banner.svg'
 import Logo from '../assets/acmWhite.svg'
 
 function EndingScreen({ restartGame, isGameOver }) {
-  
+  const location = '/endingScreen'; //this is so the footer doesn't display the ACM logo on the bottom-left
+
   const itemsArray = [
     {
       imgSrc: StartAgain,

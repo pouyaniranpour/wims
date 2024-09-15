@@ -1,8 +1,11 @@
 import '../App.css'
 import { useLocation } from "react-router-dom";
 
+import logo from '../assets/acmLogoLight.svg';
+
 function Footer() {
   const location = useLocation().pathname;
+  console.log(location);
   
   return (
     <div className={`${location === '/'? 'invisible' : 'z-10 flex h-10 w-full absolute bottom-0 justify-center items-center text-sm font-ibm-plex-sans'}`}  >
@@ -11,7 +14,9 @@ function Footer() {
               <li className={`${location === '/startingPage'? 'text-white':'border-r border-black'} w-[100px] text-center`}>About </li>
               <li className={`w-[100px] text-center border-r border-black`}>Donate</li>
               <li className={` w-[100px] text-center`}>Privacy</li>
-          </ul>
+      </ul>
+      
+      {location != '/startingPage' && '/endingScreen' ? <img className={`absolute left-10 bottom-10 w-20`} src={logo} alt='acm logo'  /> : ''}
     </div>
   )
 }

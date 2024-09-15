@@ -1,7 +1,41 @@
+/* ======================================= Decision images ====================================== */
+import church from '../../../../assets/decisions/rangatahi/church.svg';
+import closeFriend from '../../../../assets/decisions/rangatahi/closeFriend.svg';
+import google from '../../../../assets/decisions/rangatahi/google.svg';
+
+import begging from '../../../../assets/decisions/rangatahi/begging.svg';
+import noBegging from '../../../../assets/decisions/rangatahi/noBegging.svg';
+
+/* ======================================= Scenario Images ====================================== */
+
+import positiveOutcome from '../../../../assets/scenarioImages/rangatahi/positiveOutcome.svg';
+import negativeOutcome from '../../../../assets/scenarioImages/rangatahi/negativeOutcome.svg';
+
+/* ============================================ Mood images =========================================== */
+
+import Sad from '../../../../assets/sidebars/leftSidebar/moods/sad.svg'
+import Tearful from '../../../../assets/sidebars/leftSidebar/moods/tearful.svg'
+import Calm from '../../../../assets/sidebars/leftSidebar/moods/calm.svg'
+
+import seventeenYearsOld from '../../../../assets/sidebars/leftSidebar/speechBubbles/rangatahi/seventeenYearsOld.svg'
+import gettingHungry from '../../../../assets/sidebars/leftSidebar/speechBubbles/rangatahi/gettingHungry.svg'
+
+/* ================================ Images for info carousel =============================== */
+import house from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/house.svg';
+import humanFigure from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/humanFigure.svg';
+import presentation from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/presentation.svg';
+
+
+/* ==================================================================================================== */
+
 export const youth = [
   {
     id: "start",
-    text: [<p>It is a Sunday night.</p>, <p>You're arguing with your mum's partner again</p>, <p>But this time, it's more serious and he demands you leave the house immediately.</p>],
+    mood: {
+      image: Sad
+    },
+    text: [<p>It is a Sunday night.</p>, <p>You're arguing with your mum's partner again</p>,
+    <p>But this time, it's more serious and he demands you leave the house immediately.</p>],
     choices: [
       { text: "Next", nextScenario: "startPt2" },
     ],
@@ -9,9 +43,13 @@ export const youth = [
   {
     id: "startPt2",
     text: [],
-    dialogue: true,
+    mood: {
+      image: Tearful,
+      delay: 1500
+    },
+    isDialogue: true,
     typewriter: 
-      { text: '<p>LAZY!</p><p class="ml-56 mt-16">USELESS!</p><p class="ml-96 mt-16">GET OUT OF MY HOUSE!</p>', style: ``},
+      { text: '<p>LAZY!</p><p class="ml-56 mt-16">USELESS!</p><p class="ml-96 mt-16">GET OUT OF MY HOUSE!</p>', style: `text-[80px] flex-col`},
     choices: [
       { text: "Next", nextScenario: "startPt3" },
     ],
@@ -21,13 +59,17 @@ export const youth = [
   /* ===================================== Starting decisions ===================================== */
 {
     id: "startPt3",
-    text: [],
+  text: [],
+  mood: {
+    image: Sad,
+    speechBubble: seventeenYearsOld
+  },
     typewriter: 
-    { text: '<p>Where will you go?</p>', style: `justify-center` },
+    { text: '<p>Where will you go?</p>', style: `justify-center text-[64px]` },
     choices: [
-      { text: "/scenario/decisionImages/rangatahi/church.svg", nextScenario: "churchPt1" },
-      { text: "/scenario/decisionImages/rangatahi/closeFriend.svg", nextScenario: "closeFriend" },
-      { text: "/scenario/decisionImages/rangatahi/google.svg", nextScenario: "startPt2" },
+      { image: church, nextScenario: "churchPt1" },
+      { image: closeFriend, nextScenario: "closeFriend" },
+      { image: google, nextScenario: "startPt2" },
     ],
   },
   
@@ -188,18 +230,19 @@ export const youth = [
   {
     id: "closeFriend",
     text: [],
-    typewriter: { text: '<p>Your friend asks their parents if you can stay with them for a while...</p>', style: `text-[100px] flex items-center` },
-    isRandom: false,
-    isPreRandom: true, //this key-value pair is so that the scenario automatically advances to the coin flip screen without the user clicking
+    mood: {
+      image: Sad
+    },
+    typewriter: { text: '<p>Your friend asks their parents<br/> if you can stay with them for a while.</p>', style: `text-[64px] mt-48 justify-center text-center` },
     choices: [
-      { text: "", nextScenario: `closeFriendPt2` },
+      { text: "Next", nextScenario: `closeFriendPt2` },
     ],
   },
   {
     id: "closeFriendPt2",
-    text: [],
     isRandom: true,
-    typewriter: { text: '<p>What is their answer?</p>', style: `text-[100px] flex w-full h-full justify-center`},
+    text: [],
+    typewriter: { text: '<p>What are they going to say?</p>', style: `justify-center text-[64px]`},
     choices: [
       { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
@@ -207,81 +250,127 @@ export const youth = [
   {
     id: "friendsParentsRandom1",
     text: [],
-    typewriter: { text: '<p>They said yes!</p>', style: `text-[100px] flex items-center justify-center w-full h-full`},
+    typewriter: { text: '<p>The parents will help you.</p>', style: `justify-center mt-8 text-[64px]` },
+    isEndingIntroNext: true,
+    postRandom: true,
+    image: positiveOutcome,
     choices: [
       { text: "Next", nextScenario: `friendsParentsEnding` },
     ],
   },
   {
     id: "friendsParentsRandom2",
-    text: [],
     typewriter: 
-      { text: '<p>They said no!</p>', style: `text-[100px] flex  items-center justify-center w-full h-full`},
+      { text: `<p>The parents won't help you.</p>`, style: `mt-8 justify-center text-[64px]`},
+    postRandom: true,
+    image: negativeOutcome,
     choices: [
       { text: "Next", nextScenario: `friendsParentsSympathetic` },
     ],
   },
   {
     id: "friendsParentsSympathetic",
-    text:
-      `Your friend's parents are sympathetic, but they don't feel comfortable "overriding your parents' authority" by letting you stay with them. Can your school help?`,
+    text: [<p>Your friend's parents are sympathetic.</p>,
+    <p> However they don't feel comfortable "overriding your parents' authority" by letting you stay with them.</p>],
+    
+    choices: [
+      { text: "Next", nextScenario: `canSchoolHelp` },
+    ],
+  },
+  {
+    id: "canSchoolHelp",
+    isRandom: true,
+    text: [],
+    typewriter:
+      {text: `Can your school help?`, style:`justify-center mt-8 text-[64px]` },
+    
     choices: [
       { text: "Flip", nextScenario: `canSchoolHelpRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
     id: "canSchoolHelpRandom1",
-    text:
-      `The school can help.`,
+    text: [],
+    typewriter: { text: '<p>The school can help.</p>', style: `justify-center mt-8 text-[64px]`},
+    postRandom: true,
+    image: positiveOutcome,
     choices: [
       { text: "Next", nextScenario: `schoolCounselor` },
     ],
   },
   {
     id: "schoolCounselor",
-    text: 
-      `Your school counselor wants to ask your parents to come in to resolve the issue. But you share some of the behaviours from your step dad and why you don't feel safe there. She refers you to <a href="https://www.lifewise.org.nz/our-services/housing-services/youth-housing/">Lifewise</a> youth housing service.`,
+    mood: {
+      image: Calm,
+      delay: 2000
+    },
+    text: [<p>Your school counselor wants to ask your parents to come in to resolve the issue.</p>,
+      <p>But you share some of the behaviours from your step dad and why you don't feel safe there.</p>,
+    <p>She refers you to <a href="https://www.lifewise.org.nz/our-services/housing-services/youth-housing/">Lifewise</a> youth housing service.</p>],
       choices: [
       { text: "Next", nextScenario: `youthHostelEnding2` },
     ],
   },
   {
     id: "canSchoolHelpRandom2",
-    text:
-      `The school can't help.`,
+    text: [],
+    typewriter: { text: `<p>The school won't help you.</p>`, style: `justify-center mt-8 text-[64px]`},
+    postRandom: true,
+    image: negativeOutcome,
     choices: [
       { text: "Next", nextScenario: `noCounselor` },
     ],
   },
   {
     id: "noCounselor",
-    text:
-      `Your school doesn't have a counselor or social worker you can ask for help. You talk about it with a teacher you trust, but she gets very flustered and doesn't know how to help you.`,
+    text: [<p>Your school doesn't have a counselor or social worker you can ask for help.</p>,
+    <p> You talk about it with a teacher you trust, but she gets very flustered and doesn't know how to help you.</p>],
+      
     choices: [
       { text: "Next", nextScenario: `firstNightOutdoors` },
     ],
   },
   {
     id: "firstNightOutdoors",
-    text:
-      `You spend your first night living outdoors, "on the street" in a park, with a tarpaulin to keep dry.`,
+    text: [<p>You spend your first night living outdoors - "on the streets."</p>,
+    <p>You are hiding in a park, with only a tarpaulin to keep dry.</p>],
     choices: [
       { text: "Next", nextScenario: `moneyRunningOut` },
     ],
   },
   {
     id: "moneyRunningOut",
-    text:
-      `You have a bit of money in your account, so you use this to buy food, but it's running out. You find a group of people living in their cars and chat with them about how to get money. One suggests you go into the central city where there are more young people and maybe more people around who might give you money. You decide to do it and take the bus into the city. Should you beg for money?`,
+    text: [<p>You have a bit of money in your account, so you use this to buy food - but it's running out.</p>,
+    <p>You find a group of people living in their cars and chat with them about how to get money.</p>,
+    <p>One suggests you go into the central city where there are more young people and maybe more people around who might give you money. You decide to do it and take the bus into the city.</p>],
     choices: [
-      { text: "Yes", nextScenario: `beg` },
-      { text: "No", nextScenario: `dontBeg` },
+      { text: "Next", nextScenario: `begDecision` },
+    ],
+  },
+  {
+    id: "begDecision",
+    text: [],
+    mood: {
+      image: Sad,
+      speechBubble: gettingHungry
+    },
+      typewriter: 
+      { text: '<p>Should you beg for money?</p>', style: `justify-center text-[64px]` },
+    choices: [
+      { image: begging, nextScenario: `beg` },
+      { image: noBegging, nextScenario: `dontBeg` },
     ],
   },
   {
     id: "beg",
-    text:
-      `You sit on a street corner and make a sign asking for money to eat. People avoid your eyes and make comments about how dirty and skinny you are. Some people give you coins, but you overhear them saying they know it's all going to be spent on drugs. Another person says that you're probably making more money than them each day begging. It is the worst experience you've had so far and you feel awful, but you do have some money for food.`,
+    mood: {
+      image: Sad,
+    },
+    text: [<p>People avoid your eyes and make comments about how dirty and skinny you are.</p>,
+      <p>Some people give you coins, but you overhear them saying they know it's all going to be spent on drugs.
+        Another person says that you're probably making more money than them each day begging.</p>,
+      <p>It is the worst experience you've had so far and you feel awful, but you do have some money for food.</p>
+    ],
     choices: [
       { text: "Next", nextScenario: `atFastFoodPlace` },
     ],
@@ -291,13 +380,28 @@ export const youth = [
     text:
       `You hand around some corporate offices, because people are more likely to throw away half eaten lunches there. You also find a community pantry and take a few things each day. It's not enough and you are losing too much weight and struggle to have energy to do much.`,
     choices: [
-      { text: "Next", nextScenario: `scaredAtNight` }, //TODO this path
+      { text: "Next", nextScenario: `scaredAtNight` },
     ],
   },
   {
     id: "atFastFoodPlace",
-    text:
-      `When you go into a fast food chain to buy food and go to the toilet to wash, they refuse you service and demand you leave. You are smelly and make other customers feel uncomfortable.`,
+    text: [],
+    typewriter: {
+      text: `<p>When you go into a fast food chain to buy food and go to the toilet to wash, they refuse you service and demand you leave.</p>`,
+      style: `text-[64px] mt-48`
+    },
+    choices: [
+      { text: "Next", nextScenario: `atFastFoodPlacePt2` },
+    ],
+  },
+  {
+    id: "atFastFoodPlacePt2",
+    isDialogue: true,
+    text: [],
+    typewriter: {
+      text: `<br/><p class="mt-10 mb-10">You smell!</p><br/><p>Other customers feel uncomfortable because of you</p>`,
+      style: `text-[64px]`
+    },
     choices: [
       { text: "Next", nextScenario: `outreachTeamNotified` },
     ],
@@ -337,6 +441,16 @@ export const youth = [
     ],
   },
 
+  /* ====================================== Pre-Ending Screen ===================================== */
+  {
+    id: "endingIntro",
+    //text: [],
+    isEndingNext: true,
+    typewriter: { text: '<p>Every journey to find a home is different</p>', style: `justify-center mt-32 text-[100px] text-center` },
+    choices: [
+      { text: "Continue", nextScenario: `` },
+    ],
+  },
 
 
   /* ============= Endings ============ */
@@ -382,17 +496,36 @@ export const youth = [
   },
   {
     id: "friendsParentsEnding",
-    text:
-      `This is where it ends. You have safety and a place to stay for now. Your friend's parents are empathetic and want to organise counselling, so they contact the school for help. The school's Social Worker tells you about the Youth Payment available from MSD. This is enough to cover cheap board and may mean your friend's parents find it easier to have you while you work things out. It's a bit rocky, but you find your way and a few years later you are thriving.`,
+    isEnding: true,
+    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `justify-center text-[100px] text-center`},
+    information: [
+      {
+        image: house,
+        subtitle: 'A safe place',
+        text: [<p>You have safety and a place to stay for now. Your friend's parents are empathetic and want to organise counselling,
+          so they contact the school for help.</p>]
+      },
+      {
+        image: presentation,
+        subtitle: 'Social Worker',
+        text: [<p>The school's Worker tells you about the Youth Payment available from MSD to cover
+          cheap board and may mean your friend's parents find it easier to have you while you work things out.</p>]
+      },
+      {
+        image: humanFigure,
+        subtitle: 'Find Your Way',
+        text: [<p>It's a bit rocky, but you find your way and a few years later you are thriving.</p>]
+      },
+    ],
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: "Finish", nextScenario: `` },
     ],
   },
 
   /* ============= Ending Screen Trigger ============ */
-  {
-    id: "endingScreenTrigger",
-    text: ``,
-    choices: [],
-  },
+  // {
+  //   id: "endingScreenTrigger",
+  //   text: ``,
+  //   choices: [],
+  // },
 ];

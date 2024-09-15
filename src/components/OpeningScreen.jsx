@@ -1,8 +1,11 @@
 import "../App.css";
 import { Link, useLocation } from "react-router-dom";
 
-import acmLogo from '../../src/assets/openingScreen/acmLogo.svg'
+import acmLogo from '../../src/assets/acmLogo.svg'
 import cityscape from '../../src/assets/openingScreen/cityscape.svg'
+
+
+
 
 
 function OpeningScreen() {

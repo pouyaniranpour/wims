@@ -1,29 +1,48 @@
-import LanguageIcon from '../../assets/sidebars/leftSidebar/language.png';
+
 import VolumeIcon from '../../assets/sidebars/leftSidebar/volume.png';
 import LightMode from '../../assets/sidebars/leftSidebar/lightMode.png';
 import CloseIcon from '../../assets/sidebars/leftSidebar/closeIcon.png';
 
-import Sad from '../../assets/sidebars/leftSidebar/moods/sad.svg'
+import logo from '../../assets/acmLogoLight.svg'
+
+import sad from '../../assets/sidebars/leftSidebar/moods/sad.svg';
 
 import { useEffect, useState } from 'react';
 
 
-function SidebarLeft({ moodString }) {
-  const [mood, setMood] = useState()
+function SidebarLeft({ scenario }) {
+  const [moodImage, setMoodImage] = useState(sad)
+  const [speechBubble, setSpeechBubble] = useState();
 
   useEffect(() => {
+    if (!scenario.mood) return;
+      if (scenario.mood.delay) {
+        setTimeout(() => {
+        setMoodImage(scenario.mood.image);
+        console.log("yes")
+      }, scenario.mood.delay);
+      } else {
+        setMoodImage(scenario.mood.image);
+    }
+    
+    if (scenario.mood.speechBubble) {
+      setSpeechBubble(scenario.mood.speechBubble);
+    } else {
+      setSpeechBubble(undefined);
+    }
+  }, [scenario]);
 
-  }, []);
-
-
-  const images = [LanguageIcon, VolumeIcon, LightMode, CloseIcon];
+  const images = [VolumeIcon, LightMode, CloseIcon];
   return (
     <div className={`absolute bg-[#F4F5F5] left-0 top-0 w-[162px] h-full flex flex-col items-center`} >
-      <div className="font-ibm-plex-sans pt-2 text-sm w-full text-center font-medium flex flex-col">
+      <div className="font-ibm-plex-sans pt-2 text-sm w-full text-center font-medium flex flex-col justify-around">
         <p>MOOD TRACKER</p>
-        <img className="h-20" src={Sad} alt="picture of sad face" />
+        {moodImage ? <img className="h-20" src={moodImage} alt="avatar of current mood" /> :
+        <img className="h-20" src={sad} alt="avatar of current mood" />}
+        {speechBubble && <img className='relative left-48 bottom-14 scale-125' src={speechBubble} alt='speech bubble' />
+        }
       </div>
-      <div className="relative flex flex-col h-full justify-end mb-36">
+      <div className="relative flex flex-col justify-end mb-36 h-full justify-self-end">
         {
           images.map((image, index) => {
             return (
@@ -32,6 +51,7 @@ function SidebarLeft({ moodString }) {
           })
         }
       </div>
+      {/* <img className='relative bottom-8 w-[74px] h-[54px]' src={logo} alt='acm logo' /> */}
 
     </div>
   )

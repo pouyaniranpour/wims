@@ -11,7 +11,7 @@ function Typewriter(
         handleSuspenseCompletion
     }) {
     
-    const defaultStyle = 'typedOutput font-bebas-neue w-full h-full flex text-[100px]';
+    const defaultStyle = 'typedOutput font-bebas-neue w-full h-full flex';
     const additionalStyle = currentScenario.typewriter.style;
     const text = currentScenario.typewriter.text;
 
@@ -19,18 +19,18 @@ function Typewriter(
         if (isSkipped) {
             return (
                 <div
-                    className={`${defaultStyle} ${additionalStyle} flex-col`}
+                    className={`${defaultStyle} ${additionalStyle}`}
                 >
                     {parse(text)}
                 </div>
             )
         } else if (isSuspenseScreen) {
             return (<ReactTyped
-          className={`font-bebas-neue w-full h-full flex justify-center items-center text-[100px] border border-black`}
+          className={`font-bebas-neue w-full h-full flex justify-center items-center text-[100px]`}
           showCursor={false}
           strings={[`...`]}
           typeSpeed={800}
-          startDelay={100}
+          startDelay={50}
              onComplete={() => handleSuspenseCompletion()}
             />)
         }
@@ -53,8 +53,9 @@ function Typewriter(
     
     
     return (
-        <div className={`absolute top-50 left-50 w-2/3 h-3/4 border border-black'}`}>
+        <div className={`absolute top-50 left-50 w-2/3 h-3/4 flex'}`}>
             {renderText()}
+            
         </div>
       
     

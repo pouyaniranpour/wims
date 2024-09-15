@@ -24,12 +24,12 @@ function FadeInText({ items, handleAnimationCompleted}) {
     
   
     return (
-        <div className="flex flex-col justify-between text-3xl w-2/3 h-2/3 font-viga">
+        <div className="flex flex-col justify-center text-3xl w-2/3 h-full font-viga">
             
             {items.map((item, index) => (
                 <div
                     key={index}
-                    className={'mt-6 mb-6'}
+                    className={'mt-10 mb-10'}
                     ref={el => (itemsRef.current[index] = el)}
                 >
                     {item}

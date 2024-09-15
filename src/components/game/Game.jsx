@@ -2,7 +2,6 @@ import "../../App.css";
 import { useState } from "react";
 import Story from "./Story";
 import CharacterSelection from "../decisions/CharacterSelection";
-import Footer from "../Footer";
 import EndingScreen from "../EndingScreen";
 
 import { Link, useLocation } from "react-router-dom";
@@ -10,19 +9,28 @@ import { Link, useLocation } from "react-router-dom";
 function Game() {
   const location = useLocation().pathname;
   const [scenario, setScenario] = useState();
-  // const [isGameOver, setIsGameOver] = useState(false);
+   //const [isGameOver, setIsGameOver] = useState(true); //used for testing ending screen
   const [isGameOver, setIsGameOver] = useState(false);
   const [character, setCharacter] = useState();
 
-  const handleChoice = (choice) => {
-    console.log(choice);
-    setScenario(choice.nextScenario);
-  };
+  //const [finalScenario, setFinalScenario] = useState(); //this is used to temporarily store the final scenario
+
+  // const handleChoice = (choice) => {
+  //   if (choice === 'preEndingScreen') {
+  //     console.log("Hello World.")
+  //     setScenario(choice);
+  //   } else if (choice === 'finalScenario') {
+  //     setScenario(finalScenario)
+  //   } else {
+  //     setScenario(choice.nextScenario);
+  //   }
+  // };
 
   const restartGame = () => {
     setScenario(null);
     setIsGameOver(false);
     setCharacter(null);
+    //setFinalScenario(null);
   };
 
   const handleGameOver = (booleanValue) => {
@@ -31,8 +39,8 @@ function Game() {
   };
 
   const handleCharacter = (characterInput) => {
-    setScenario("start");
-    // setScenario('closeFriend');
+    // setScenario("start");
+    setScenario('friendsParentsRandom1');
     setCharacter(characterInput);
   };
 
@@ -52,9 +60,11 @@ function Game() {
       {character && !isGameOver ? (
         <Story
           scenario={scenario}
-          onChoice={handleChoice}
-          isGameOver={handleGameOver}
+          //onChoice={handleChoice}
+          isGameOver={isGameOver}
+          handleGameOver={handleGameOver}
           character={character}
+          setScenario={setScenario}
         />
       ) : (
         ""

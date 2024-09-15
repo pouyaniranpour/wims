@@ -12,29 +12,27 @@ import Buttons from "./scenarioComponents/Buttons";
 import Decisions from "../decisions/Decisions";
 
 import Footer from "../Footer";
+import CarouselComponent from "./CarouselComponent";
 
 
 
 
 
-function Scenario({ handleChoice, currentScenario }) {
-
-  console.log(currentScenario);
+function Scenario({ handleChoice, currentScenario, handleGameOver }) {
+  
   const [isSkipped, setIsSkipped] = useState(false);
   const [animationCompleted, setAnimationCompleted] = useState(false);
 
-  const [isSuspenseScreen, setIsSuspenseScreen] = useState(false); //Suspense screen is for the "..." screen that appears after a coin flip
+  const [isSuspenseScreen, setIsSuspenseScreen] = useState(false);
 
-  //const regex = /(random)/i; //to find scenarios that have 'random' in their id
+
 
   const handleNextScenario = (choice) => {
     if (currentScenario.isRandom) {
       setIsCoinFlipping(!isCoinFlipping);
-      console.log(isCoinFlipping)
     } else {
       setAnimationCompleted(false);
       setIsSkipped(false);
-      console.log(choice);
       handleChoice(choice);
     }
   };
@@ -54,23 +52,24 @@ function Scenario({ handleChoice, currentScenario }) {
   };
 
   const handleAnimationCompleted = () => {
-    if (currentScenario.isPreRandom) {
-      setTimeout(() => {
-        handleChoice(currentScenario.choices[0]);
-      }, 1000);
-    } else {
+    // if (currentScenario.isPreRandom) {
+    //   setTimeout(() => {
+    //     handleChoice(currentScenario.choices[0]);
+    //   }, 1000);
+    // } else {
       setAnimationCompleted(true);
-    }
+    //}
   }
 
   const renderButtons = () => {
-    if (currentScenario && !currentScenario.isPreRandom && !currentScenario.isRandom && currentScenario.choices.length === 1) {
+    if (currentScenario && !currentScenario.isRandom && currentScenario.choices.length === 1) {
       return (
         <Buttons
-          choiceArray={currentScenario.choices}
+          currentScenario={currentScenario}
           animationCompleted={animationCompleted}
             handleSkip={handleSkip}
-            handleNextScenario={handleNextScenario}
+          handleNextScenario={handleNextScenario}
+          handleGameOver={handleGameOver}
         />
       )
     } else if (currentScenario && currentScenario.choices.length > 1){
@@ -87,6 +86,7 @@ function Scenario({ handleChoice, currentScenario }) {
   return (
     
     <div className="mb-20 flex flex-col mt-24 items-center w-2/3 h-full">
+      
       <ScenarioText
         isSkipped={isSkipped}
         currentScenario={currentScenario}
@@ -96,8 +96,7 @@ function Scenario({ handleChoice, currentScenario }) {
         handleRandom={handleRandom}
         />
             
-        
-      {/* This section is so that the coin is displayed for the coin flip scenarios */}
+     
       
       { currentScenario.isRandom && !isSuspenseScreen ?
         <div className="h-full flex flex-col justify-end">
@@ -105,11 +104,19 @@ function Scenario({ handleChoice, currentScenario }) {
         </div>
          : <></>}
       
-    
+  
+      {
+        currentScenario.image && 
+        <div className="flex justify-center mt-56 h-full"><img className="" src={currentScenario.image} alt="" />
+          </div>
+      }
 
-
-    {/* ========================================================================== */}
-      
+      {
+        currentScenario.isEnding && 
+        <div className="h-full w-full flex justify-center items-center">
+            <CarouselComponent informationObject={currentScenario.information}/>
+        </div>
+      }
 
       
       
@@ -123,35 +130,12 @@ function Scenario({ handleChoice, currentScenario }) {
         <></>
       )}
 
-      {/* {
-        !currentScenario.isPreRandom && !currentScenario.isRandom ? 
-        <div className="relative w-full h-full z-20">
-        {animationCompleted ? (
-        // <ul className="flex mt-24 w-full justify-center items-center">
-        //   {currentScenario.choices.map((choice, index) => (
-        //     <li key={index}>
-        //       <button
-        //         className="absolute bottom-10 right-56 mx-4 px-4 flex flex-col border-2 border-black rounded-lg"
-        //         onClick={() => handleNextScenario(choice)}
-        //       >
-        //         {choice.text}
-        //       </button>
-        //     </li>
-        //   ))}
-              // </ul>
-
-        <button className="absolute bottom-10 right-56 mx-4 px-4 flex flex-col border-2 border-black rounded-lg">{currentScenario.choices[0].text}</button>
-      ) : (
-        <button className="absolute bottom-10 right-56 right-30 mx-4 px-4 flex flex-col border-2 border-black rounded-lg" onClick={handleSkip}>Skip</button>
-            )}
-          
-      </div>
-        :
-        ''
-      } */}
-      {renderButtons() }
       
-      <SidebarLeft  />
+        {renderButtons() }
+      
+      
+      
+      <SidebarLeft  scenario={currentScenario}/>
       <SidebarRight />
       <Footer />
     </div>

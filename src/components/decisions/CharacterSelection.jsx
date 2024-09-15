@@ -21,7 +21,6 @@ function CharacterSelection({ handleCharacter }) {
   const [confirmedIndex, setconfirmedIndex] = useState(-1);
   const [isConfirming, setIsConfirming] = useState(false);
 
-  const [isTransitioning, setTransitioning] = useState(false);
 
   const characters = [
     {
@@ -59,11 +58,7 @@ function CharacterSelection({ handleCharacter }) {
     setselectedIndex(index);
   }
 
-  const renderTransitionScreen = (characterIndex) => {
-    return (
-      <div className={`${characters[characterIndex].transition} absolute h-full w-full z-20`} ></div>
-    )
-  }
+  
 // const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     
 //     const handleTransitionScreen = async () => {
@@ -102,12 +97,8 @@ function CharacterSelection({ handleCharacter }) {
   
   return (
     <div className={`relative w-full h-full grid grid-rows-3  transition-opacity duration-1000 ease-in-out ${confirmedIndex !== -1 ? 'opacity-0' : 'opacity-100'}`}>
-
       
-      {isTransitioning?
-        <>{renderTransitionScreen(confirmedIndex)}</>
-        :
-        ''}
+      
       <div className="h-full flex justify-center items-center"><p className="relative font-bebas-neue self-center text-5xl">Choose a path</p></div>
       <div className="flex items-center justify-center w-full h-full space-x-32">
       {
