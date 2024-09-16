@@ -18,14 +18,37 @@ import CarouselComponent from "./CarouselComponent";
 
 
 
-function Scenario({ handleChoice, currentScenario, handleGameOver }) {
+function Scenario({ handleChoice, currentScenario, handleGameOver, character }) {
   
   const [isSkipped, setIsSkipped] = useState(false);
   const [animationCompleted, setAnimationCompleted] = useState(false);
 
   const [isSuspenseScreen, setIsSuspenseScreen] = useState(false);
 
+  const [isIntroTransition, setIsIntroTransition] = useState(true);
 
+  
+
+  const characterColors = 
+      {
+      'youth': 'bg-[#007596]',
+      'man': 'bg-[#F2C91E]',
+      'woman': 'bg-[#7AA43F]'
+      }
+
+  const renderIntroTransition = () => {
+    if (isIntroTransition) {
+      setTimeout(() => {
+        setIsIntroTransition(false);
+      }, 2000);
+    };
+    const transitionColor = characterColors[character];
+    console.log(transitionColor);
+    return (
+      <div className={`${isIntroTransition? 'opacity-100': 'opacity-0'} ${transitionColor} transition-opacity duration-500 ease-in-out w-full h-full absolute`} >
+      </div>
+    )
+  }
 
   const handleNextScenario = (choice) => {
     if (currentScenario.isRandom) {
@@ -84,10 +107,12 @@ function Scenario({ handleChoice, currentScenario, handleGameOver }) {
 
 
   return (
-    
-    <div className="mb-20 flex flex-col mt-24 items-center w-2/3 h-full">
-      
-      <ScenarioText
+  <>
+    {renderIntroTransition()}
+
+    <div className={`${!isIntroTransition ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 ease-in-out mb-20 flex flex-col mt-24 items-center w-full h-2/3`} >      
+      {!isIntroTransition &&
+       <ScenarioText
         isSkipped={isSkipped}
         currentScenario={currentScenario}
         handleAnimationCompleted={handleAnimationCompleted}
@@ -95,6 +120,8 @@ function Scenario({ handleChoice, currentScenario, handleGameOver }) {
         isSuspenseScreen={isSuspenseScreen}
         handleRandom={handleRandom}
         />
+       }   
+      
             
      
       
@@ -139,8 +166,8 @@ function Scenario({ handleChoice, currentScenario, handleGameOver }) {
       <SidebarRight />
       <Footer />
     </div>
-
-    
+      
+  </>
   );
 }
 export default Scenario;

@@ -3,7 +3,6 @@ import VolumeIcon from '../../assets/sidebars/leftSidebar/volume.png';
 import LightMode from '../../assets/sidebars/leftSidebar/lightMode.png';
 import CloseIcon from '../../assets/sidebars/leftSidebar/closeIcon.png';
 
-import logo from '../../assets/acmLogoLight.svg'
 
 import sad from '../../assets/sidebars/leftSidebar/moods/sad.svg';
 
@@ -27,6 +26,9 @@ function SidebarLeft({ scenario }) {
     
     if (scenario.mood.speechBubble) {
       setSpeechBubble(scenario.mood.speechBubble);
+      setTimeout(() => {
+        setSpeechBubble(undefined);
+      }, 5000);
     } else {
       setSpeechBubble(undefined);
     }
@@ -39,8 +41,9 @@ function SidebarLeft({ scenario }) {
         <p>MOOD TRACKER</p>
         {moodImage ? <img className="h-20" src={moodImage} alt="avatar of current mood" /> :
         <img className="h-20" src={sad} alt="avatar of current mood" />}
-        {speechBubble && <img className='relative left-48 bottom-14 scale-125' src={speechBubble} alt='speech bubble' />
-        }
+        <img className={`${speechBubble ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 ease-in-out relative left-48 bottom-14 scale-125`} src={speechBubble} />
+        
+        
       </div>
       <div className="relative flex flex-col justify-end mb-36 h-full justify-self-end">
         {

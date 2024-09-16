@@ -6,16 +6,16 @@ function Buttons({ currentScenario, animationCompleted, handleSkip, handleNextSc
     if (currentScenario.choices.length === 1) {
       if (!animationCompleted) {
         return (
-          <button className={`px-4 shadow-custom-darker bg-zinc-50 flex flex-col items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full`} onClick={handleSkip}>Skip</button>
+          <button className={`px-4 py-1 shadow-custom-darker bg-zinc-50 flex flex-col items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full`} onClick={handleSkip}>Skip</button>
         )
       } else if (currentScenario.isEnding) {
         return (
-          <button onClick={() => handleGameOver(true)} className={`px-4 shadow-custom-darker bg-zinc-50 flex items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full`}>{currentScenario.choices[0].text}</button>
+          <button onClick={() => handleGameOver(true)} className={`px-4 py-1 shadow-custom-darker bg-zinc-50 flex items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full`}>{currentScenario.choices[0].text}</button>
         )
       }
       else {
         return (
-          <button onClick={() => handleNextScenario(currentScenario.choices[0])} className={`px-4 shadow-custom-darker bg-zinc-50 flex items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full`}>{currentScenario.choices[0].text}</button>
+          <button onClick={() => handleNextScenario(currentScenario.choices[0])} className={`px-4 py-1 shadow-custom-darker bg-zinc-50 flex items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full`}>{currentScenario.choices[0].text}</button>
         )
       }
     
@@ -25,7 +25,7 @@ function Buttons({ currentScenario, animationCompleted, handleSkip, handleNextSc
   
 
   return (
-    <div className={`absolute z-30  flex ${currentScenario.postRandom? 'bottom-40 left-50': 'right-48 bottom-10'}`}>
+    <div className={`absolute z-30  flex ${currentScenario.postRandom? 'bottom-40 left-50': 'right-60 bottom-20'}`}>
       {renderButtons()}</div>
   )
 }

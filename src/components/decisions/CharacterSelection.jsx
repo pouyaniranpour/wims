@@ -29,8 +29,7 @@ function CharacterSelection({ handleCharacter }) {
       english: "Youth",
       style: "text-[#97CEDE]",
       frame: RangatahiFrame,
-      imgSrc:  Rangatahi ,
-      transition: "bg-[#97CEDE]"
+      imgSrc:  Rangatahi
     },
     {
       character: "man",
@@ -38,8 +37,7 @@ function CharacterSelection({ handleCharacter }) {
       english: "Man",
       style: "text-[#F2C91E]",
       frame: TaneFrame,
-      imgSrc: Tane,
-      transition: "bg-[#F2C91E]"
+      imgSrc: Tane
     },
     {
       character: "woman",
@@ -47,8 +45,7 @@ function CharacterSelection({ handleCharacter }) {
       english: "Woman",
       style: "text-[#7AA43F]",
       frame: WahineFrame,
-      imgSrc: Wahine,
-      transition: "bg-[#7AA43F]"
+      imgSrc: Wahine
     }
     
   ];

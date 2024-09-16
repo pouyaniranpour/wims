@@ -4,7 +4,7 @@ import Story from "./Story";
 import CharacterSelection from "../decisions/CharacterSelection";
 import EndingScreen from "../EndingScreen";
 
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Game() {
   const location = useLocation().pathname;
@@ -39,8 +39,7 @@ function Game() {
   };
 
   const handleCharacter = (characterInput) => {
-    // setScenario("start");
-    setScenario('friendsParentsRandom1');
+    setScenario('start');
     setCharacter(characterInput);
   };
 
@@ -60,7 +59,6 @@ function Game() {
       {character && !isGameOver ? (
         <Story
           scenario={scenario}
-          //onChoice={handleChoice}
           isGameOver={isGameOver}
           handleGameOver={handleGameOver}
           character={character}

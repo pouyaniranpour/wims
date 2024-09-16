@@ -26,7 +26,7 @@ function Typewriter(
             )
         } else if (isSuspenseScreen) {
             return (<ReactTyped
-          className={`font-bebas-neue w-full h-full flex justify-center items-center text-[100px]`}
+          className={`absolute font-bebas-neue w-full h-full flex justify-center items-center text-[100px]`}
           showCursor={false}
           strings={[`...`]}
           typeSpeed={800}
@@ -53,7 +53,7 @@ function Typewriter(
     
     
     return (
-        <div className={`absolute top-50 left-50 w-2/3 h-3/4 flex'}`}>
+        <div className={`absolute top-20 left-50 w-2/3 h-2/3 flex'}`}>
             {renderText()}
             
         </div>

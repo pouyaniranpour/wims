@@ -40,7 +40,7 @@ const Story = ({ scenario, isGameOver, handleGameOver, character, setScenario })
  
     return (
         <div className='absolute flex flex-col justify-center items-center h-full w-full'>
-            <Scenario handleChoice={handleChoice} currentScenario={currentScenario} handleGameOver={handleGameOver} />
+            <Scenario handleChoice={handleChoice} currentScenario={currentScenario} handleGameOver={handleGameOver} character={character} />
             
         </div>
     );

@@ -4,7 +4,6 @@ import anime from "animejs";
 
 function FadeInText({ items, handleAnimationCompleted}) {
     const itemsRef = useRef([]);
-    //const [animationCompleted, setAnimationCompleted] = useState(false);
 
     useEffect(() => {
         anime({
@@ -24,7 +23,7 @@ function FadeInText({ items, handleAnimationCompleted}) {
     
   
     return (
-        <div className="flex flex-col justify-center text-3xl w-2/3 h-full font-viga">
+        <div className="relative bottom-24 flex flex-col justify-center text-3xl w-2/3 h-full font-viga">
             
             {items.map((item, index) => (
                 <div

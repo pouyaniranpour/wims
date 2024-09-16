@@ -49,7 +49,7 @@ import rightArrow from '../../assets/buttons/arrowForward.svg'
     
   return (
       <div className="flex flex-col justify-center items-center w-full h-full">
-          <div className="flex justify-evenly w-1/2 h-1/2 mt-52">
+          <div className="flex justify-evenly w-1/2 h-1/2 mt-40">
           {
               
               informationObject.map((item, index) => { 

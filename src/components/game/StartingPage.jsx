@@ -25,7 +25,7 @@ function StartingPage() {
         <div className="flex flex-col relative left-16"><p className="font-viga text-2xl text-zinc-800">Walk My Life</p>
           <Link to={"/gettingStarted"}>
             <div className="cursor-pointer flex justify-center items-center relative bottom-4"><span className="text-large font-bebas-neue text-dark-orange">PLAY GAME</span>
-              <img className="ml-2 border border-black" src={orangeArrow} /></div>
+              <img className="ml-2 relative bottom-1" src={orangeArrow} /></div>
           </Link>
           
         </div>      
