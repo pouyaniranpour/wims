@@ -44,7 +44,7 @@ function Decisions({ choiceArray, handleNextScenario }) {
                <div className="absolute top-80 flex justify-center items-center">   
         <div className="flex w-[200px] justify-between">
             <img onClick={() => handleConfirmation(true)} className="hover:brightness-[0.95] cursor-pointer h-[64px]" src={confirmButton} alt="confirm button" />
-            <img onClick={() => handleConfirmation(false)} className="hover:brightness-[0.95] contrast(.5) cursor-pointer h-[64px]" src={denyButton} alt="deny button" />
+            <img onClick={() => handleConfirmation(false)} className="hover:brightness-[0.95] cursor-pointer h-[64px]" src={denyButton} alt="deny button" />
                   </div>
                   </div>
                   : ''}

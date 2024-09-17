@@ -30,7 +30,7 @@ function ScenarioText({
             handleSuspenseCompletion={handleSuspenseCompletion}
           />
       );
-    } else if (!currentScenario.typewriter && !isSkipped) {
+    } else if (currentScenario.text && !isSkipped) {
       return (
         <FadeInText
           handleAnimationCompleted={handleAnimationCompleted}
@@ -38,7 +38,7 @@ function ScenarioText({
         />
       );
     }
-    else if (!currentScenario.typewriter && isSkipped) {
+    else if (currentScenario.text && isSkipped) {
       return (
         <div className="relative bottom-24 flex flex-col justify-center text-3xl w-2/3 h-full font-viga">
           {currentScenario.text.map((item, index) => (

@@ -32,7 +32,7 @@ function RandomComponent({ handleSuspenseScreen }) {
     
       </div>
       
-        <button className="z-30 border border-black rounded-full px-4 bg-zinc-50 font-viga text-2xl shadow-custom-darker text-zinc-900"  onClick={() => handleClick()}>Flip</button>
+        <button className="z-30 border border-black rounded-full px-4 py-1 bg-zinc-50 font-viga text-2xl shadow-custom-darker text-zinc-900"  onClick={() => handleClick()}>Flip</button>
       
     </div>
     

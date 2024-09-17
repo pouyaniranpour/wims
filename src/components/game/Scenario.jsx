@@ -40,10 +40,9 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
     if (isIntroTransition) {
       setTimeout(() => {
         setIsIntroTransition(false);
-      }, 2000);
+      }, 1000);
     };
     const transitionColor = characterColors[character];
-    console.log(transitionColor);
     return (
       <div className={`${isIntroTransition? 'opacity-100': 'opacity-0'} ${transitionColor} transition-opacity duration-500 ease-in-out w-full h-full absolute`} >
       </div>
@@ -134,7 +133,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
   
       {
         currentScenario.image && 
-        <div className="flex justify-center mt-56 h-full"><img className="" src={currentScenario.image} alt="" />
+        <div className="flex justify-center h-full"><img className="" src={currentScenario.image} alt="" />
           </div>
       }
 
@@ -163,7 +162,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
       
       
       <SidebarLeft  scenario={currentScenario}/>
-      <SidebarRight />
+      <SidebarRight scenario={currentScenario}/>
       <Footer />
     </div>
       

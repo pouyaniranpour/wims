@@ -6,6 +6,18 @@ import google from '../../../../assets/decisions/rangatahi/google.svg';
 import begging from '../../../../assets/decisions/rangatahi/begging.svg';
 import noBegging from '../../../../assets/decisions/rangatahi/noBegging.svg';
 
+import call from '../../../../assets/decisions/rangatahi/call.svg';
+import noCall from '../../../../assets/decisions/rangatahi/noCall.svg';
+
+import runAway from '../../../../assets/decisions/rangatahi/runAway.svg';
+import goWithAunty from '../../../../assets/decisions/rangatahi/goWithAunty.svg';
+
+import msd from '../../../../assets/decisions/rangatahi/goToMsd.svg';
+import wait from '../../../../assets/decisions/rangatahi/wait.svg';
+import notSure from '../../../../assets/decisions/rangatahi/notSure.svg';
+
+
+
 /* ======================================= Scenario Images ====================================== */
 
 import positiveOutcome from '../../../../assets/scenarioImages/rangatahi/positiveOutcome.svg';
@@ -13,16 +25,21 @@ import negativeOutcome from '../../../../assets/scenarioImages/rangatahi/negativ
 
 /* ============================================ Mood images =========================================== */
 
-import Sad from '../../../../assets/sidebars/leftSidebar/moods/sad.svg'
-import Tearful from '../../../../assets/sidebars/leftSidebar/moods/tearful.svg'
-import Calm from '../../../../assets/sidebars/leftSidebar/moods/calm.svg'
+import sad from '../../../../assets/sidebars/leftSidebar/moods/sad.svg'
+import tearful from '../../../../assets/sidebars/leftSidebar/moods/tearful.svg'
+import calm from '../../../../assets/sidebars/leftSidebar/moods/calm.svg'
+import worried from '../../../../assets/sidebars/leftSidebar/moods/worried.svg'
+import thinking from '../../../../assets/sidebars/leftSidebar/moods/thinking.svg'
+import puzzled from '../../../../assets/sidebars/leftSidebar/moods/puzzled.svg'
+import defeated from '../../../../assets/sidebars/leftSidebar/moods/defeated.svg'
+import shocked from '../../../../assets/sidebars/leftSidebar/moods/shocked.svg'
 
 import seventeenYearsOld from '../../../../assets/sidebars/leftSidebar/speechBubbles/rangatahi/seventeenYearsOld.svg'
 import gettingHungry from '../../../../assets/sidebars/leftSidebar/speechBubbles/rangatahi/gettingHungry.svg'
 import soCold from '../../../../assets/sidebars/leftSidebar/speechBubbles/rangatahi/soCold.svg'
 import scared from '../../../../assets/sidebars/leftSidebar/speechBubbles/rangatahi/scared.svg'
 
-/* ================================ Images for info carousel =============================== */
+/* ================================ Images for ending info carousel =============================== */
 import house from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/house.svg';
 import humanFigure from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/humanFigure.svg';
 import presentation from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/presentation.svg';
@@ -35,13 +52,17 @@ import anxiety from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/a
 import lifewise from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/lifewise.svg';
 import community from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/community.svg';
 
+import learningCurve from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/learningCurve.svg';
+import work from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/work.svg';
+import relationWithMum from '../../../../assets/scenarioImages/rangatahi/outcomeScreen/relationWithMum.svg'
+
 /* ==================================================================================================== */
 
 export const youth = [
   {
     id: "start",
     mood: {
-      image: Sad
+      image: sad
     },
     text: [<p>It is a Sunday night.</p>, <p>You're arguing with your mum's partner again</p>,
     <p>But this time, it's more serious and he demands you leave the house immediately.</p>],
@@ -51,14 +72,13 @@ export const youth = [
   },
   {
     id: "startPt2",
-    //text: [],
     mood: {
-      image: Tearful,
+      image: tearful,
       delay: 1500
     },
     isDialogue: true,
     typewriter: 
-      { text: '<p>LAZY!</p><p class="ml-56 mt-16">USELESS!</p><p class="ml-96 mt-16">GET OUT OF MY HOUSE!</p>', style: `text-[80px] flex-col`},
+      { text: '<p>LAZY!</p><p class="ml-56 mt-16">USELESS!</p><p class="ml-96 mt-16">GET OUT OF MY HOUSE!</p>', style: `mt-24 text-[80px] `},
     choices: [
       { text: "Next", nextScenario: "startPt3" },
     ],
@@ -68,17 +88,17 @@ export const youth = [
   /* ===================================== Starting decisions ===================================== */
 {
     id: "startPt3",
-  //text: [],
   mood: {
-    image: Sad,
+    image: worried,
+
     speechBubble: seventeenYearsOld
   },
     typewriter: 
-    { text: '<p>Where will you go?</p>', style: `justify-center text-[64px]` },
+    { text: '<p>Where will you go?</p>', style: `items-center text-[64px]` },
     choices: [
       { image: church, nextScenario: "churchPt1" },
       { image: closeFriend, nextScenario: "closeFriend" },
-      { image: google, nextScenario: "startPt2" },
+      { image: google, nextScenario: "google" },
     ],
   },
   
@@ -86,8 +106,15 @@ export const youth = [
 /* ======================================= Church section ======================================= */
   {
     id: "churchPt1",
+    mood: {
+      image: thinking
+    },
+    progressObject: {
+      count: 2,
+      delay: 1000
+    },
     text: [<p>You thought you'd be able to find someone you know from the church who could help you, but it is a Sunday night and the church is locked up.</p>,
-      <p>You did grab a warm sleeping bad so you find a spot out of the wind & rain and bunk there overnight.</p>
+      <p>You did grab a warm sleeping bag so you find a spot out of the wind & rain and bunk there overnight.</p>
     ],
     choices: [
       {
@@ -99,7 +126,7 @@ export const youth = [
   {
     id: "churchPt2",
     mood: {
-      image: Sad,
+      image: sad,
       speechBubble: soCold
     },
     text: [<p>You're on hard concrete and you are still shaking about what happened, so you don't get any sleep</p>,
@@ -130,7 +157,7 @@ export const youth = [
     id: "withChurchSecretary",
     typewriter: {
       text: `<p>You tell her your situation and she starts <br/>phoning around trying to see who can help</p>`,
-      style: `text-[64px] justify-center mt-52`
+      style: `text-[64px] items-center mt-52`
     },
     choices: [
       {
@@ -144,7 +171,7 @@ export const youth = [
     isRandom: true,
     typewriter: {
       text: `<p>Who does she call?</p>`,
-      style: `justify-center text-[64px]`
+      style: `items-center text-[64px]`
     },
     choices: [
       {
@@ -185,7 +212,7 @@ export const youth = [
   {
     id: "refuseToGoWithStepdad",
     mood: {
-      image: Sad,
+      image: tearful,
       speechBubble: scared
     },
     text: [<p>Immediately, you burst into tears and cry out that you refuse to go with him</p>,
@@ -199,9 +226,6 @@ export const youth = [
   },
   {
     id: "policeTakeStepdad",
-    mood: {
-      image: Tearful,
-    },
     isEndingIntroNext: true,
     text: [<p>The police arrive and they put him in their car to 'cool off'.</p>,
       <p>They ask if you're ok and listen to your situation.</p>,
@@ -211,63 +235,209 @@ export const youth = [
   },
   {
     id: "churchRandom2",
-    text:
-      `When she asks where you could go to live you stare at her. You don't know. You were planning to study at university while living at home to save money. She asks if there is another family member you can call. You think your aunty might help but you're not sure. She can be really strict. Should you call her?`,
+    typewriter: {
+      text: `<p>When she asks where you could go to live<br/> you just stare at her.</p>`, style: `text-[64px] justify-center text-center`
+    },
     choices: [
-      { text: "Yes", nextScenario: "callAunty" },
-      { text: "No", nextScenario: "dontCallAunty" },
+      { text: "Next", nextScenario: "notSureWhoToCall" },
     ],
   },
   {
-    id: "callAunty",
-    text:
-      `You aren't sure what to do, so you call your aunty and she arrives in a flurry of hugs which is nice. After you've told her what happened she gets nervous about how this will affect her relationship with her sister. She says they don't have much room, but can put you up for a month - not forever. She says you are old enough to stand on your own two feet and will expect you to pay board and food. No one has ever told you how much food and board might be and even though you've tried to get a part-time job, there is so much competition that you haven't got one. You feel quite awkward around people sometimes and this hasn't helped in job interviews. You worry that you will never get a job. Should you stay with aunty?`,
+    id: "notSureWhoToCall",
+    text: [<p>You don't know. You were planning to study at university while living at home to save money.</p>,
+      <p>She asks if there is another family member you can call. You think your aunty might help, but you're not sure.</p>,
+      <p>She can be really strict.</p>
+    ],
     choices: [
-      { text: "Not sure", nextScenario: "socialWorkerOptions" },
-      { text: "No", nextScenario: "dontStayWithAunt" },
+      { text: "Next", nextScenario: "callAuntyDecision" },
     ],
   },
   {
-    id: "dontStayWithAunt",
-    text:
-      `You know they are well meaning, but you feel very pressured by the church staff to stay with your aunt and uncle. You know in your gut that this is a bad idea. You grab your stuff and run out. You catch a bus going to the city.`,
+    id: "callAuntyDecision",
+    typewriter: {
+      text: `Should you call her?`, style: `text-[64px] justify-center mt-24`
+    },
+    choices: [
+      { image: call, nextScenario: "callAuntyPt1" },
+      { image: noCall, nextScenario: "dontCallAunty" },
+    ],
+  },
+  {
+    id: "callAuntyPt1",
+    text: [<p>You aren't sure what to do, so you call your aunty and she arrives in a flurry of hugs, which is nice.</p>,
+      <p>After you've told her what happened she gets nervous about how this will affect her relationship with her sister.
+        She says they don't have much room, but can put you up for a month - not forever.</p>,
+      <p>She says you are old enough to stand on your own two feet and will expect you to pay board and food.</p>
+    ],
+    choices: [
+      { text: "Next", nextScenario: "callAuntyPt2" },
+    ],
+  },
+  {
+    id: "callAuntyPt2",
+    text: [<p>No one has ever told you how much food and board might be and even though you've tried to get a part-time job, there is so much competition that you haven't got one.</p>,
+      <p>You feel quite awkward around people sometimes and this hasn't helped in job interviews.</p>,
+      <p>You worry that you will never get a job.</p>
+    ],
+    choices: [
+      { text: "Not sure", nextScenario: "socialWorker" },
+      { text: "No", nextScenario: "trustYourGut" },
+    ],
+  },
+  {
+    id: "trustYourGut",
+    text: [<p>You know they are well-meaning, but you feel very pressured by the church staff to stay with your aunt and uncle.</p>,
+      <p>You just know in your gut that this is a bad idea.</p>,
+      <p>You grab your stuff and run out. You catch a bus going into the city.</p>
+    ],
     choices: [{ text: "Next", nextScenario: "inTheCity" }],
   },
   {
     id: "inTheCity",
-    text:
-      `In the city, you hang out at a fast food place and realise there are some other teens who are homeless. They are friendly and show you where they are living under a bridge. You need money for food and you're hoping to get work, but can't think how it will be possible, with no easy shower facilities or permanent address. Your friends tell you there might be a cash job around, or if you are willing to go and see Work and Income, you might be able to get the Youth Payment.`,
+    text: [<p>In the city, you hang out at a fast food place and realise there are some other teens there who are homeless.</p>,
+      <p>They are friendly and show you where they are living under a bridge.</p>,
+      <p>You need money for food and you're hoping to get work, but can't think how, with no easy shower facilities or permanent address.</p>
+    ],
     choices: [
-      { text: "Go to MSD", nextScenario: "goToMSD" },
-      {
-        text: "Wait - something might turn up?",
-        nextScenario: "approachedByMan",
-      },
-      { text: "Not sure", nextScenario: "policeShowUp" },
+      { text: "Next", nextScenario: "talkingToYouth" },
+    ],
+  },
+  {
+    id: "talkingToYouth",
+    isDialogue: true,
+    typewriter: {
+      text: `<p>If you're lucky, a cash job might come up.</p><br/><p>Or, you could go see work and income?</p><br/><p>You might be able to get the youth payment</p>`,
+      style: `text-[64px] ml-48`
+    },
+    choices: [
+      { text: "Next", nextScenario: "goToMSD_Decision" },
+    ],
+  },
+  {
+    id: "goToMSD_Decision",
+    mood: {
+      image: sad,
+      speechBubble: seventeenYearsOld
+    },
+    typewriter: {
+      text: `<p>What is your decision?</p`, style: `text-[64px] items-center`
+    },
+    choices: [
+      { image: msd, nextScenario: "goToMSD" },
+      { image: wait, nextScenario: "approachedByMan"},
+      { image: notSure, nextScenario: "policeShowUp" },
     ],
   },
   {
     id: "policeShowUp",
-    text:
-      `The police show up looking for you because your mum filed a Missing Person's Report. The police decide to take you back home. You ask them not to do this but you aren't able to think of anyone else who can help. They say they will "have a talk" with your parents. When you arrive in the police car, your mum runs out to you but your stepdad tells the police that you are not welcome to live there and gets angry with your mum for filing the report. The police try to reason with him but he stands his ground. The police call a youth housing service and ask them to put you up for the night with an assessment booked for the following day.`,
+    progressObject: {
+      count: 5
+    },
+    typewriter: {
+      text: `The Police show up`,
+      style: `text-[64px] items-center justify-center`
+    },
+    choices: [{ text: "Next", nextScenario: "takenBackHome" }],
+  },
+  {
+    id: "takenBackHome",
+    progressObject: {
+      count: 6
+    },
+    text: [<p>Your mum filed a Missing Person's Report.</p>,
+      <p>The police decide to take you back home.</p>,
+      <p>You ask them not to do this, but you aren't able to think of anyone else who can help. They say they will "have a talk" with your parents.</p>
+    ],
+    choices: [{ text: "Next", nextScenario: "greetedByStepdad" }],
+  },
+  {
+    id: "greetedByStepdad",
+    progressObject: {
+      count: 7,
+      delay: 2500
+    },
+    isEndingIntroNext: true,
+    text: [<p>When you arrive in the police car, your mum runs out to you, but your stepdad tells the police that you are not welcome to live there and gets angry with your mum for filing the report.</p>,
+      <p>The police try to reason with him, but he stands his ground.</p>,
+      <p>The police call a youth housing service and ask them to put you up for the night with an assessment booked for the following day.</p>
+    ],
     choices: [{ text: "Next", nextScenario: "youthHostelEnding1" }],
   },
   {
     id: "goToMSD",
-    text:
-      `Work and Income refer you to a youth service who helps you get some accommodation and the two forms of ID, so you can get the Youth payment. Next, they also work through details of your living costs and prepare a budget, so you will be eligible for the payment. The money is mostly used up in rent and expenses, but you are left with a little over for food. They explain this payment is only available, if you are studying, or training towards a job. Your dream to be a Doctor is too expensive for you right now. Work and Income find you the opportunity to do an apprenticeship and this will pay and train you at the same time. You decide to take it.`,
+    text: [<p>Work and Income refer you to a youth service who helps you get some accommodation and the two forms of ID, so you can get the Youth Payment.</p>,
+      <p>Next, they also work through details of your living costs and prepare a budget, so you will be eligible for the payment</p>,
+      <p>The money is mostly used up in rent and expenses, but you are left with a little over for food.</p>
+    ],
+    choices: [{ text: "Next", nextScenario: "goToMSD_Pt2" }],
+  },
+  {
+    id: "goToMSD_Pt2",
+    text: [<p>They explain this payment is only available, if you are studying, or training towards a job.</p>,
+      <p>Your dream to be a doctor is too expensive for you right now.</p>,
+      <p>Work and Income find you the opportunity to do an apprenticeship and this will pay you and train you at the same time.</p>
+    ],
+    choices: [{ text: "Next", nextScenario: "goToMSD_Pt3" }],
+  },
+  {
+    id: "goToMSD_Pt3",
+    isEndingIntroNext: true,
+    typewriter: {
+      text: `You decide to take it. You will be Okay.`, style: `text-[64px] items-center mt-32 flex-col`
+    },
     choices: [{ text: "Next", nextScenario: "goingToBeOkayEnding" }],
   },
   {
     id: "approachedByMan",
-    text:
-      `A man comes up to you and offers a place to live, if you "are nice to him." What now?`,
+    typewriter: {
+      text: `A man suddenly approaches you`,
+      style: `text-center mt-48 text-[64px]`
+    },      
+    choices: [{ text: "Next", nextScenario: "mansOffer" }],
+  },
+  {
+    id: "mansOffer",
+    isDialogue: true,
+    typewriter: {
+      text: `<p class='ml-36 mt-24'>You looking for a place to stay?</p> <br /><p class='ml-16'>You can stay at mine</p> <br/><p class='ml-72'>If you are nice to me</p>`,
+      style: `text-[64px]`
+    },      
     choices: [{ text: "Next", nextScenario: "refuseMansOffer" }],
   },
   {
     id: "refuseMansOffer",
-    text:
-      `You aren't willing to go with him. Your new friends explain that you may have to steal to survive and give you some tips. You steal some food from a dairy a few times, but on the fourth time they are waiting for you and haul you in. The owner says she's sick of kids stealing from her and wants to teach you a lesson. She calls the police.`,
+    text: [<p>You aren't willing to go with him.</p>,
+      <p>Your new friends explain that you may have to steal to survive and give you some tips.</p>,
+      <p>You steal some food from a dairy a few times, but on the fourth time they are waiting for you and haul you in.</p>
+    ],
+    choices: [
+      {
+        text: "Next",
+        nextScenario: `dairyOwnerSpeaking`,
+      },
+    ],
+  },
+  {
+    id: "dairyOwnerSpeaking",
+    isDialogue: true,
+    typewriter: {
+      text: `<p>I'm sick of you kids stealing from me</p><br/><p class='ml-80'>I'll teach you a lesson.</p>`,
+      style: `mt-32 text-[64px]`,
+    },
+    choices: [
+      {
+        text: "Next",
+        nextScenario: `policeCalled`,
+      },
+    ],
+  },
+  {
+    id: "policeCalled",
+    isRandom: true,
+    typewriter: {
+      text: `<p>She calls the police. What do they say?</p>`,
+      style: `text-[64px] text-center`,
+    },
     choices: [
       {
         text: "Flip",
@@ -277,43 +447,121 @@ export const youth = [
   },
   {
     id: "policeRandom1",
-    text:
-      `The police ask if you're okay and listen to your situation. They convince the dairy owner to drop charges. They take you to Auckland City Mission.`,
+    typewriter: {
+      text: `<p>The police are sympathetic and convince <br />the dairy owner to drop charges</p>`,
+      style: `mt-32 text-[64px] text-center`,
+    },
+    choices: [{ text: "Next", nextScenario: "policeSympathetic" }],
+  },
+  {
+    id: "policeSympathetic",
+    isEndingIntroNext: true,
+    text: [<p>The police ask if you're okay and listen to your situation.</p>,
+    <p>Then they take you to Auckland City Mission.</p>],
     choices: [{ text: "Next", nextScenario: "turnedEighteenEnding" }],
   },
   {
     id: "policeRandom2",
-    text:
-      `The police ask if you're okay and listen to your situation. They try to convince the dairy owner to drop charges but she is sick of shoplifters and insists. They police involve their Youth Aid services who support you into accommodation and work with you to plan your next steps.`,
+    typewriter: {
+      text: `<p>The police are sympathetic, <br />but the dairy owner is not</p>`,
+      style: `mt-48 text-[64px] text-center`,
+    },
+    choices: [{ text: "Next", nextScenario: "dairyOwnerUnsympathetic" }],
+  },
+  {
+    id: "dairyOwnerUnsympathetic",
+    text: [<p>The police ask if you're okay and listen to your situation.</p>,
+      <p>Although the police try to convince the dairy owner to drop charges, she insists and says she is sick of shoplifters.</p>,
+    <p>The Police involve their Youth Aid services, who support you into accommodation and work with you to plan your next steps.</p>],
     choices: [{ text: "Next", nextScenario: "goingToBeOkayEnding" }],
   },
   {
     id: "dontCallAunty",
-    text:
-      `You think she won't stick up for you with your mum's partner and worry he'll show up at the house and shout at you... and maybe do worse things than just shout. The church administrator asks whether she should call your parents, because "perhaps this was all just a big misunderstanding." She suggests the Pastor could get involved. You start crying and tell her what's been happening in your house. She calls a member of the church, who is a social worker.`,
-    choices: [{ text: "Next", nextScenario: "socialWorkerOptions" }],
+    text: [<p>You think she won't stick up for you with your mum's partner and worry he'll show up at the house and shout at you - and maybe do worse things than just shout.</p>,
+      <p>The church administrator asks whether she should call your parents, because "perhaps this was all just a big misunderstanding." She suggests the Pastor could get involved.</p>,
+      <p>You start crying and tell her what's been happening in your house. She calls a member of the church who is a social worker.</p>
+    ],
+    choices: [{ text: "Next", nextScenario: "socialWorker" }],
   },
   {
-    id: "socialWorkerOptions",
-    text:
-      `The Social Worker lays out a few options, if your don't want to stay with your aunty, but says it will take a few days to sort out. He says he may struggle to find a place you can go for tonight. Why don't you go with your aunty for a couple of days and he'll look into some options and meet again in a couple of days to go through them? Go with your aunt?`,
+    id: "socialWorker",
+    text: [<p>The Social Worker lays out a few options if you don't want to stay with your aunty, but says it will take a few days to sort out.</p>,
+      <p>He says he may struggle to find a place you can go for tonight.</p>
+    ],
     choices: [
-      { text: "Yes", nextScenario: "goWithAunt" },
-      { text: "No", nextScenario: "dontStayWithAunt" },
+      { text: "Next", nextScenario: "socialWorkerSpeaking" },
     ],
   },
   {
-    id: "goWithAunt",
-    text:
-      `Your aunt and uncle have a spare room and for a few days you manage to keep to your own room. You pretend nothing has happened, but then your cousin asks your uncle why you are crying all the time. Your aunt keeps asking you if you have a job yet and says she started working a supermarket checkout from age fourteen and then comments about how expensive you are to feed. You feel very unwelcome and stressed.`,
+    id: "socialWorkerSpeaking",
+    isDialogue: true,
+    typewriter: {
+      text: `<p>Why don't you go with your aunty for a couple of days?</p><br/><p>I'll look into some options</p><br/><p>And we can meet up again in a couple of days<br/>to go through them?</p>`,
+      style: `text-[64px]`
+    },
+    choices: [
+      { text: "Next", nextScenario: "goWithAuntDecision" },
+    ],
+  },
+  {
+    id: "goWithAuntDecision",
+    typewriter: {
+      text: `<p>Should you stay with Aunty?</p>`,
+      style: `text-[64px] items-center`
+    },
+    choices: [
+      { image: goWithAunty, nextScenario: "goWithAunty" },
+      { image: runAway, nextScenario: "trustYourGut" },
+    ],
+  },
+  {
+    id: "goWithAunty",
+    mood: {
+      image: tearful
+    },
+    progressObject: {
+      count: 6
+    },
+    text: [<p>Your aunt and uncle have a spare room and for a few days you manage to keep to your own room.</p>,
+      <p>You all pretend nothing has happened, but then your cousin asks your uncle why you are crying all the time.</p>,
+      <p>Your aunt keeps asking you if you have a job yet.</p>
+    ],
+    choices: [
+      { text: "Next", nextScenario: "auntyTalking" },
+    ],
+  },
+  {
+    id: "auntyTalking",
+    isDialogue: true,
+    typewriter: {
+      text: `<p>You're so expensive to feed</p><br/><p>You know, when I was 14, I started working at a supermarket</p><br/><p>Kids these days don't know hard work</p>`, 
+      style: `text-[64px] mt-16 ml-32`
+    },
+    choices: [
+      { text: "Next", nextScenario: "unwelcomeAndStressed" },
+    ],
+  },
+  {
+    id: "unwelcomeAndStressed",
+    typewriter: {
+      text: `<p>You are starting to feel unwelcome and stressed</p>`, 
+      style: `text-[64px] justify-center text-center`
+    },
     choices: [
       { text: "Next", nextScenario: "callSocialWorker" },
     ],
   },
   {
     id: "callSocialWorker",
-    text:
-      `You call the Social Worker and he picks you up and takes you back to the church office. He makes calls on your behalf and finds you a place to stay. You are very close to eighteen years old, so he doesn't call Oranga Tamariki, who would normally get involved with children.`,
+    mood: {
+      image: calm,
+      delay: 1500
+    },
+    isEndingIntroNext: true,
+    text: [<p>You call the Social Worker and he picks you up and takes you back to the church office.</p>,
+      <p>He makes calls on your behalf and finds you a place to stay.</p>,
+      <p>You are very close to 18 years old, so he calls Lifewise for help.</p>
+    ],
     choices: [
       { text: "Next", nextScenario: "goingToBeOkayEnding" }, 
     ],
@@ -321,11 +569,16 @@ export const youth = [
   /* ===== //Close Friend section ===== */
   {
     id: "closeFriend",
-    text: [],
     mood: {
-      image: Sad
+      image: thinking
     },
-    typewriter: { text: '<p>Your friend asks their parents<br/> if you can stay with them for a while.</p>', style: `text-[64px] mt-48 justify-center text-center` },
+    progressObject: {
+      count: 2,
+    },
+    typewriter: {
+      text: '<p>Your friend asks their parents<br/> if you can stay with them for a while.</p>',
+      style: `text-[64px] mt-32 text-center`
+    },
     choices: [
       { text: "Next", nextScenario: `closeFriendPt2` },
     ],
@@ -333,15 +586,18 @@ export const youth = [
   {
     id: "closeFriendPt2",
     isRandom: true,
-    typewriter: { text: '<p>What are they going to say?</p>', style: `justify-center text-[64px]`},
+    typewriter: { text: '<p>What are they going to say?</p>', style: `items-center mt-12 text-[64px]`},
     choices: [
       { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
   },
   {
     id: "friendsParentsRandom1",
-    text: [],
-    typewriter: { text: '<p>The parents will help you.</p>', style: `justify-center mt-8 text-[64px]` },
+    progressObject: { count: 7, delay: 1000 },
+    mood: {
+      image: calm
+    },
+    typewriter: { text: '<p>The parents will help you.</p>', style: `items-center mt-8 text-[64px]` },
     isEndingIntroNext: true,
     postRandom: true,
     image: positiveOutcome,
@@ -351,8 +607,12 @@ export const youth = [
   },
   {
     id: "friendsParentsRandom2",
+    progressObject: { count: 3 },
+    mood: {
+      image: tearful
+    },
     typewriter: 
-      { text: `<p>The parents won't help.</p>`, style: `mt-8 justify-center text-[64px]`},
+      { text: `<p>The parents won't help.</p>`, style: `mt-8 items-center text-[64px]`},
     postRandom: true,
     image: negativeOutcome,
     choices: [
@@ -361,6 +621,9 @@ export const youth = [
   },
   {
     id: "friendsParentsSympathetic",
+    mood: {
+      image: sad
+    },
     text: [<p>Your friend's parents are sympathetic.</p>,
     <p>However they don't feel comfortable "overriding your parents' authority" by letting you stay with them.</p>],
     
@@ -371,9 +634,8 @@ export const youth = [
   {
     id: "canSchoolHelp",
     isRandom: true,
-    //text: [],
     typewriter:
-      {text: `Can your school help?`, style:`justify-center mt-8 text-[64px]` },
+      {text: `Can your school help?`, style:`items-center mt-8 text-[64px]` },
     
     choices: [
       { text: "Flip", nextScenario: `canSchoolHelpRandom${Math.floor(Math.random() * 2) + 1}` },
@@ -381,8 +643,8 @@ export const youth = [
   },
   {
     id: "canSchoolHelpRandom1",
-    //text: [],
-    typewriter: { text: '<p>The school can help.</p>', style: `justify-center mt-8 text-[64px]`},
+    progressObject: { count: 5 },
+    typewriter: { text: '<p>The school can help.</p>', style: `items-center mt-8 text-[64px]`},
     postRandom: true,
     image: positiveOutcome,
     choices: [
@@ -391,8 +653,12 @@ export const youth = [
   },
   {
     id: "schoolCounselor",
+    progressObject: {
+      count: 7,
+      delay: 2000
+    },
     mood: {
-      image: Calm,
+      image: calm,
       delay: 2000
     },
     isEndingIntroNext: true,
@@ -405,8 +671,13 @@ export const youth = [
   },
   {
     id: "canSchoolHelpRandom2",
-    //text: [],
-    typewriter: { text: `<p>The school won't help you.</p>`, style: `justify-center mt-8 text-[64px]`},
+    mood: {
+      image: shocked
+    },
+    progressObject: {
+      count: 5,
+    },
+    typewriter: { text: `<p>The school won't help you.</p>`, style: `items-center mt-8 text-[64px]`},
     postRandom: true,
     image: negativeOutcome,
     choices: [
@@ -441,13 +712,12 @@ export const youth = [
   },
   {
     id: "begDecision",
-    //text: [],
     mood: {
-      image: Sad,
+      image: worried,
       speechBubble: gettingHungry
     },
       typewriter: 
-      { text: '<p>Should you beg for money?</p>', style: `justify-center text-[64px]` },
+      { text: '<p>Should you beg for money?</p>', style: `items-center text-[64px]` },
     choices: [
       { image: begging, nextScenario: `beg` },
       { image: noBegging, nextScenario: `dontBeg` },
@@ -456,7 +726,10 @@ export const youth = [
   {
     id: "beg",
     mood: {
-      image: Sad,
+      image: tearful,
+    },
+    progressObject: {
+      count: 6
     },
     text: [<p>People avoid your eyes and make comments about how dirty and skinny you are.</p>,
       <p>Some people give you coins, but you overhear them saying they know it's all going to be spent on drugs.
@@ -469,6 +742,9 @@ export const youth = [
   },
   {
     id: "dontBeg",
+    mood: {
+      image: sad
+    },
     text: [<p>You hang around some corporate offices because people are more likely to throw away half eaten lunches there.</p>,
       <p>You also find a community pantry and take a few things each day.</p>,
       <p>It's not enough and you are losing too much weight and struggle to have energy to do much.</p>
@@ -479,30 +755,20 @@ export const youth = [
   },
   {
     id: "atFastFoodPlace",
-    //text: [],
-    typewriter: {
-      text: `<p>When you go into a fast food chain to buy food <br/>and go to the toilet to wash, <br/>they refuse you service and demand you leave.</p>`,
-      style: `text-[64px] mt-48`
-    },
-    choices: [
-      { text: "Next", nextScenario: `atFastFoodPlacePt2` },
+    text: [<p>When you go into a fast food chain to buy food and go to the toilet and wash, they refuse you service and demand you leave.</p>,
+      <p>They say you smell and make other customers feel uncomfortable.</p>
     ],
-  },
-  {
-    id: "atFastFoodPlacePt2",
-    isDialogue: true,
-    typewriter: {
-      text: `<br/><p class="mt-10 mb-10">You smell!</p><br/><p>Other customers feel uncomfortable because of you</p>`,
-      style: `text-[64px]`
-    },
     choices: [
       { text: "Next", nextScenario: `outreachTeamNotified` },
     ],
   },
   {
     id: "scaredAtNight",
+    progressObject: {
+      count: 6
+    },
     text: [<p>You feel really scared at night and try to stay awake as much as possible</p>,
-      <p>That means you sleep more during the day and people wak past you.</p>,
+      <p>That means you sleep more during the day and people walk past you.</p>,
       <p>Some comment that you are young and should get a job instead of lying around all day. You actually yell at some of them.</p>
     ],      
     choices: [
@@ -514,7 +780,7 @@ export const youth = [
     isDialogue: true,
     typewriter: {
       text: `<p>So give me a job then!</p>`,
-      style: `text-[100px] items-center justify-center`
+      style: `text-[100px] justify-center items-center`
     },      
     choices: [
       { text: "Next", nextScenario: `yellingAtStrangersPt2` },
@@ -524,7 +790,7 @@ export const youth = [
     id: "yellingAtStrangersPt2",
     typewriter: {
       text: `<p>He says they only hire University graduates</p>`,
-      style: `text-[64px] items-center justify-center`
+      style: `text-[64px] justify-center items-center`
     },      
     choices: [
       { text: "Next", nextScenario: `outreachTeamNotified` },
@@ -532,6 +798,14 @@ export const youth = [
   },
   {
     id: "outreachTeamNotified",
+    progressObject: {
+      count: 7,
+      delay: 1500
+    },
+    mood: {
+      image: calm,
+      delay: 1500
+    },
     isEndingIntroNext: true,
     text: [<p>The Auckland City Mission Outreach Team are notified by a member of the public that someone is rough sleeping in the area and they come visit you and have a chat.</p>,
       <p>You have heard of them and trust them and take up their offer of accomodation and support.</p>
@@ -544,16 +818,50 @@ export const youth = [
   /* ======== Google pathway ======== */
   {
     id: "google",
-    text:
-      `Thankfully you are over sixteen and able to contact organisations such as Lifewise and places that do have accommodation for someone your age. It's Sunday night, so you couch surf at a friend's for one night. Neither you nor they mention to the parents that you've been kicked out of home.`,
+    mood: {
+      image: puzzled
+    },
+    progressObject: {
+      count: 2
+    },
+    typewriter: { text: `<p>Thankfully you are over 16!</p><p class= 'mt-10'>You are able to contact organisations <br/>such as lifewise by yourself.</p>`, style: `mt-28 text-[100px] text-center` },
+    choices: [
+      { text: "Next", nextScenario: `couchSurfing` },
+    ],
+  },
+  {
+    id: "couchSurfing",
+    mood: {
+      image: thinking
+    },
+    text: [<p>You've asked your friend if you could couch surf at their place for one night while you prepare to contact Lifewise.</p>,
+      <p>Neither you, nor they mention to the parents that you've been kicked out of your home.</p>
+    ],
     choices: [
       { text: "Next", nextScenario: `badReaction` },
     ],
   },
   {
     id: "badReaction",
-    text:
-      `You should start phoning Lifewise immediately the next morning, but you are having some kind of reaction to your parents' rejection and you feel unable to get out of bed. You stay like that for a day and night before your friend's parents challenge you. You can't even talk about it - it's like you've lost your words. Your friend ends up explaining. What happens?`,
+    mood: {
+      image: defeated
+    },
+    text: [<p>You should start phoning Lifewise immediately the next morning, but you are having some kind of reaction to your parents' rejection and you feel unable to get out of bed.</p>,
+      <p>You stay like that for a day and night before your friend's parents challenge you.</p>,
+      <p>You can't even talk about it - it's like you've lost your words. Your friend ends up explaining your situation.</p>
+    ],
+    choices: [
+      { text: "Next", nextScenario: `friendExplainsSituation` },
+    ],
+  },
+  {
+    id: "friendExplainsSituation",
+    mood: {
+      image: worried
+    },
+    isRandom: true,
+    typewriter:
+      {text: `What happens?`, style:`items-center mt-8 text-[64px]` },
     choices: [
       { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
     ],
@@ -562,9 +870,11 @@ export const youth = [
   /* ====================================== Pre-Ending Screen ===================================== */
   {
     id: "endingIntro",
-    //text: [],
+    progressObject: {
+      count: 7
+    },
     isEndingNext: true,
-    typewriter: { text: '<p>Every journey to find a <br/> home is different</p>', style: `justify-center mt-32 text-[100px] text-center` },
+    typewriter: { text: '<p>Every journey to find a <br/> home is different</p>', style: `mt-32 text-[100px] text-center` },
     choices: [
       { text: "Continue", nextScenario: `` },
     ],
@@ -575,6 +885,7 @@ export const youth = [
   {
     id: "policeTakeStepdadEnding",
     isEnding: true,
+    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: anxiety,
@@ -603,7 +914,7 @@ export const youth = [
   {
     id: "turnedEighteenEnding",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `justify-center text-[100px] text-center`},
+    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: house,
@@ -627,24 +938,58 @@ export const youth = [
   },
   {
     id: "goingToBeOkayEnding",
-    text:
-      `You are going to be okay. You have learned the grim reality that family don't always accept you, as well as finding out that New Zealand has a problem with proper help for teenagers and children who are unsafe, or need to leave their homes. But you will receive enough support. You'll make good friends who will help you through this horrible time. Your dream to be a Doctor takes a back seat for a few years, because you have to get a job to support yourself. The future starts to look much brigher and you are able to laugh again.`,
+    isEnding: true,
+    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `text-[100px] text-center`},
+    information: [
+      {
+        image: learningCurve,
+        subtitle: 'Learning Curve',
+        text: [<p>You are going to be OK. You have learned the grim reality that family don't always accept you, as well as finding out that NZ has a problem with proper help for teenagers and children who are unsafe, or need to leave their homes.</p>]
+      },
+      {
+        image: community,
+        subtitle: 'Community',
+        text: [<p>You make some good friends, who are also going through their own life struggles and they enable you to look forward and be hopeful for the future.</p>]
+      },
+      {
+        image: work,
+        subtitle: 'Work',
+        text: [<p>Your dream to be a doctor takes a back seat for a few years, because you have to get a job to support yourself, but the future starts to look much brighter and you are able to laugh again.</p>]
+      },
+    ],
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: "Finish", nextScenario: `` },
     ],
   },
   {
     id: "youthHostelEnding1",
-    text:
-      `You turn eighteen in a youth hostel. You are referred to the Auckland City Mission who assign you a keyworker and finds you a permanent place to live. Together you work through next steps, including study options. Meanwhile, your mum contacts you and says she is no longer with her partner. She wants a good relationship with you and you decide you will try this. Your future is looking brighter.`,
+    isEnding: true,
+    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
+    information: [
+      {
+        image: sleep,
+        subtitle: 'Youth Hostel',
+        text: [<p>You turn 18 in a youth hostel with other rangatahi quite far away from your school, friends and family.</p>]
+      },
+      {
+        image: presentation,
+        subtitle: 'Keyworker',
+        text: [<p>You are referred to the Auckland City Mission who assign you a keyworker and finds you a permanent place to live. Together you work through your next steps, including study options.</p>]
+      },
+      {
+        image: relationWithMum,
+        subtitle: 'Relationship with Mum',
+        text: [<p>Meanwhile, your mum contacts you and says she is no longer with her partner. She wants a good relationship with you and you decide you will try this. Your future is looking brighter.</p>]
+      },
+    ],
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: "Finish", nextScenario: `` },
     ],
   },
   {
     id: "youthHostelEnding2",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `justify-center text-[100px] text-center`},
+    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: sleep,
@@ -664,7 +1009,7 @@ export const youth = [
   {
     id: "friendsParentsEnding",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `justify-center text-[100px] text-center`},
+    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: house,
@@ -675,7 +1020,7 @@ export const youth = [
       {
         image: presentation,
         subtitle: 'Social Worker',
-        text: [<p>The school's Worker tells you about the Youth Payment available from MSD to cover
+        text: [<p>The school's Social Worker tells you about the Youth Payment available from MSD to cover
           cheap board and may mean your friend's parents find it easier to have you while you work things out.</p>]
       },
       {

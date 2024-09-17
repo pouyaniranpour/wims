@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import DarkFootprints from '../../assets/sidebars/rightSidebar/darkFootprints.svg';
 import LightFootprints from '../../assets/sidebars/rightSidebar/lightFootprints.svg'
 
-function SidebarRight({ progressCount }) {
+
+
+function SidebarRight({ scenario }) {
     const [progress, setProgress] = useState(1);
 
     const NUM_FOOTPRINTS = 7;
+
+    useEffect(() => {
+        if (!scenario.progressObject) return;
+            if (scenario.progressObject.delay) {
+                setTimeout(() => {
+                    setProgress(scenario.progressObject.count);
+                }, scenario.progressObject.delay);
+            } else {
+                setProgress(scenario.progressObject.count);
+            }
+            
+    }, [scenario])
+    
     
     const footprints = Array.from({ length: NUM_FOOTPRINTS }, (v, i) => i);
     return (

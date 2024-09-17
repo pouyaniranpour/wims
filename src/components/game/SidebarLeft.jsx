@@ -12,13 +12,13 @@ import { useEffect, useState } from 'react';
 function SidebarLeft({ scenario }) {
   const [moodImage, setMoodImage] = useState(sad)
   const [speechBubble, setSpeechBubble] = useState();
+  const [isSpeechBubbleVisible, setIsSpeechBubbleVisible] = useState(false);
 
   useEffect(() => {
-    if (!scenario.mood) return;
+    if (!scenario.mood)return;
       if (scenario.mood.delay) {
         setTimeout(() => {
         setMoodImage(scenario.mood.image);
-        console.log("yes")
       }, scenario.mood.delay);
       } else {
         setMoodImage(scenario.mood.image);
@@ -26,9 +26,10 @@ function SidebarLeft({ scenario }) {
     
     if (scenario.mood.speechBubble) {
       setSpeechBubble(scenario.mood.speechBubble);
+      setIsSpeechBubbleVisible(true);
       setTimeout(() => {
-        setSpeechBubble(undefined);
-      }, 5000);
+        setIsSpeechBubbleVisible(false)
+      }, 2500);
     } else {
       setSpeechBubble(undefined);
     }
@@ -39,9 +40,9 @@ function SidebarLeft({ scenario }) {
     <div className={`absolute bg-[#F4F5F5] left-0 top-0 w-[162px] h-full flex flex-col items-center`} >
       <div className="font-ibm-plex-sans pt-2 text-sm w-full text-center font-medium flex flex-col justify-around">
         <p>MOOD TRACKER</p>
-        {moodImage ? <img className="h-20" src={moodImage} alt="avatar of current mood" /> :
-        <img className="h-20" src={sad} alt="avatar of current mood" />}
-        <img className={`${speechBubble ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 ease-in-out relative left-48 bottom-14 scale-125`} src={speechBubble} />
+        {moodImage ? <img className="h-20 mt-2" src={moodImage} alt="avatar of current mood" /> :
+        <img className="h-20 mt-2" src={sad} alt="avatar of current mood" />}
+        <img className={`${isSpeechBubbleVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 ease-in-out relative left-44 bottom-14`} src={speechBubble} />
         
         
       </div>

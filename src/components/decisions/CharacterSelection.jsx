@@ -115,7 +115,7 @@ function CharacterSelection({ handleCharacter }) {
                <div className="absolute top-96 flex justify-center items-center">   
         <div className="flex w-[200px] justify-between">
             <img onClick={() => handleConfirmation(true)} className="hover:brightness-[0.95] cursor-pointer h-[64px]" src={ConfirmButton} alt="confirm button" />
-            <img onClick={() => handleConfirmation(false)} className="hover:brightness-[0.95] contrast(.5) cursor-pointer h-[64px]" src={DenyButton} alt="deny button" />
+            <img onClick={() => handleConfirmation(false)} className="hover:brightness-[0.95] cursor-pointer h-[64px]" src={DenyButton} alt="deny button" />
                   </div>
                   </div>
                   : ''}

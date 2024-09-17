@@ -11,9 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'bebas-neue': ['"Bebas Neue"', 'regular'],
+        'bebas-neue': ['BebasNeue', 'regular'],
         'viga': ['Viga', 'regular'],
-        'ibm-plex-sans': ['"IBM Plex Sans', 'regular']
+        'ibm-plex-sans': ['IBMPlexSans', 'regular']
       },
       fontSize: {
         'large': '80px',

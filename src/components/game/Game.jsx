@@ -39,7 +39,8 @@ function Game() {
   };
 
   const handleCharacter = (characterInput) => {
-    setScenario('start');
+    setScenario("start");
+    //setScenario('goWithAunty');
     setCharacter(characterInput);
   };
 

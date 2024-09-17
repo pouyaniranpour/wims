@@ -1,4 +1,7 @@
 export const woman = [
+/* ============================================================================================== */
+/*               Important: This hasn't been formatted and will make the game crash               */
+/* ============================================================================================== */
   {
     id: "start",
     text: `You are a single woman with an eight year old daughter. You have a regular cleaning job that pays minimum wage and you rent a one bedroom house.`,
@@ -233,69 +236,64 @@ export const woman = [
     id: "financialAbuseEnding",
     text: `You can't believe someone you loved and trusted did this and you feel foolish. Because of this, you don't phone the police or follow up this financial abuse. But you do decide to do some more courses around budgeting and investments and when you are promoted at work you have a bit extra to make the choices you have planned for. You are determined that your daughter will be able to make good choices and have opportunities in life.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "womensRefugeEnding",
     text: `At hospital, a social worker tells you about Women's Refuge and helps you and your daughter get to a safe house. You're going to get the help you need.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "stayingWithBrotherEnding",
     text: `Your brother is single and seems happy enough for you to stay there long term. You agree to cook the meals and keep the house clean as a way to thank him, especially because he works long shifts as a driver. You find your daughter a school. You find an overnight cleaning job. It's exhausting, but you are thankful for a safe house. As your daughter gets older, you have more options for work and she thrives living in a safer house and loves her uncle. Your future is improving.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "liveInCarEnding",
     text: `You are so embarrassed to need their help, but they explain that living in a car, tent, garage or overcrowded house is defined as experiencing homelessness. The Mission offers to help you access emergency accommodation, assist with a food parcel and go with you to talk things through with Kainga Ora about why you had to leave your house. You and your daughter's health and wellbeing begin to improve from this point forward.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "acmBreakfastEnding",
     text: `Someone tells you about the Auckland City Mission breakfast service. You go in and receive a good warm meal. A staff member sits with you and offers a listening ear. You're not sure if they can help, but they tell you about the MSD support service onsite. Orange Sky are onsite that day, so you get a shower with them while the Mission staff find suitable emergency accommodation, where you and your daughter can be together and feel safe. They also assign you a keyworker who will support you as you get back on your feet. It's a relief to have a safe place to stay and you and your daughter's health and wellbeing improve. The future is looking brighter.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "getAnotherJobEnding",
     text: `You do get another job and it's during the day, so you can work while your daughter is at school and be around her during the evening. With your income, you can pay your friend some board and help towards expenses. After a while you are promoted in your work and you and your friend decide to find a bigger place to rent together, so you can have your own bedroom instead of living in her lounge. Thanks to the support your friend gave you when you needed it most, you feel like everything is much more stable. You and your daughter have a good future to look forward to.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "homelessnessDefinitionEnding",
     text: `You are so embarrassed, because you tell them you aren't "homeless." However, they explain that living in a car, tent, garage, or overcrowded house is defined as experiencing homelessness. The Mission offer to help you access emergency accommodation and connect you with a service for families that will find you a long-term place to live. Over time they also assist you with food parcels when you need them so you can keep paying the urgent bills.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "orangaTamarikiEnding",
     text: `Your case worker at Work and Income explains that there might be some options for you to get more training and be supported in a benefit while you do this. This could lead to a better job. Unfortunately, the classes are at times where your daughter will be left home alone, so you can't take this option. You do get another cleaning job, but it is in the daytime so you don't have to leave your daughter alone at night. You and your daughter's health and wellbeing improve and the future is more hopeful.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
   {
     id: "garageSummerEnding",
     text: `Fortunately, you were able to get help from a family member and keep your job and savings. You're safe and housed for now.`,
     choices: [
-      { text: ">>", nextScenario: `endingScreenTrigger` },
+      { text: ">>", nextScenario: `` },
     ],
   },
-  /* ============= Ending Screen Trigger ============ */
-  {
-    id: "endingScreenTrigger",
-    text: ``,
-    choices: [],
-  },
-];
+
+]

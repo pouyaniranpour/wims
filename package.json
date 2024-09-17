@@ -13,7 +13,6 @@
     "@microlink/react": "^5.5.22",
     "animejs": "^3.2.2",
     "autoprefixer": "^10.4.20",
-    "framer-motion": "^11.3.31",
     "html-react-parser": "^5.1.12",
     "lottie-web": "^5.12.2",
     "postcss": "^8.4.41",
@@ -24,8 +23,7 @@
     "react-router-dom": "^6.26.2",
     "react-typed": "^2.0.12",
     "react-youtube": "^10.1.0",
-    "styled-components": "^6.1.12",
-    "typed.js": "^2.1.0"
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

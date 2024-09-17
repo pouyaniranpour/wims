@@ -10,7 +10,7 @@ function StartingPage() {
   const location = useLocation().pathname;
 
   return (
-       <div className={`${location === '/startingPage'? 'opacity-100 z-10': 'opacity-0 -z-10'} transition-opacity duration-500 ease-in-out grid grid-cols-2 h-full w-full`}>
+       <div className={`${location === '/'? 'opacity-100 z-10': 'opacity-0 -z-10'} relative transition-opacity duration-500 ease-in-out grid grid-cols-2 h-full w-full border-border-black`}>
         <div className="h-full w-full bg-[#27272A] flex flex-col justify-center items-center text-zinc-300 font-bebas-neue">
               <div className="relative top-5 left-5 h-3/4 w-2/3"><p className="text-large">A STUDY IN 2018 FOUND THAT <span className="text-darker-orange">18,157</span> AUCKLANDERS MET THE DEFINITION OF HOMELESS</p>
           <p className="text-zinc-300 text-[44px] mt-10"> AND THAT NUMBER GROWS EVERY YEAR...</p>

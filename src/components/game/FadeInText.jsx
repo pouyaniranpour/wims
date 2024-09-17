@@ -14,7 +14,6 @@ function FadeInText({ items, handleAnimationCompleted}) {
             delay: anime.stagger(2000),
             complete: () => {
                 handleAnimationCompleted(); // Update state when animation completes
-                console.log("completed");
             }
         });
     }, [items]);
