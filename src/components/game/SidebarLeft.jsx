@@ -42,7 +42,7 @@ function SidebarLeft({ scenario }) {
         <p>MOOD TRACKER</p>
         {moodImage ? <img className="h-20 mt-2" src={moodImage} alt="avatar of current mood" /> :
         <img className="h-20 mt-2" src={sad} alt="avatar of current mood" />}
-        <img className={`${isSpeechBubbleVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 ease-in-out relative left-44 bottom-14`} src={speechBubble} />
+        <img className={`${isSpeechBubbleVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 ease-in-out relative left-44 bottom-10`} src={speechBubble} />
         
         
       </div>

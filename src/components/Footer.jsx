@@ -5,7 +5,6 @@ import logo from '../assets/acmLogoLight.svg';
 
 function Footer() {
   const location = useLocation().pathname;
-  console.log(location);
   
   return (
     <div className={`flex h-10 w-full absolute bottom-0 justify-center items-center text-sm font-ibm-plex-sans`}  >

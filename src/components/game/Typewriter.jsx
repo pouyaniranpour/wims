@@ -12,36 +12,17 @@ function Typewriter(
     }) {
     
     const defaultStyle = 'typedOutput font-bebas-neue w-full h-full flex flex-col';
-    const additionalStyle = currentScenario.typewriter.style;
-    const text = currentScenario.typewriter.text;
+    
+    
+    
 
     const renderText = () => {
-        if (isSkipped) {
-            return (
-                <div
-                    className={`${defaultStyle} ${additionalStyle}`}
-                >
-                    {parse(text)}
-                </div>
-            )
-        }
-        
-        // else if (isSuspenseScreen) {
-        //     return (<ReactTyped
-        //   className={`mt-36 font-bebas-neue w-full h-full flex justify-center items-center text-[100px]`}
-        //   showCursor={false}
-        //   strings={[`...`]}
-        //   typeSpeed={800}
-        //   startDelay={50}
-        //       onComplete={() => handleSuspenseCompletion()}
-        //     />)
-        // }
-        else {
+        if (currentScenario.isEnding) {
             return (
                 <ReactTyped
-                    className={`${defaultStyle} ${additionalStyle}`}
+                    className={`${defaultStyle} text-[100px] text-center`}
                     showCursor={false}
-                    strings={[`${text}`]}
+                    strings={[`<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>`]}
                     typeSpeed={30}
                     startDelay={500}
                     onComplete={handleAnimationCompleted}
@@ -49,7 +30,34 @@ function Typewriter(
                     contentType='html'
                 />
             )
+        } else {
+            const additionalStyle = currentScenario.typewriter.style;
+            const text = currentScenario.typewriter.text;
+
+            if (isSkipped) {
+                        return (
+                            <div
+                                className={`${defaultStyle} ${additionalStyle}`}
+                            >
+                                {parse(text)}
+                            </div>
+                        )
+                    } else {
+                        return (
+                            <ReactTyped
+                                className={`${defaultStyle} ${additionalStyle}`}
+                                showCursor={false}
+                                strings={[`${text}`]}
+                                typeSpeed={30}
+                                startDelay={500}
+                                onComplete={handleAnimationCompleted}
+                                loop={false}
+                                contentType='html'
+                            />
+                        )
+                    }
         }
+        
     }
     
     const renderSuspenseScreen = () => {
@@ -58,7 +66,7 @@ function Typewriter(
           showCursor={false}
           strings={[`...`]}
           typeSpeed={800}
-          startDelay={50}
+          startDelay={0}
             onComplete={() => handleSuspenseCompletion()}
             />)
         }

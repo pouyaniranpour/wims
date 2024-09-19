@@ -55,16 +55,6 @@ function CharacterSelection({ handleCharacter }) {
     setselectedIndex(index);
   }
 
-  
-// const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-    
-//     const handleTransitionScreen = async () => {
-//       await delay(1000);
-//       renderTransitionScreen(confirmedIndex);
-//       await delay(1000);
-//       handleCharacter(characters[confirmedIndex].character);
-//     }
-
 
   const handleConfirmation = (confirmed) => {
     
@@ -104,7 +94,9 @@ function CharacterSelection({ handleCharacter }) {
             <div key={index}>
               <div className={`relative flex flex-col items-center justify-center`}>
                 <img className={`relative ${confirmedIndex !== -1 && index !== confirmedIndex? 'grayscale opacity-60': ''} h-[258px]`} src={currentCharacter.imgSrc} alt="avatar of character" />
-                <img onClick={() => handleSelect(index)} className={` ${isConfirming || confirmedIndex !== -1 ? '-z-10' :'z-10'} scale-110 absolute bottom-16 ${index === selectedIndex? 'opacity-100':'opacity-0'} cursor-pointer hover:opacity-100`} src={getFrameSrc(index)} alt="" />
+                  {/* <img onClick={() => handleSelect(index) This is commented out, because the tane and wahine paths aren't formatted correctly, yet*/}
+                <img onClick={() => (index !== 1 && index !== 2 ? handleSelect(index): '')}
+                  className={` ${isConfirming || confirmedIndex !== -1 ? '-z-10' : 'z-10'} scale-110 absolute bottom-16 ${index === selectedIndex ? 'opacity-100' : 'opacity-0'} cursor-pointer hover:opacity-100`} src={getFrameSrc(index)} alt="" />
               <ul className="text-center relative top-8 font-ibm-plex-sans">
               <li className={`${confirmedIndex !== -1 && confirmedIndex === index || confirmedIndex === -1 ? currentCharacter.style : 'text-zinc-400'} text-[32px]`} >{currentCharacter.teReo}</li>
               <li className="text-zinc-400">{currentCharacter.english}</li>

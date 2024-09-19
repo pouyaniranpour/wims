@@ -4,7 +4,7 @@ function Buttons({ currentScenario, animationCompleted, handleSkip, handleNextSc
   //const defaultStyle = "absolute bottom-10 right-10 w-[96px] h-[52px] shadow-custom-darker bg-zinc-50 flex flex-col items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full";
   const renderButtons = () => {
     if (currentScenario.choices.length === 1) {
-      if (!animationCompleted) {
+      if (!animationCompleted && !currentScenario.isEnding) {
         return (
           <button className={`px-4 py-1 shadow-custom-darker bg-zinc-50 flex flex-col items-center justify-center font-viga text-[24px] border-2 text-zinc-900 border-zinc-900 rounded-full`} onClick={handleSkip}>Skip</button>
         )

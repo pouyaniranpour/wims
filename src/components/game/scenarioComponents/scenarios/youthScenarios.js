@@ -885,7 +885,6 @@ export const youth = [
   {
     id: "policeTakeStepdadEnding",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: anxiety,
@@ -914,7 +913,6 @@ export const youth = [
   {
     id: "turnedEighteenEnding",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: house,
@@ -939,7 +937,6 @@ export const youth = [
   {
     id: "goingToBeOkayEnding",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `text-[100px] text-center`},
     information: [
       {
         image: learningCurve,
@@ -964,7 +961,6 @@ export const youth = [
   {
     id: "youthHostelEnding1",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: sleep,
@@ -989,7 +985,6 @@ export const youth = [
   {
     id: "youthHostelEnding2",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: sleep,
@@ -1009,7 +1004,6 @@ export const youth = [
   {
     id: "friendsParentsEnding",
     isEnding: true,
-    typewriter: {text: '<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>', style: `items-center text-[100px] text-center`},
     information: [
       {
         image: house,

@@ -20,7 +20,7 @@ function ScenarioText({
 
 
   const renderMainText = () => {
-    if (currentScenario.typewriter) {
+    if (currentScenario.typewriter || currentScenario.isEnding) {
       return (
         <Typewriter
             handleAnimationCompleted={handleAnimationCompleted}

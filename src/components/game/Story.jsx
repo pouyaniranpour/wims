@@ -8,7 +8,7 @@ import Scenario from './Scenario';
 import { useState } from 'react';
 
 
-const Story = ({ scenario, isGameOver, handleGameOver, character, setScenario }) => {
+const Story = ({ scenarioId, isGameOver, handleGameOver, character, setScenarioId }) => {
     const [finalScenario, setFinalScenario] = useState();
     if (isGameOver) {
         setFinalScenario(undefined);
@@ -24,17 +24,17 @@ const Story = ({ scenario, isGameOver, handleGameOver, character, setScenario })
 
     const scenarios = allScenarios[character];
     
-    const currentScenario = scenarios.find(s => s.id === scenario);
+    const currentScenario = scenarios.find(scenarioObject => scenarioObject.id === scenarioId); //Finds the 'scenario object' matching the 'scenario' variable, which is the id of the scenario object
  
     const handleChoice = (choice) => {
         if (currentScenario.isEndingIntroNext) {
             setFinalScenario(choice.nextScenario);
-            setScenario('endingIntro');
+            setScenarioId('endingIntro');
         } else if (currentScenario.isEndingNext) {
-            setScenario(finalScenario);
+            setScenarioId(finalScenario);
         }
         else {
-            setScenario(choice.nextScenario);
+            setScenarioId(choice.nextScenario);
           }
     };
  
