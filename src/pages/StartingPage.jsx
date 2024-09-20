@@ -20,13 +20,10 @@ function StartingPage() {
       </div>
           
         <div className="h-full w-full bg-footsteps bg-cover flex justify-center items-end">
-        <div className="flex flex-col relative left-16"><p className="font-viga text-2xl text-zinc-800">Walk My Life</p>
           <Link to={"/game"}>
-            <div className="cursor-pointer flex justify-center items-center relative bottom-4"><span className="text-large font-bebas-neue text-dark-orange">PLAY GAME</span>
+            <div className="cursor-pointer flex justify-center items-center relative bottom-4 left-52"><span className="text-large font-bebas-neue text-dark-orange">WALK MY LIFE</span>
               <img className="ml-2 relative bottom-1" src={orangeArrow} /></div>
           </Link>
-          
-        </div>      
       </div>
       <Footer />
     </div>
