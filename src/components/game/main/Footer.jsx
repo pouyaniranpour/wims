@@ -1,7 +1,7 @@
-import '../App.css'
+import '../../../App.css'
 import { useLocation } from "react-router-dom";
 
-import logo from '../assets/acmLogoLight.svg';
+import logo from '../../../assets/main/acmLogoLight.svg';
 
 function Footer() {
   const location = useLocation().pathname;

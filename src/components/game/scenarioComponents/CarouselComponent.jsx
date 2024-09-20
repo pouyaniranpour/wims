@@ -1,5 +1,5 @@
 
-import rightArrow from "../../assets/buttons/arrowRight.svg";
+import rightArrow from "../../../assets/buttons/arrowRight.svg";
 
 
 import { useState } from "react";

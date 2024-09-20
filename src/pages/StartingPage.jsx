@@ -1,10 +1,9 @@
 // import "../App.css";
 
-import Footer from "../Footer";
+import Footer from "../components/game/main/Footer";
 import { Link, useLocation } from "react-router-dom";
-import logo from '../../assets/acmWhite.svg'
-import orangeArrow from '../../assets/orangeArrow.svg'
-//import leftArrow from '../../assets/startingPage/arrowLeft.png'
+import logo from '../assets/main/acmWhite.svg'
+import orangeArrow from '.././assets/startingPage/orangeArrow.svg'
 
 function StartingPage() {
   const location = useLocation().pathname;

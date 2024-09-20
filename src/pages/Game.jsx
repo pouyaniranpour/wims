@@ -1,8 +1,8 @@
-import "../../App.css";
+import "../App.css";
 import { useState } from "react";
-import Story from "./Story";
-import CharacterSelection from "../decisions/CharacterSelection";
-import EndingScreen from "../EndingScreen";
+import Story from "../components/game/main/Story";
+import CharacterSelection from "../components/game/scenarioComponents/decisions/CharacterSelection";
+import EndingScreen from "./EndingScreen";
 
 import { useLocation } from "react-router-dom";
 

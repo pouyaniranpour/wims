@@ -6,7 +6,7 @@ import resources from '../assets/endingScreen/linkIcons/resources.svg';
 import startAgain from '../assets/endingScreen/linkIcons/startAgain.svg';
 import takeAction from '../assets/endingScreen/linkIcons/takeAction.svg';
 import banner from '../assets/endingScreen/banner.svg'
-import logo from '../assets/acmWhite.svg'
+import logo from '../assets/main/acmWhite.svg'
 
 function EndingScreen({ restartGame, isGameOver }) {
   const location = '/endingScreen'; //this is so the footer doesn't display the ACM logo on the bottom-left

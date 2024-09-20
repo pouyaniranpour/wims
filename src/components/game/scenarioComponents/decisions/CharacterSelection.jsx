@@ -1,19 +1,19 @@
 import { useState } from "react";
-import "../../App.css";
+import "../../../../App.css";
 
-import Footer from "../Footer";
+import Footer from "../../main/Footer";
 
-import Tane from '../../assets/decisions/characterSelection/tane.svg'
-import Wahine from '../../assets/decisions/characterSelection/wahine.svg'
-import Rangatahi from '../../assets/decisions/characterSelection/rangatahi.svg'
+import Tane from '../../../../assets/decisions/characterSelection/tane.svg'
+import Wahine from '../../../../assets/decisions/characterSelection/wahine.svg'
+import Rangatahi from '../../../../assets/decisions/characterSelection/rangatahi.svg'
 
-import TaneFrame from '../../assets/decisions/characterSelection/taneFrame.svg'
-import WahineFrame from '../../assets/decisions/characterSelection/wahineFrame.svg'
-import RangatahiFrame from '../../assets/decisions/characterSelection/rangatahiFrame.svg'
-import BasicFrame from '../../assets/decisions/basicFrame.svg'
+import TaneFrame from '../../../../assets/decisions/characterSelection/taneFrame.svg'
+import WahineFrame from '../../../../assets/decisions/characterSelection/wahineFrame.svg'
+import RangatahiFrame from '../../../../assets/decisions/characterSelection/rangatahiFrame.svg'
+import BasicFrame from '../../../../assets/decisions/basicFrame.svg'
 
-import ConfirmButton from '../../assets/decisions/confirmButton.png'
-import DenyButton from '../../assets/decisions/denyButton.png'
+import ConfirmButton from '../../../../assets/decisions/confirmButton.png'
+import DenyButton from '../../../../assets/decisions/denyButton.png'
 
 function CharacterSelection({ handleCharacter }) {
 

@@ -1,18 +1,18 @@
-import YoutubePlayer from "./YouTubePlayer";
-import "../../App.css";
+import YoutubePlayer from "../scenarioComponents/YouTubePlayer";
+import "../../../App.css";
 import { useState } from "react";
 
 
-import SidebarLeft from "./SidebarLeft";
-import SidebarRight from "./SidebarRight";
-import CoinFlip from "./CoinFlip";
-import ScenarioText from "./ScenarioText";
-import Buttons from "./scenarioComponents/Buttons";
+import SidebarLeft from "../scenarioComponents/sidebars/SidebarLeft";
+import SidebarRight from "../scenarioComponents/sidebars/SidebarRight";
+import CoinFlip from "../scenarioComponents/CoinFlip";
+import ScenarioText from "../scenarioComponents/ScenarioText";
+import Buttons from "../scenarioComponents/Buttons";
 
-import Decisions from "../decisions/Decisions";
+import Decisions from "../../game/scenarioComponents/decisions/Decisions";
 
-import Footer from "../Footer";
-import CarouselComponent from "./CarouselComponent";
+import Footer from "../../game/main/Footer";
+import CarouselComponent from "../../game/scenarioComponents/CarouselComponent";
 
 
 
@@ -143,19 +143,6 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
             <CarouselComponent informationObject={currentScenario.information}/>
         </div>
       }
-
-      
-      
-      
-{/* The Youtube player is for ending scenario screens that have a video e.g. "Richard's Story" */}
-      {currentScenario.video && animationCompleted ? (
-        <div>
-          <YoutubePlayer video={currentScenario.video} />
-        </div>
-      ) : (
-        <></>
-      )}
-
       
         {renderButtons() }
       

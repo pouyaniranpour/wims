@@ -1,8 +1,8 @@
 import Lottie from "react-lottie-player";
-import animationData from "../../assets/newCoin.json";
+import animationData from "../../../assets/scenarioImages/newCoin.json";
 
-import '../../App.css';
-import { useState, useRef } from "react";
+import '../../../App.css';
+import { useRef } from "react";
 
 function RandomComponent({ handleSuspenseScreen }) {
   const lottieRef = useRef(null);

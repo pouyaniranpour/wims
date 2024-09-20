@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import DarkFootprints from '../../assets/sidebars/rightSidebar/darkFootprints.svg';
-import LightFootprints from '../../assets/sidebars/rightSidebar/lightFootprints.svg'
+import DarkFootprints from '../../../../assets/sidebars/rightSidebar/darkFootprints.svg';
+import LightFootprints from '../../../../assets/sidebars/rightSidebar/lightFootprints.svg'
 
 
 

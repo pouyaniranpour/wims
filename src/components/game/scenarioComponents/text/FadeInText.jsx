@@ -1,6 +1,5 @@
 import { useEffect, useRef} from "react";
 import anime from "animejs";
-//import parse from 'html-react-parser'
 
 function FadeInText({ items, handleAnimationCompleted}) {
     const itemsRef = useRef([]);

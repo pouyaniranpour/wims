@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import basicFrame from '../../assets/decisions/basicFrame.svg';
-import confirmButton from '../../assets/decisions/confirmButton.png';
-import denyButton from '../../assets/decisions/denyButton.png';
+import basicFrame from '../../../../assets/decisions/basicFrame.svg';
+import confirmButton from '../../../../assets/decisions/confirmButton.png';
+import denyButton from '../../../../assets/decisions/denyButton.png';
 
 function Decisions({ choiceArray, handleNextScenario }) {
     const [selectedIndex, setselectedIndex] = useState(-1);

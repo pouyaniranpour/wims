@@ -1,10 +1,10 @@
 
-import VolumeIcon from '../../assets/sidebars/leftSidebar/volume.png';
-import LightMode from '../../assets/sidebars/leftSidebar/lightMode.png';
-import CloseIcon from '../../assets/sidebars/leftSidebar/closeIcon.png';
+import VolumeIcon from '../../../../assets/sidebars/leftSidebar/volume.png';
+import LightMode from '../../../../assets/sidebars/leftSidebar/lightMode.png';
+import CloseIcon from '../../../../assets/sidebars/leftSidebar/closeIcon.png';
 
 
-import sad from '../../assets/sidebars/leftSidebar/moods/sad.svg';
+import sad from '../../../../assets/sidebars/leftSidebar/moods/sad.svg';
 
 import { useEffect, useState } from 'react';
 

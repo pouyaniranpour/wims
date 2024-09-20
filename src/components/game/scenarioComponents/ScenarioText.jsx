@@ -1,8 +1,8 @@
 
-import FadeInText from "./FadeInText";
-import Typewriter from "./Typewriter";
+import FadeInText from "../scenarioComponents/text/FadeInText";
+import Typewriter from "../scenarioComponents/text/Typewriter";
 
-import QuoteMark from "../../assets/quoteMark.svg"
+import QuoteMark from "../../../assets/scenarioImages/quoteMark.svg"
 
 function ScenarioText({
   isSkipped,

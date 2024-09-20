@@ -354,7 +354,6 @@ export const man = [
     choices: [
       { text: ">>", nextScenario: `` },
     ],
-    video: '4Eic3OOgrjI'
   },
 
 ];
