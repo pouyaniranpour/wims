@@ -1,4 +1,3 @@
-import YoutubePlayer from "../scenarioComponents/YouTubePlayer";
 import "../../../App.css";
 import { useState } from "react";
 
