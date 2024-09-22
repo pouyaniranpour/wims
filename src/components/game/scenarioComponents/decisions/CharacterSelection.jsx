@@ -87,6 +87,9 @@ function CharacterSelection({ handleCharacter }) {
       
       
       <div className="h-full flex justify-center items-center"><p className="relative font-bebas-neue self-center text-5xl">Choose a path</p></div>
+      
+
+      {characters.length > 0 &&
       <div className="flex items-center justify-center w-full h-full space-x-32">
       {
         characters.map((currentCharacter, index) => {
@@ -112,16 +115,12 @@ function CharacterSelection({ handleCharacter }) {
                   </div>
                   : ''}
               </div>
-              
-                
-                
-      
-              
             </div>)
         })
-        }
-        
+          }
       </div>
+          }
+
       <Footer />
     </div>
   );

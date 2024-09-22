@@ -31,8 +31,9 @@ function Decisions({ choiceArray, handleNextScenario }) {
     }
     
 
-    return <div className="flex items-center justify-center w-full h-full space-x-28">
-        {
+    return (
+    <div className="flex items-center justify-center w-full h-full space-x-28">
+        {choiceArray.length > 0 &&
             choiceArray.map((choice, index) => { 
                 return (
                     <div className="relative flex justify-center items-center" key={index}>
@@ -58,6 +59,7 @@ function Decisions({ choiceArray, handleNextScenario }) {
                 )
             })
         }
-    </div>;
+    </div>
+    )
 }
 export default Decisions;

@@ -922,7 +922,7 @@ export const youth = [
       {
         image: presentation,
         subtitle: 'A Helpful Keyworker',
-        text: [<p>A keyworker is assigned to your case and they listen a lot and patiently you work together on all the decisions and actions you can take. They take you to HomeGround to meet with a helpful MSD (Ministry of Social Development) liaison and you find out how you can study and what benefits you are eligible for.</p>]
+        text: [<p>A keyworker is assigned to your case and they listen a lot and patiently you work together on all the decisions and actions you can take. They take you to Home Ground to meet with a helpful MSD (Ministry of Social Development) liaison and you find out how you can study and what benefits you are eligible for.</p>]
       },
       {
         image: rocket,
