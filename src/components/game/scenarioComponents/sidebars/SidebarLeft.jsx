@@ -40,9 +40,12 @@ function SidebarLeft({ scenario }) {
     <div className={`absolute bg-[#F4F5F5] left-0 top-0 w-[162px] h-full flex flex-col items-center`} >
       <div className="font-ibm-plex-sans pt-2 text-sm w-full text-center font-medium flex flex-col justify-around">
         <p>MOOD TRACKER</p>
+        <div className='flex'>
+
+        </div>
         {moodImage ? <img className="h-20 mt-2" src={moodImage} alt="avatar of current mood" /> :
         <img className="h-20 mt-2" src={sad} alt="avatar of current mood" />}
-        <img className={`${isSpeechBubbleVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 ease-in-out relative left-44 bottom-10`} src={speechBubble} />
+        <img className={`${isSpeechBubbleVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 ease-in-out relative left-44 bottom-10 h-8 border max-w-fit`} src={speechBubble} />
         
         
       </div>

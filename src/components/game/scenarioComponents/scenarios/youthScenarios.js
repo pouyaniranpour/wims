@@ -129,6 +129,9 @@ export const youth = [
       image: sad,
       speechBubble: soCold
     },
+    progressObject: {
+      count: 3
+    },
     text: [<p>You're on hard concrete and you are still shaking about what happened, so you don't get any sleep</p>,
       <p>Unfortunately, your sleeping bag got wet too. The next morning, the church secretary arrives to find you.</p>
     ],
@@ -142,6 +145,9 @@ export const youth = [
   {
     id: "churchPt3",
     isDialogue: true,
+    mood: {
+      image: tearful
+    },
     typewriter: {
       text: `<p class='ml-24'>Are you alright? Where are your parents?</p><br/><p class='my-8 relative ml-52'>Poor thing, you're all wet.</p><br/><p>Let's get you warmed up and some food <br/> and you can let me know what happened,</p>`,
       style: `text-[64px]`
@@ -155,6 +161,9 @@ export const youth = [
   },
   {
     id: "withChurchSecretary",
+    mood: {
+      image: defeated
+    },
     typewriter: {
       text: `<p>You tell her your situation and she starts <br/>phoning around trying to see who can help</p>`,
       style: `text-[64px] items-center mt-52`
@@ -184,13 +193,22 @@ export const youth = [
 
   {
     id: "churchRandom1",
+    progressObject: {
+      count: 4
+    },
+    mood: {
+      image: puzzled
+    },
     typewriter: {
-      text: `<p>She calls your mum</p>`, style: `justify-center items-center`
+      text: `<p>She calls your mum</p>`, style: `justify-center items-center text-[64px]`
     },
     choices: [{ text: "Next", nextScenario: "secretaryCallsMother" }],
   },
   {
     id: "secretaryCallsMother",
+    mood: {
+      image: shocked
+    },
     text: [<p>But it's without your knowledge and your step-dad shows up</p>,
     <p>He smiles at the administrator...</p>],
     
@@ -226,6 +244,14 @@ export const youth = [
   },
   {
     id: "policeTakeStepdad",
+    progressObject: {
+      count: 6,
+      delay: 1500
+    },
+    mood: {
+      image: calm,
+      delay: 1500
+    },
     isEndingIntroNext: true,
     text: [<p>The police arrive and they put him in their car to 'cool off'.</p>,
       <p>They ask if you're ok and listen to your situation.</p>,
@@ -235,6 +261,12 @@ export const youth = [
   },
   {
     id: "churchRandom2",
+    mood: {
+      image: thinking
+    },
+    progressObject: {
+      count: 4
+    },
     typewriter: {
       text: `<p>When she asks where you could go to live<br/> you just stare at her.</p>`, style: `text-[64px] justify-center text-center`
     },
@@ -254,8 +286,11 @@ export const youth = [
   },
   {
     id: "callAuntyDecision",
+    mood: {
+      image: worried
+    },
     typewriter: {
-      text: `Should you call her?`, style: `text-[64px] justify-center mt-24`
+      text: `Should you call her?`, style: `text-[64px] items-center mt-24`
     },
     choices: [
       { image: call, nextScenario: "callAuntyPt1" },
@@ -264,6 +299,12 @@ export const youth = [
   },
   {
     id: "callAuntyPt1",
+    mood: {
+      image: worried
+    },
+    progressObject: {
+      count: 5
+    },
     text: [<p>You aren't sure what to do, so you call your aunty and she arrives in a flurry of hugs, which is nice.</p>,
       <p>After you've told her what happened she gets nervous about how this will affect her relationship with her sister.
         She says they don't have much room, but can put you up for a month - not forever.</p>,
@@ -275,17 +316,25 @@ export const youth = [
   },
   {
     id: "callAuntyPt2",
+    mood: {
+      image: sad
+    },
     text: [<p>No one has ever told you how much food and board might be and even though you've tried to get a part-time job, there is so much competition that you haven't got one.</p>,
       <p>You feel quite awkward around people sometimes and this hasn't helped in job interviews.</p>,
       <p>You worry that you will never get a job.</p>
     ],
     choices: [
-      { text: "Not sure", nextScenario: "socialWorker" },
-      { text: "No", nextScenario: "trustYourGut" },
+      { text: "Next", nextScenario: "goWithAuntyDecision" },
     ],
   },
   {
     id: "trustYourGut",
+    mood: {
+      image: thinking
+    },
+    progressObject: {
+      count: 4
+    },
     text: [<p>You know they are well-meaning, but you feel very pressured by the church staff to stay with your aunt and uncle.</p>,
       <p>You just know in your gut that this is a bad idea.</p>,
       <p>You grab your stuff and run out. You catch a bus going into the city.</p>
@@ -316,8 +365,7 @@ export const youth = [
   {
     id: "goToMSD_Decision",
     mood: {
-      image: sad,
-      speechBubble: seventeenYearsOld
+      image: worried,
     },
     typewriter: {
       text: `<p>What is your decision?</p`, style: `text-[64px] items-center`
@@ -332,6 +380,9 @@ export const youth = [
     id: "policeShowUp",
     progressObject: {
       count: 5
+    },
+    mood: {
+      image: sad
     },
     typewriter: {
       text: `The Police show up`,
@@ -356,6 +407,10 @@ export const youth = [
       count: 7,
       delay: 2500
     },
+    mood: {
+      image: calm,
+      delay: 2000
+    },
     isEndingIntroNext: true,
     text: [<p>When you arrive in the police car, your mum runs out to you, but your stepdad tells the police that you are not welcome to live there and gets angry with your mum for filing the report.</p>,
       <p>The police try to reason with him, but he stands his ground.</p>,
@@ -365,6 +420,12 @@ export const youth = [
   },
   {
     id: "goToMSD",
+    mood: {
+      image: calm
+    },
+    progressObject: {
+      count: 6
+    },
     text: [<p>Work and Income refer you to a youth service who helps you get some accommodation and the two forms of ID, so you can get the Youth Payment.</p>,
       <p>Next, they also work through details of your living costs and prepare a budget, so you will be eligible for the payment</p>,
       <p>The money is mostly used up in rent and expenses, but you are left with a little over for food.</p>
@@ -381,6 +442,9 @@ export const youth = [
   },
   {
     id: "goToMSD_Pt3",
+    progressObject: {
+      count: 7
+    },
     isEndingIntroNext: true,
     typewriter: {
       text: `You decide to take it. You will be Okay.`, style: `text-[64px] items-center mt-32 flex-col`
@@ -389,6 +453,12 @@ export const youth = [
   },
   {
     id: "approachedByMan",
+    mood: {
+      image: thinking
+    },
+    progressObject: {
+      count: 5
+    },
     typewriter: {
       text: `A man suddenly approaches you`,
       style: `text-center mt-48 text-[64px]`
@@ -406,6 +476,10 @@ export const youth = [
   },
   {
     id: "refuseMansOffer",
+    mood: {
+      image: shocked,
+      delay: 1500
+    },
     text: [<p>You aren't willing to go with him.</p>,
       <p>Your new friends explain that you may have to steal to survive and give you some tips.</p>,
       <p>You steal some food from a dairy a few times, but on the fourth time they are waiting for you and haul you in.</p>
@@ -447,6 +521,13 @@ export const youth = [
   },
   {
     id: "policeRandom1",
+    progressObject: {
+      count: 6
+    },
+    mood: {
+      calm,
+      delay: 1000
+    },
     typewriter: {
       text: `<p>The police are sympathetic and convince <br />the dairy owner to drop charges</p>`,
       style: `mt-32 text-[64px] text-center`,
@@ -470,6 +551,10 @@ export const youth = [
   },
   {
     id: "dairyOwnerUnsympathetic",
+    mood: {
+      image: calm,
+      delay: 1000
+    },
     text: [<p>The police ask if you're okay and listen to your situation.</p>,
       <p>Although the police try to convince the dairy owner to drop charges, she insists and says she is sick of shoplifters.</p>,
     <p>The Police involve their Youth Aid services, who support you into accommodation and work with you to plan your next steps.</p>],
@@ -477,6 +562,12 @@ export const youth = [
   },
   {
     id: "dontCallAunty",
+    mood: {
+      image: puzzled
+    },
+    progressObject: {
+      count: 5
+    },
     text: [<p>You think she won't stick up for you with your mum's partner and worry he'll show up at the house and shout at you - and maybe do worse things than just shout.</p>,
       <p>The church administrator asks whether she should call your parents, because "perhaps this was all just a big misunderstanding." She suggests the Pastor could get involved.</p>,
       <p>You start crying and tell her what's been happening in your house. She calls a member of the church who is a social worker.</p>
@@ -485,6 +576,12 @@ export const youth = [
   },
   {
     id: "socialWorker",
+    mood: {
+      image: sad
+    },
+    progressObject: {
+      count: 6
+    },
     text: [<p>The Social Worker lays out a few options if you don't want to stay with your aunty, but says it will take a few days to sort out.</p>,
       <p>He says he may struggle to find a place you can go for tonight.</p>
     ],
@@ -500,11 +597,11 @@ export const youth = [
       style: `text-[64px]`
     },
     choices: [
-      { text: "Next", nextScenario: "goWithAuntDecision" },
+      { text: "Next", nextScenario: "goWithAuntyDecision" },
     ],
   },
   {
-    id: "goWithAuntDecision",
+    id: "goWithAuntyDecision",
     typewriter: {
       text: `<p>Should you stay with Aunty?</p>`,
       style: `text-[64px] items-center`
@@ -534,7 +631,7 @@ export const youth = [
     id: "auntyTalking",
     isDialogue: true,
     typewriter: {
-      text: `<p>You're so expensive to feed</p><br/><p>You know, when I was 14, I started working at a supermarket</p><br/><p>Kids these days don't know hard work</p>`, 
+      text: `<p>You're so expensive to feed</p><br/><p>You know, when I was 14, <br/>I started working at a supermarket</p><br/><p>Kids these days don't know hard work</p>`, 
       style: `text-[64px] mt-16 ml-32`
     },
     choices: [
@@ -872,6 +969,9 @@ export const youth = [
     id: "endingIntro",
     progressObject: {
       count: 7
+    },
+    mood: {
+      image: calm
     },
     isEndingNext: true,
     typewriter: { text: '<p>Every journey to find a <br/> home is different</p>', style: `mt-32 text-[100px] text-center` },
