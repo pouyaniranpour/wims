@@ -9,7 +9,6 @@ import { useLocation } from "react-router-dom";
 function Game() {
   const location = useLocation().pathname;
   const [scenarioId, setScenarioId] = useState();
-  //const [isGameOver, setIsGameOver] = useState(true); //used for testing ending screen
   const [isGameOver, setIsGameOver] = useState(false);
   const [character, setCharacter] = useState();
 

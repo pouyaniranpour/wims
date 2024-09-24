@@ -2,16 +2,19 @@ import Lottie from "react-lottie-player";
 import animationData from "../../../assets/scenarioImages/newCoin.json";
 
 import '../../../App.css';
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 function RandomComponent({ handleSuspenseScreen }) {
+  const [isCoinFlipping, setIsCoinFlipping] = useState(false);
   const lottieRef = useRef(null);
 
   const handleClick = () => {
     if (lottieRef.current) {
       lottieRef.current.play();
     }
+    setIsCoinFlipping(true);
     setTimeout(() => {
+      setIsCoinFlipping(false);
           handleSuspenseScreen(true);
         }, 3500);
   }
@@ -32,7 +35,7 @@ function RandomComponent({ handleSuspenseScreen }) {
     
       </div>
       
-        <button className="z-30 border border-black rounded-full px-4 py-1 bg-zinc-50 font-viga text-2xl shadow-custom-darker text-zinc-900"  onClick={() => handleClick()}>Flip</button>
+        <button className={`${isCoinFlipping? 'cursor-default': 'cursor-pointer'} z-30 border border-black rounded-full px-4 py-1 bg-zinc-50 font-viga text-2xl shadow-custom-darker text-zinc-900`}  onClick={() => handleClick()}>Flip</button>
       
     </div>
     
