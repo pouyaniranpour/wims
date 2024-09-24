@@ -5,7 +5,7 @@ import { woman } from "../scenarioComponents/scenarios/womanScenarios";
 import { man } from "../scenarioComponents/scenarios/manScenarios";
 import Scenario from "../../game/main/Scenario";
 
-import { useState } from "react";
+import { useRef } from "react";
 
 const Story = ({
   scenarioId,
@@ -14,9 +14,9 @@ const Story = ({
   character,
   setScenarioId,
 }) => {
-  const [finalScenario, setFinalScenario] = useState();
+  const finalScenarioRef = useRef(null);
   if (isGameOver) {
-    setFinalScenario(undefined);
+    finalScenarioRef.current = null;
   }
 
   const allScenarios = {
@@ -33,10 +33,10 @@ const Story = ({
 
   const handleChoice = (choice) => {
     if (currentScenario.isEndingIntroNext) {
-      setFinalScenario(choice.nextScenario);
+      finalScenarioRef.current = choice.nextScenario;
       setScenarioId("endingIntro");
     } else if (currentScenario.isEndingNext) {
-      setScenarioId(finalScenario);
+      setScenarioId(finalScenarioRef.current);
     } else {
       setScenarioId(choice.nextScenario);
     }

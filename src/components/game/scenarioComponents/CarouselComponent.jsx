@@ -23,10 +23,11 @@ function CarouselComponent({
     setCurrentIndex(currentIndex + 1);
   };
 
+
   return (
     <div className="relative flex flex-col justify-center items-center w-full h-full">
       {informationObject.length > 0 &&
-        <div className="flex justify-evenly w-1/2 h-1/3 mt-40">
+        <div className="flex justify-evenly w-1/2 h-1/3 mt-24">
           {informationObject.map((item, index) => {
             return (
               <div key={index} className="flex justify-center items-center">
@@ -42,7 +43,7 @@ function CarouselComponent({
                   )}
                 </div>
                 <div className="flex h-1/2 flex-col justify-center items-center">
-                  <div className="flex flex-col justify-center items-center">
+                  <div className={`flex flex-col justify-center items-center ${index === currentIndex? 'cursor-default' : 'cursor-pointer'}`} onClick={() => setCurrentIndex(index)}>
                     <img
                       className={`${index !== currentIndex ? "grayscale opacity-60 " : ""
                         } pb-12`}
@@ -75,13 +76,14 @@ function CarouselComponent({
           })}{" "}
         </div>
       }
-      <div className="flex justify-evenly items-center w-20 h-10 py-8">
+      <div className="flex justify-evenly items-center w-20 h-10 pt-20 pb-8">
         {dotArray.map((dot, index) => {
           return (
             <div
               key={index}
+              onClick={()=> setCurrentIndex(index)}
               className={`text-center round w-3 h-3 ${
-                index === currentIndex ? "bg-zinc-500" : "bg-zinc-300"
+                index === currentIndex ? "bg-zinc-500 cursor-default" : "bg-zinc-300 cursor-pointer"
               }`}
             >
               {" "}

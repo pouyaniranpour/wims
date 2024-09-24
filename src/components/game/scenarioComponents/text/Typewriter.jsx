@@ -22,7 +22,7 @@ function Typewriter(
                 <ReactTyped
                     className={`${defaultStyle} text-[100px] text-center`}
                     showCursor={false}
-                    strings={[`<p>Your outcome</p><p class="text-5xl text-zinc-300">Click the arrows to read more</p>`]}
+                    strings={[`<p>Your outcome</p>`]}
                     typeSpeed={30}
                     startDelay={500}
                     onComplete={handleAnimationCompleted}
@@ -65,9 +65,11 @@ function Typewriter(
           className={`relative bottom-16 font-bebas-neue w-full h-full flex justify-center items-center text-[100px]`}
           showCursor={false}
           strings={[`...`]}
-          typeSpeed={800}
+                typeSpeed={800}
+                loop={false}
           startDelay={0}
-            onComplete={() => handleSuspenseCompletion()}
+                onComplete={() => handleSuspenseCompletion()}
+                contentType="html"
             />)
         }
     

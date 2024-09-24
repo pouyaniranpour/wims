@@ -90,7 +90,7 @@ export const youth = [
     id: "startPt3",
   mood: {
     image: worried,
-
+    delay: 0,
     speechBubble: seventeenYearsOld
   },
     typewriter: 
@@ -166,7 +166,7 @@ export const youth = [
     },
     typewriter: {
       text: `<p>You tell her your situation and she starts <br/>phoning around trying to see who can help</p>`,
-      style: `text-[64px] items-center mt-52`
+      style: `text-[64px] items-center justify-center`
     },
     choices: [
       {
