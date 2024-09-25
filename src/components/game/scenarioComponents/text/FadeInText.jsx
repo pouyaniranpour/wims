@@ -10,7 +10,7 @@ function FadeInText({ items, handleAnimationCompleted}) {
             opacity: [0, 1],
             easing: 'easeOutQuad',
             duration: 1000,
-            delay: anime.stagger(2000),
+            delay: anime.stagger(1000),
             complete: () => {
                 handleAnimationCompleted(); // Update state when animation completes
             }
