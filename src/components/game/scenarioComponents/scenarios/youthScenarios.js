@@ -761,7 +761,7 @@ export const youth = [
     isEndingIntroNext: true,
     text: [<p>Your school counselor wants to ask your parents to come in to resolve the issue.</p>,
       <p>But you share some of the behaviours from your step dad and why you don't feel safe there.</p>,
-    <p>She refers you to <a class='text-blue-500' link href="https://www.lifewise.org.nz/our-services/housing-services/youth-housing/">Lifewise</a> youth housing service.</p>],
+    <p>She refers you to Lifewise youth housing service.</p>],
       choices: [
       { text: "Next", nextScenario: `youthHostelEnding2` },
     ],
