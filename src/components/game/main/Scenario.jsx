@@ -63,7 +63,8 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
   }
 
   const handleRandom = () => {
-      handleChoice(currentScenario.choices[0]);
+    let randomIndex = Math.floor(Math.random() * currentScenario.choices.length);
+      handleChoice(currentScenario.choices[randomIndex]);
     setIsSuspenseScreen(false);
   };
 
@@ -73,13 +74,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
   };
 
   const handleAnimationCompleted = () => {
-    // if (currentScenario.isPreRandom) {
-    //   setTimeout(() => {
-    //     handleChoice(currentScenario.choices[0]);
-    //   }, 1000);
-    // } else {
       setAnimationCompleted(true);
-    //}
   }
 
   const renderButtons = () => {
@@ -93,7 +88,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
           handleGameOver={handleGameOver}
         />
       )
-    } else if (currentScenario && currentScenario.choices.length > 1){
+    } else if (currentScenario && currentScenario.choices.length > 1 && !currentScenario.isRandom){
       return (
         <Decisions choiceArray={currentScenario.choices} handleNextScenario={handleNextScenario}/>
       )

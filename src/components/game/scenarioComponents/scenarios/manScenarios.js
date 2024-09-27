@@ -43,8 +43,8 @@ export const man = [
     id: "stayWithFriendRandom1",
     text: `Your friend is happy to have you for a while. He was expecting you would get work, but now he finds out about the painkillers. You borrow money from him and then then he says he can't lend more and he thinks you have a problem. Why not ask Work and Income for help.`,
     choices: [
-      { text: "Visit Work and Income", nextScenario: `visitMsdRandom${Math.floor(Math.random() * 2) + 1}` },//TODO both paths from this bubble
-      { text: "Hope something turns up", nextScenario: "waitAndHope" }, //TODO
+      { text: "Visit Work and Income", nextScenario: `visitMsdRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Hope something turns up", nextScenario: "waitAndHope" }, 
     ],
   },
       //Visit MSD #1 sub-path from staying with a friend
@@ -52,14 +52,14 @@ export const man = [
     id: "visitMsdRandom1",
     text: `You have never been on a benefit before and you find it hard to ask for help at Work and Income. You are asked about your willingness to do any jobs - especially those involving physical labour. You explain about your injuries and they say you may be eligible for a Supported Living payment. You have to fill out some forms and see a doctor to get this. It is hard to keep repeating your story. The mix of painkillers and alcohol you are taking make it hard to get anything done and you don't follow up.`,
     choices: [
-      { text: "Next", nextScenario: "evictedByFriend" },//TODO
+      { text: "Next", nextScenario: "evictedByFriend" },
     ],
   },
   {
     id: "evictedByFriend",
     text: `Your mate has had enough and says you have to leave and live somewhere else. There isn't anywhere except your car.`,
     choices: [
-      { text: "Flip", nextScenario: `carRandom${Math.floor(Math.random() * 3) + 1}` },//TODO
+      { text: "Flip", nextScenario: `carRandom${Math.floor(Math.random() * 3) + 1}` },
     ],
   },
       //Visit MSD #2 sub-path from staying with a friend
@@ -86,14 +86,14 @@ export const man = [
     ],
   },
   {
-    id: "refuseDetox", //TODO complete this pathway
+    id: "refuseDetox", 
     text: `You are worried that without the drugs and alcohol your pain will be unmanageable. You refuse.`,
     choices: [
       { text: "Next", nextScenario: "noOptionsLeft" },
     ],
   },
   {
-    id: "jamesListon1", //TODO complete this pathway
+    id: "jamesListon1", 
     text: `You are offered a place at James Liston hostel run by the Mission. For twelve weeks you get the support you need to attend the CADS sessions and get your life back on track. The Mission help you find a place to live and support you to access healthcare. You get referred to a specialist and get the surgery and rehab you need to reduce your pain.`,
     choices: [
       { text: "Next", nextScenario: "communityHousingEnding" },

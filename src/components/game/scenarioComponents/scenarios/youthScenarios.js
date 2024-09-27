@@ -175,6 +175,7 @@ export const youth = [
       },
     ],
   },
+  
   {
     id: "whoDoesSheCall",
     isRandom: true,
@@ -184,15 +185,19 @@ export const youth = [
     },
     choices: [
       {
-        text: "Flip",
-        nextScenario: `churchRandom${Math.floor(Math.random() * 2) + 1}`,
+        text: "",
+        nextScenario: `secretaryCallsMotherPt1`,
+      },
+      {
+        text: "",
+        nextScenario: `secretaryAsksYou`,
       },
     ],
   },
 
 
   {
-    id: "churchRandom1",
+    id: "secretaryCallsMotherPt1",
     progressObject: {
       count: 4
     },
@@ -202,10 +207,10 @@ export const youth = [
     typewriter: {
       text: `<p>She calls your mum</p>`, style: `justify-center items-center text-[64px]`
     },
-    choices: [{ text: "Next", nextScenario: "secretaryCallsMother" }],
+    choices: [{ text: "Next", nextScenario: "secretaryCallsMotherPt2" }],
   },
   {
-    id: "secretaryCallsMother",
+    id: "secretaryCallsMotherPt2",
     mood: {
       image: shocked
     },
@@ -260,7 +265,7 @@ export const youth = [
     choices: [{ text: "Next", nextScenario: "policeTakeStepdadEnding" }],
   },
   {
-    id: "churchRandom2",
+    id: "secretaryAsksYou",
     mood: {
       image: thinking
     },
@@ -514,13 +519,17 @@ export const youth = [
     },
     choices: [
       {
-        text: "Flip",
-        nextScenario: `policeRandom${Math.floor(Math.random() * 2) + 1}`,
+        text: "",
+        nextScenario: `chargesDropped`,
+      },
+      {
+        text: "",
+        nextScenario: `chargesNotDropped`,
       },
     ],
   },
   {
-    id: "policeRandom1",
+    id: "chargesDropped",
     progressObject: {
       count: 6
     },
@@ -542,7 +551,7 @@ export const youth = [
     choices: [{ text: "Next", nextScenario: "turnedEighteenEnding" }],
   },
   {
-    id: "policeRandom2",
+    id: "chargesNotDropped",
     typewriter: {
       text: `<p>The police are sympathetic, <br />but the dairy owner is not</p>`,
       style: `mt-48 text-[64px] text-center`,
@@ -685,11 +694,12 @@ export const youth = [
     isRandom: true,
     typewriter: { text: '<p>What are they going to say?</p>', style: `items-center mt-12 text-[64px]`},
     choices: [
-      { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "", nextScenario: `parentsWillHelp` },
+      { text: "", nextScenario: `parentsWontHelp` },
     ],
   },
   {
-    id: "friendsParentsRandom1",
+    id: "parentsWillHelp",
     progressObject: { count: 7, delay: 1000 },
     mood: {
       image: calm
@@ -703,7 +713,7 @@ export const youth = [
     ],
   },
   {
-    id: "friendsParentsRandom2",
+    id: "parentsWontHelp",
     progressObject: { count: 3 },
     mood: {
       image: tearful
@@ -735,11 +745,12 @@ export const youth = [
       {text: `Can your school help?`, style:`items-center mt-8 text-[64px]` },
     
     choices: [
-      { text: "Flip", nextScenario: `canSchoolHelpRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "Flip", nextScenario: `schoolCanHelp` },
+      { text: "Flip", nextScenario: `schoolCantHelp` },
     ],
   },
   {
-    id: "canSchoolHelpRandom1",
+    id: "schoolCanHelp",
     progressObject: { count: 5 },
     typewriter: { text: '<p>The school can help.</p>', style: `items-center mt-8 text-[64px]`},
     postRandom: true,
@@ -767,7 +778,7 @@ export const youth = [
     ],
   },
   {
-    id: "canSchoolHelpRandom2",
+    id: "schoolCantHelp",
     mood: {
       image: shocked
     },
@@ -960,7 +971,8 @@ export const youth = [
     typewriter:
       {text: `What happens?`, style:`items-center mt-8 text-[64px]` },
     choices: [
-      { text: "Flip", nextScenario: `friendsParentsRandom${Math.floor(Math.random() * 2) + 1}` },
+      { text: "", nextScenario: `parentsWillHelp` },
+      { text: "", nextScenario: `parentsWontHelp` },
     ],
   },
 

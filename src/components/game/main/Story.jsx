@@ -29,7 +29,7 @@ const Story = ({
 
   const currentScenario = scenarios.find(
     (scenarioObject) => scenarioObject.id === scenarioId
-  ); //Finds the 'scenario object' matching the 'scenario' variable, which is the id of the scenario object
+  ); //Finds the 'scenario object' matching the 'scenarioId' variable, which is the id of the scenario object
 
   const handleChoice = (choice) => {
     if (currentScenario.isEndingIntroNext) {
