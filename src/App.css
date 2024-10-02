@@ -5,12 +5,13 @@
 
 @import "tailwindcss/utilities";
 
-.round {
-  border-radius: 50%
+.typewriter {
+  display: flex; /* Use flexbox to avoid whitespace issues */
+  white-space: pre;
 }
 
-.typedOutput {
-  white-space: pre-wrap;
+.round {
+  border-radius: 50%
 }
 
 .textShadow {

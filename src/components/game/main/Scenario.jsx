@@ -1,5 +1,5 @@
 import "../../../App.css";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 
 
 import SidebarLeft from "../scenarioComponents/sidebars/SidebarLeft";
@@ -26,6 +26,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
 
   const [isIntroTransition, setIsIntroTransition] = useState(true);
 
+  const animationCompletedRef = useRef(false); // Use ref to track completion without re-render
   
 
   const characterColors = 
@@ -63,7 +64,8 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
   }
 
   const handleRandom = () => {
-      handleChoice(currentScenario.choices[0]);
+    let randomIndex = Math.floor(Math.random() * currentScenario.choices.length);
+      handleChoice(currentScenario.choices[randomIndex]);
     setIsSuspenseScreen(false);
   };
 
@@ -72,15 +74,10 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
     setAnimationCompleted(true);
   };
 
-  const handleAnimationCompleted = () => {
-    // if (currentScenario.isPreRandom) {
-    //   setTimeout(() => {
-    //     handleChoice(currentScenario.choices[0]);
-    //   }, 1000);
-    // } else {
-      setAnimationCompleted(true);
-    //}
-  }
+  const handleAnimationCompleted = useCallback(() => {
+    setAnimationCompleted(true);
+    animationCompletedRef.current = true; // Update ref without causing re-render
+  }, [])
 
   const renderButtons = () => {
     if (currentScenario && !currentScenario.isRandom && currentScenario.choices.length === 1) {
@@ -93,7 +90,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
           handleGameOver={handleGameOver}
         />
       )
-    } else if (currentScenario && currentScenario.choices.length > 1){
+    } else if (currentScenario && currentScenario.choices.length > 1 && !currentScenario.isRandom){
       return (
         <Decisions choiceArray={currentScenario.choices} handleNextScenario={handleNextScenario}/>
       )
@@ -116,7 +113,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
         handleAnimationCompleted={handleAnimationCompleted}
         handleChoice={handleChoice}
         isSuspenseScreen={isSuspenseScreen}
-        handleRandom={handleRandom}
+          handleRandom={handleRandom}
         />
        }   
       

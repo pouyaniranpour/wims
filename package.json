@@ -12,15 +12,13 @@
   "dependencies": {
     "animejs": "^3.2.2",
     "autoprefixer": "^10.4.20",
-    "html-react-parser": "^5.1.12",
     "lottie-web": "^5.12.2",
     "postcss": "^8.4.41",
     "postcss-cli": "^11.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-lottie-player": "^2.1.0",
-    "react-router-dom": "^6.26.2",
-    "react-typed": "^2.0.12"
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

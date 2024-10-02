@@ -24,7 +24,8 @@ function Game() {
   };
 
   const handleCharacter = (characterInput) => {
-    setScenarioId("start");
+    // setScenarioId("start");
+    setScenarioId('policeTakeStepdad');
     setCharacter(characterInput);
   };
 
