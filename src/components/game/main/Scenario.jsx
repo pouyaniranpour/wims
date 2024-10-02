@@ -1,5 +1,5 @@
 import "../../../App.css";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 
 
 import SidebarLeft from "../scenarioComponents/sidebars/SidebarLeft";
@@ -26,6 +26,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
 
   const [isIntroTransition, setIsIntroTransition] = useState(true);
 
+  const animationCompletedRef = useRef(false); // Use ref to track completion without re-render
   
 
   const characterColors = 
@@ -73,9 +74,10 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
     setAnimationCompleted(true);
   };
 
-  const handleAnimationCompleted = () => {
-      setAnimationCompleted(true);
-  }
+  const handleAnimationCompleted = useCallback(() => {
+    setAnimationCompleted(true);
+    animationCompletedRef.current = true; // Update ref without causing re-render
+  }, [])
 
   const renderButtons = () => {
     if (currentScenario && !currentScenario.isRandom && currentScenario.choices.length === 1) {
@@ -111,7 +113,7 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
         handleAnimationCompleted={handleAnimationCompleted}
         handleChoice={handleChoice}
         isSuspenseScreen={isSuspenseScreen}
-        handleRandom={handleRandom}
+          handleRandom={handleRandom}
         />
        }   
       

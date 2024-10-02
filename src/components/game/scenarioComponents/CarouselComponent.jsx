@@ -3,6 +3,7 @@ import rightArrow from "../../../assets/buttons/arrowRight.svg";
 
 
 import { useState } from "react";
+import TypewriterEffect from "./text/TypewriterEffect";
 function CarouselComponent({
   informationObject
 }) {
@@ -22,6 +23,7 @@ function CarouselComponent({
   const handleNext = () => {
     setCurrentIndex(currentIndex + 1);
   };
+
 
 
   return (

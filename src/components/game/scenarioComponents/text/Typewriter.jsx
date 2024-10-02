@@ -1,7 +1,6 @@
 
-import parse from "html-react-parser";
-import { ReactTyped } from "react-typed";
-
+import TypewriterEffect from "./TypewriterEffect";
+import React, {useMemo} from "react";
 function Typewriter(
     {
         isSkipped,
@@ -11,49 +10,43 @@ function Typewriter(
         handleSuspenseCompletion
     }) {
     
-    const defaultStyle = 'typedOutput font-bebas-neue w-full h-full flex flex-col';
-    
-    
-    
+    console.log("render")
+
+    const endingText = useMemo(() => [
+        { text: `Your outcome`, style: `text-center` }
+    ], [])
 
     const renderText = () => {
         if (currentScenario.isEnding) {
             return (
-                <ReactTyped
-                    className={`${defaultStyle} text-[100px] text-center`}
-                    showCursor={false}
-                    strings={[`<p>Your outcome</p>`]}
-                    typeSpeed={30}
-                    startDelay={500}
-                    onComplete={handleAnimationCompleted}
-                    loop={false}
-                    contentType='html'
-                />
+                <TypewriterEffect
+                    staggerDelay={50}
+                    mainStyle={`text-[100px] font-bebas-neue w-full h-full flex flex-col`}
+                    paragraphs={endingText}
+                    onComplete={handleAnimationCompleted} />
+                            
             )
         } else {
-            const additionalStyle = currentScenario.typewriter.style;
-            const text = currentScenario.typewriter.text;
+            const defaultStyle = `${currentScenario.typewriter.fontSize} typewriter font-bebas-neue w-full h-full flex flex-col justify-evenly`;
+            const paragraphs = currentScenario.typewriter.paragraphs;
 
             if (isSkipped) {
                         return (
-                            <div
-                                className={`${defaultStyle} ${additionalStyle}`}
-                            >
-                                {parse(text)}
-                            </div>
+                            <div className={defaultStyle}>
+      {paragraphs.map((paragraph, index) => (
+        <p
+          key={index}
+          className={paragraph.style}
+        >
+          {paragraph.text}
+        </p>
+      ))}
+    </div>
                         )
                     } else {
                         return (
-                            <ReactTyped
-                                className={`${defaultStyle} ${additionalStyle}`}
-                                showCursor={false}
-                                strings={[`${text}`]}
-                                typeSpeed={30}
-                                startDelay={500}
-                                onComplete={handleAnimationCompleted}
-                                loop={false}
-                                contentType='html'
-                            />
+                                <TypewriterEffect staggerDelay={50} mainStyle={defaultStyle} paragraphs={paragraphs} onComplete={handleAnimationCompleted} />
+                            
                         )
                     }
         }
@@ -61,16 +54,17 @@ function Typewriter(
     }
     
     const renderSuspenseScreen = () => {
-            return (<ReactTyped
-          className={`relative bottom-16 font-bebas-neue w-full h-full flex justify-center items-center text-[100px]`}
-          showCursor={false}
-          strings={[`...`]}
-                typeSpeed={800}
-                loop={false}
-          startDelay={0}
-                onComplete={() => handleSuspenseCompletion()}
-                contentType="html"
-            />)
+        return (
+        <TypewriterEffect staggerDelay={800}
+            mainStyle={`text-[100px] font-bebas-neue w-full h-full flex flex-col text-center`}
+            paragraphs={
+                [{
+                    text: `...`,
+                    style: ``,
+                }]
+            }
+                onComplete={handleSuspenseCompletion} />
+        )
         }
     
     
