@@ -21,12 +21,11 @@ function FadeInText({ items, handleAnimationCompleted}) {
     
   
     return (
-        <div className="relative bottom-24 flex flex-col justify-center text-3xl w-2/3 h-full font-viga">
+        <div className="relative bottom-24 flex flex-col justify-evenly text-3xl w-2/3 h-full font-viga">
             
             {items.map((item, index) => (
                 <div
                     key={index}
-                    className={'mt-10 mb-10'}
                     ref={el => (itemsRef.current[index] = el)}
                 >
                     {item}
