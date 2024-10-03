@@ -1,5 +1,5 @@
 import "../../../App.css";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 
 
 import SidebarLeft from "../scenarioComponents/sidebars/SidebarLeft";
@@ -36,6 +36,12 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
       'woman': 'bg-[#7AA43F]'
       }
 
+  useEffect(() => {
+    setAnimationCompleted(false);
+    setIsSkipped(false);
+  }, [currentScenario])
+  
+
   const renderIntroTransition = () => {
     if (isIntroTransition) {
       setTimeout(() => {
@@ -53,8 +59,8 @@ function Scenario({ handleChoice, currentScenario, handleGameOver, character }) 
     if (currentScenario.isRandom) {
       setIsCoinFlipping(!isCoinFlipping);
     } else {
-      setAnimationCompleted(false);
-      setIsSkipped(false);
+      // setAnimationCompleted(false);
+      // setIsSkipped(false);
       handleChoice(choice);
     }
   };

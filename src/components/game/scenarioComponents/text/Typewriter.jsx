@@ -27,7 +27,7 @@ function Typewriter(
                             
             )
         } else {
-            const defaultStyle = `${currentScenario.typewriter.fontSize} typewriter font-bebas-neue w-full h-full flex flex-col justify-evenly`;
+            const defaultStyle = `${currentScenario.typewriter.additionalStyle} typewriter font-bebas-neue w-full h-full flex flex-col`;
             const paragraphs = currentScenario.typewriter.paragraphs;
 
             if (isSkipped) {
@@ -56,14 +56,15 @@ function Typewriter(
     const renderSuspenseScreen = () => {
         return (
         <TypewriterEffect staggerDelay={800}
-            mainStyle={`text-[100px] font-bebas-neue w-full h-full flex flex-col text-center`}
+            mainStyle={`text-[100px] font-bebas-neue w-full h-full flex flex-col justify-center text-center`}
             paragraphs={
                 [{
                     text: `...`,
                     style: ``,
                 }]
             }
-                onComplete={handleSuspenseCompletion} />
+                onComplete={handleSuspenseCompletion}
+            />
         )
         }
     

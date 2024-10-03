@@ -6,8 +6,8 @@
 @import "tailwindcss/utilities";
 
 .typewriter {
-  display: flex; /* Use flexbox to avoid whitespace issues */
-  white-space: pre;
+  display: flex;
+  white-space: pre-wrap;
 }
 
 .round {

@@ -1,5 +1,6 @@
 import Lottie from "react-lottie-player";
-import animationData from "../../../assets/scenarioImages/newCoin.json";
+// import animationData from "../../../assets/scenarioImages/newCoin.json";
+import animationData from "../../../assets/scenarioImages/coinFlip2.json";
 
 import '../../../App.css';
 import { useRef, useState } from "react";
