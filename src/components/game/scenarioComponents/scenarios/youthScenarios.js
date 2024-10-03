@@ -883,7 +883,7 @@ export const youth = [
     additionalStyle: `text-[64px]`,
     paragraphs:[
       {
-    text: `The parents will help you.`,
+    text: `The parents will help you`,
     style: `text-center`
     },
     ]
@@ -905,7 +905,7 @@ export const youth = [
     additionalStyle: `text-[64px]`,
     paragraphs:[
       {
-    text: `The parents won't help.`,
+    text: `The parents won't help`,
     style: `text-center`
     },
     ]
